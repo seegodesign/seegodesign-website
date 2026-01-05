@@ -1,0 +1,158 @@
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight } from "lucide-react";
+
+type HeroProps = {
+  isLoading: boolean;
+};
+
+export function Hero({ isLoading }: HeroProps) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [isInView, setIsInView] = useState(false);
+  const [typedText, setTypedText] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const headlineSeed = "Web solutions for businesses that";
+  const phrases = [
+    "have outgrown their patchwork systems",
+    "need smarter systems, not more tools",
+    "are ready to automate the busywork",
+    "need systems that scale without added headcount",
+    "want to turn their ideas into reality",
+    "need clarity, not complexity",
+    "want customer-facing clarity backed by solid systems"
+  ];
+
+  useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isLoading || !isInView) return;
+
+    const currentPhrase = phrases[phraseIndex % phrases.length];
+    const isComplete = typedText === currentPhrase;
+    const isEmpty = typedText.length === 0;
+
+    const typingSpeed = 45;
+    const deletingSpeed = 28;
+    const pauseAfterType = 2400;
+    const pauseAfterDelete = 220;
+
+    const delay = isDeleting
+      ? deletingSpeed
+      : isComplete
+      ? pauseAfterType
+      : typingSpeed;
+
+    const timeout = window.setTimeout(() => {
+      if (!isDeleting && isComplete) {
+        setIsDeleting(true);
+        return;
+      }
+
+      if (isDeleting && isEmpty) {
+        setIsDeleting(false);
+        setPhraseIndex((index) => (index + 1) % phrases.length);
+        return;
+      }
+
+      const nextLength = typedText.length + (isDeleting ? -1 : 1);
+      setTypedText(currentPhrase.slice(0, Math.max(0, nextLength)));
+    }, isDeleting && isEmpty ? pauseAfterDelete : delay);
+
+    return () => window.clearTimeout(timeout);
+  }, [isLoading, isInView, isDeleting, phraseIndex, typedText, phrases.length]);
+  const scrollToContact = () => {
+    const element = document.getElementById("contact");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToWork = () => {
+    const element = document.getElementById("work");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  return (
+    <section
+      id="hero"
+      ref={sectionRef}
+      className="relative min-h-screen flex items-center"
+    >
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1170&auto=format&fit=crop"
+          alt="Developer workspace"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#000000]/75 to-[#0e1823]/85"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-32">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl">
+
+            <h1
+              className={`text-white mb-8 leading-tight text-2xl sm:text-6xl md:text-4xl lg:text-6xl ${
+                !isLoading && isInView ? "animate-hero-headline" : ""
+              }`}
+            >
+              {headlineSeed} {" "}
+              <span className="text-[color:var(--brand-primary)]">
+                {typedText}
+                <span className="blink-cursor">_</span>
+              </span>
+            </h1>
+
+            <p
+              className={`text-[color:var(--brand-secondary)]/95 text-xl md:text-2xl lg:text-3xl mb-10 max-w-3xl leading-relaxed ${
+              !isLoading && isInView ? "animate-hero-subhead" : ""
+              }`}
+            >
+              We help growing companies clean up fragmented systems, automate workflows, and build clear, scalable UX and websites that support how the business really runs.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={scrollToContact}
+                className={`inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary)] text-white px-8 py-4 rounded-lg hover:bg-[color:var(--brand-primary-dark)] transition-all duration-200 shadow-lg shadow-black/30 hover:-translate-y-0.5 hover:shadow-[color:var(--brand-primary)]/30 text-lg ${
+                  !isLoading && isInView ? "animate-hero-cta-primary" : ""
+                }`}
+              >
+                Start a Conversation
+                <ArrowRight size={20} />
+              </button>
+              <button
+                onClick={scrollToWork}
+                className={`inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/20 text-lg ${
+                  !isLoading && isInView ? "animate-hero-cta-secondary" : ""
+                }`}
+              >
+                See Our Work
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
