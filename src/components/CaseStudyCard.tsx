@@ -22,8 +22,19 @@ export function CaseStudyCard({
   tech,
   index,
 }: CaseStudyCardProps) {
+  const handleGlow = (event: React.MouseEvent<HTMLElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    event.currentTarget.style.setProperty('--glow-x', `${x}px`);
+    event.currentTarget.style.setProperty('--glow-y', `${y}px`);
+  };
+
   return (
-    <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-lg shadow-black/30 hover:shadow-xl hover:shadow-black/40 transition-shadow border border-slate-800">
+    <div
+      onMouseMove={handleGlow}
+      className="cursor-glow bg-slate-900 rounded-2xl overflow-hidden shadow-lg shadow-black/30 hover:shadow-xl hover:shadow-black/40 transition-shadow border border-slate-800"
+    >
       <div className="grid md:grid-cols-2 gap-0">
         {/* Image */}
         <div className={`relative h-64 md:h-full min-h-[400px] ${index % 2 === 1 ? 'md:order-2' : ''}`}>
@@ -32,13 +43,13 @@ export function CaseStudyCard({
             alt={title}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-primary)]/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-secondary)]/30 to-transparent"></div>
         </div>
 
         {/* Content */}
         <div className="p-6 md:p-10 flex flex-col justify-center">
           <div className="mb-3">
-            <span className="text-sm text-[color:var(--brand-primary)]">{client}</span>
+            <span className="text-sm text-[color:var(--brand-secondary)]">{client}</span>
           </div>
           <h3 className="text-slate-100 text-2xl mb-6">
             {title}

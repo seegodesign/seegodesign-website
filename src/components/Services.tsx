@@ -1,55 +1,118 @@
 import React from 'react';
-import { Layers, RefreshCw, Wrench, Rocket } from 'lucide-react';
+import { useInViewOnce } from '../hooks/useInViewOnce';
+import { Compass, Settings, Rocket } from 'lucide-react';
 
-export function Services() {
+type ServicesProps = {
+  isLoading: boolean;
+};
+
+export function Services({ isLoading }: ServicesProps) {
+  const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
+  const shouldAnimate = !isLoading && isInView;
+
+  const handleGlow = (event: React.MouseEvent<HTMLElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    event.currentTarget.style.setProperty('--glow-x', `${x}px`);
+    event.currentTarget.style.setProperty('--glow-y', `${y}px`);
+  };
+
   const services = [
     {
-      icon: RefreshCw,
-      title: 'Frontend Modernization',
-      description: 'Replace outdated, fragile systems with modern React, Vue, or Next.js applications that are faster, more reliable, and easier to maintain.',
+      icon: Compass,
+      title: 'Stabilize',
+      bestFor: 'Best for businesses that feel brittle or chaotic.',
+      focus: [
+        'Audit existing systems and workflows',
+        'Centralize scattered data (CRM, forms, CMS, spreadsheets)',
+        'Fix broken or fragile integrations',
+        'Remove duplication and manual work',
+        'Improve reliability and performance',
+      ],
+      outcome: 'Things finally make sense — and stop breaking.',
     },
     {
-      icon: Layers,
-      title: 'API Integration & Architecture',
-      description: 'Build clean API layers that connect your new frontend to existing backend systems without requiring a complete rebuild.',
-    },
-    {
-      icon: Wrench,
-      title: 'Performance Optimization',
-      description: 'Diagnose and fix performance bottlenecks. Improve load times, responsiveness, and SEO rankings.',
+      icon: Settings,
+      title: 'Optimize',
+      bestFor: 'Best for businesses that function, but inefficiently.',
+      focus: [
+        'Workflow automation',
+        'System integrations',
+        'Performance, UX, and usability improvements',
+        'Internal tools, dashboards, and reporting',
+        'Process refactoring for scale',
+      ],
+      outcome: 'We run leaner, faster, and with fewer headaches.',
     },
     {
       icon: Rocket,
-      title: 'Custom Web Applications',
-      description: 'Build bespoke configurators, dashboards, portals, and tools that match your unique business requirements.',
+      title: 'Scale',
+      bestFor: 'Best for companies preparing to grow, pivot, or modernize.',
+      focus: [
+        'End-to-end systems redesign',
+        'Custom UX and web platforms',
+        'Data architecture + automation strategy',
+        'Tool consolidation or migration',
+        'Long-term scalability planning',
+      ],
+      outcome: 'Our systems finally support where we are going.',
     },
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 to-slate-900">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="services"
+      ref={ref}
+      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 to-slate-900"
+    >
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 bg-fixed z-0"
+        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1644088379091-d574269d422f)' }}
+      />
+      {/* <div className="absolute inset-0 bg-black/50 pointer-events-none" /> */}
+      <div className={`relative max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
         <div className="max-w-3xl mb-12 md:mb-16">
           <h2 className="text-slate-100 mb-4 text-4xl md:text-5xl lg:text-6xl">
-            Services
+            Recommended 3-Tier Service Structure
           </h2>
           <p className="text-slate-300 text-lg md:text-xl">
-            I offer focused frontend development services designed to solve real business problems—
-            not just make things look pretty.
+            Most projects start with Stabilize. From there, we optimize or redesign based on what
+            your business actually needs.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="bg-slate-800 p-8 rounded-xl border border-[color:var(--brand-primary)]/20 hover:shadow-lg hover:shadow-black/40 transition-shadow">
+            <div
+              key={index}
+              onMouseMove={handleGlow}
+              className="cursor-glow bg-slate-800 p-8 rounded-xl border border-[color:var(--brand-primary)]/20 hover:shadow-lg hover:shadow-black/40 transition-shadow"
+            >
               <div className="w-12 h-12 bg-[color:var(--brand-primary)] rounded-lg flex items-center justify-center mb-4">
                 <service.icon className="text-white" size={24} />
               </div>
-              <h3 className="text-slate-100 mb-3">
+              <h3 className="text-slate-100 mb-2 text-2xl">
                 {service.title}
               </h3>
-              <p className="text-slate-300">
-                {service.description}
+              <p className="text-slate-400 text-sm mb-4">
+                {service.bestFor}
               </p>
+              <div className="mb-4">
+                <p className="text-slate-200 font-semibold mb-2">Focus</p>
+                <ul className="space-y-2 text-slate-300">
+                  {service.focus.map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--brand-primary)]"></span>
+                      <span className="flex-1 min-w-0">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-6 rounded-lg border border-white/10 bg-slate-900/60 px-4 py-3 text-slate-200">
+                <span className="text-slate-400 text-xs uppercase tracking-[0.1em]">Your outcome</span>
+                <p className="mt-2">{service.outcome}</p>
+              </div>
             </div>
           ))}
         </div>

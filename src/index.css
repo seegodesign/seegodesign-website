@@ -50,6 +50,15 @@
     animation-delay: 360ms;
   }
 
+  .animate-section-rise {
+    animation: hero-rise 850ms ease-out both;
+  }
+
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
   @keyframes loader-spin {
     0% {
       transform: rotate(0deg);
@@ -100,6 +109,29 @@
 
   .blink-cursor {
     animation: cursor-blink 0.9s step-end infinite;
+  }
+
+  .cursor-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cursor-glow::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background: radial-gradient(
+      240px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+      color-mix(in srgb, var(--brand-primary) 15%, transparent),
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+
+  .cursor-glow:hover::before {
+    opacity: 1;
   }
 
   button {

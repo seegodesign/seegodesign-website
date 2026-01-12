@@ -13,13 +13,11 @@ export function Hero({ isLoading }: HeroProps) {
   const [isDeleting, setIsDeleting] = useState(false);
   const headlineSeed = "Web solutions for businesses that";
   const phrases = [
-    "have outgrown their patchwork systems",
-    "need smarter systems, not more tools",
-    "are ready to automate the busywork",
-    "need systems that scale without added headcount",
-    "want to turn their ideas into reality",
-    "need clarity, not complexity",
-    "want customer-facing clarity backed by solid systems"
+    "have outgrown patchwork systems",
+    "are ready to automate ",
+    "need to scale efficiently",
+    "want to turn ideas into reality",
+    "need clarity, not complexity"
   ];
 
   useEffect(() => {
@@ -83,8 +81,8 @@ export function Hero({ isLoading }: HeroProps) {
     }
   };
 
-  const scrollToWork = () => {
-    const element = document.getElementById("work");
+  const scrollToCaseStudies = () => {
+    const element = document.getElementById("case-studies");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -98,10 +96,9 @@ export function Hero({ isLoading }: HeroProps) {
     >
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?q=80&w=1170&auto=format&fit=crop"
-          alt="Developer workspace"
-          className="w-full h-full object-cover"
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 bg-fixed"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#000000]/75 to-[#0e1823]/85"></div>
       </div>
@@ -128,13 +125,14 @@ export function Hero({ isLoading }: HeroProps) {
               !isLoading && isInView ? "animate-hero-subhead" : ""
               }`}
             >
-              We help growing companies clean up fragmented systems, automate workflows, and build clear, scalable UX and websites that support how the business really runs.
+              We help growing companies design better web experiences backed by
+              clean, scalable systems that automate busywork and support growth.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={scrollToContact}
-                className={`inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary)] text-white px-8 py-4 rounded-lg hover:bg-[color:var(--brand-primary-dark)] transition-all duration-200 shadow-lg shadow-black/30 hover:-translate-y-0.5 hover:shadow-[color:var(--brand-primary)]/30 text-lg ${
+                className={`inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary-dark)] text-white px-8 py-4 rounded-lg hover:bg-[color:var(--brand-primary)] transition-all duration-200 shadow-lg shadow-black/30 hover:-translate-y-0.5 hover:shadow-[color:var(--brand-primary)]/30 text-lg ${
                   !isLoading && isInView ? "animate-hero-cta-primary" : ""
                 }`}
               >
@@ -142,7 +140,7 @@ export function Hero({ isLoading }: HeroProps) {
                 <ArrowRight size={20} />
               </button>
               <button
-                onClick={scrollToWork}
+                onClick={scrollToCaseStudies}
                 className={`inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/20 text-lg ${
                   !isLoading && isInView ? "animate-hero-cta-secondary" : ""
                 }`}

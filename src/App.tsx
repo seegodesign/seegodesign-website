@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Services } from './components/Services';
 import { CaseStudies } from './components/CaseStudies';
+import { Process } from './components/Process';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
@@ -29,11 +30,12 @@ export default function App() {
       )}
       <Navigation />
       <Hero isLoading={isLoading} />
-      <About />
-      <Services />
-      <CaseStudies />
-      <Contact />
-      <Footer />
+      <About isLoading={isLoading} />
+      <Services isLoading={isLoading} />
+      <CaseStudies isLoading={isLoading} />
+      <Process isLoading={isLoading} />
+      <Contact isLoading={isLoading} />
+      <Footer isLoading={isLoading} />
     </div>
   );
 }

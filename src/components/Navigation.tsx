@@ -4,6 +4,13 @@ import { Menu, X } from 'lucide-react';
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
+  const navItems = [
+    { id: 'about', label: 'About' },
+    { id: 'services', label: 'Services' },
+    { id: 'work', label: 'Case Studies' },
+    { id: 'process', label: 'Process' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +19,34 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const sectionIds = ['hero', ...navItems.map((item) => item.id), 'contact'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      {
+        rootMargin: '-40% 0px -45% 0px',
+        threshold: [0.15, 0.35, 0.6],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [navItems]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -38,24 +73,19 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection('about')}
-              className="text-white/90 hover:text-white transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="text-white/90 hover:text-white transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection('work')}
-              className="text-white/90 hover:text-white transition-colors"
-            >
-              Work
-            </button>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`border-b-2 pb-1 transition-colors ${
+                  activeSection === item.id
+                    ? 'border-[color:var(--brand-primary)] text-white'
+                    : 'border-transparent text-white/90 hover:text-white'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
             <button
               onClick={() => scrollToSection('contact')}
               className="bg-[color:var(--brand-primary-dark)] text-white px-6 py-2.5 rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
@@ -67,38 +97,39 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-white transition-transform duration-300 hover:scale-105"
           >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <span
+              className={`inline-flex items-center justify-center transition-transform duration-300 ${
+                isMobileMenuOpen ? 'rotate-90 scale-110' : 'rotate-0 scale-100'
+              }`}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </span>
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#5a8a1c] border-t border-[color:var(--brand-primary)]">
+        <div className="md:hidden bg-secondary border-t border-[color:var(--brand-primary)] min-h-screen">
           <div className="px-4 py-4 space-y-3">
-            <button
-              onClick={() => scrollToSection('about')}
-              className="block w-full text-left px-4 py-2 text-white/90 hover:text-white hover:bg-[color:var(--brand-primary)] rounded-lg transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('services')}
-              className="block w-full text-left px-4 py-2 text-white/90 hover:text-white hover:bg-[color:var(--brand-primary)] rounded-lg transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection('work')}
-              className="block w-full text-left px-4 py-2 text-white/90 hover:text-white hover:bg-[color:var(--brand-primary)] rounded-lg transition-colors"
-            >
-              Work
-            </button>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                  activeSection === item.id
+                    ? 'bg-[color:var(--brand-primary)] text-white'
+                    : 'text-white/90 hover:text-white hover:bg-[color:var(--brand-primary)]'
+                }`}
+              >
+                {item.label}
+              </button>
+            ))}
             <button
               onClick={() => scrollToSection('contact')}
-              className="block w-full text-left px-4 py-2 bg-[color:var(--brand-primary)] text-white rounded-lg hover:bg-[color:var(--brand-primary-dark)] transition-colors"
+              className="block w-full text-left px-4 py-2 bg-[color:var(--brand-primary-dark)] text-white rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
             >
               Get in Touch
             </button>

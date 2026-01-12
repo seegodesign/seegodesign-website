@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
+import { useInViewOnce } from '../hooks/useInViewOnce';
 import { Mail, Linkedin, Github, Send } from 'lucide-react';
 
-export function Contact() {
+type ContactProps = {
+  isLoading: boolean;
+};
+
+export function Contact({ isLoading }: ContactProps) {
+  const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
+  const shouldAnimate = !isLoading && isInView;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,32 +32,41 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-900">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="contact"
+      ref={ref}
+      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-900"
+    >
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 bg-fixed"
+        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1448454050639-2f8d4bf26975)' }}
+      />
+      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+      <div className={`relative max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {/* Left Column - Info */}
           <div>
             <h2 className="text-slate-100 mb-4 text-4xl md:text-5xl lg:text-6xl">
-              Let's Talk About Your Project
+              Ready to get started?
             </h2>
             <p className="text-slate-300 text-lg mb-8">
-              If your website feels like it's holding your business back, let's discuss how a modern frontend could help.
-              I work with businesses that need reliable, maintainable solutions — not just cosmetic updates.
+              If your systems feel fragmented, your workflows are stuck in manual mode, or your website is outdated, we should talk.
             </p>
 
             <div className="space-y-4 mb-8">
               <h3 className="text-slate-100">Ideal for:</h3>
               <ul className="space-y-3">
                 {[
-                  'IT providers & MSPs with client portals',
-                  'B2B service companies needing better performance',
-                  'SaaS businesses with legacy marketing sites',
-                  'Manufacturers with outdated configurators',
-                  'Agencies needing frontend development support',
+                  'Businesses with disconnected tools and data',
+                  'Operations leaders tired of manual workarounds',
+                  'Product teams preparing for a redesign or migration',
+                  'Founder-led teams ready to scale processes',
+                  'Marketing teams needing websites that reflect how they actually operate',
+                  'Businesses seeking custom solutions that fit their unique workflows',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3 text-slate-300">
                     <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--brand-primary)] mt-2 flex-shrink-0"></div>
-                    <span>{item}</span>
+                    <span className="flex-1 min-w-0">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -57,7 +74,7 @@ export function Contact() {
 
             <div className="flex gap-4">
               <a
-                href="mailto:hello@example.com"
+                href="mailto:cameron@seegodesign.com"
                 className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-slate-800 text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
                 aria-label="Email"
               >
@@ -152,7 +169,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary)] text-white px-8 py-4 rounded-lg hover:bg-[#5a8a1c] transition-colors shadow-lg shadow-gray-900/10"
+                className="w-full inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary-dark)] text-white px-8 py-4 rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors shadow-lg shadow-gray-900/10"
               >
                 Send Message
                 <Send size={18} />
