@@ -1,0 +1,2 @@
+export const ONE_DAY_WEBSITE_FIX_PRICE = 1999;
+export const ONE_DAY_WEBSITE_DEPOSIT_PRICE = 500;

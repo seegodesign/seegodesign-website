@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useInViewOnce } from '../hooks/useInViewOnce';
 import { Mail, Linkedin, Github, Send } from 'lucide-react';

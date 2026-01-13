@@ -1,5 +1,7 @@
+'use client';
+
 import { useInViewOnce } from '../hooks/useInViewOnce';
-import { Compass, Sparkles, Settings } from 'lucide-react';
+import { Compass, Sparkles, Settings, Pencil } from 'lucide-react';
 
 type ProcessProps = {
   isLoading: boolean;
@@ -21,23 +23,30 @@ export function Process({ isLoading }: ProcessProps) {
     {
       icon: Compass,
       eyebrow: 'Typical starting point',
-      title: 'Stabilize first',
+      title: 'Discovery & Planning',
       description:
-        'We map the full system, remove duplication, and fix brittle integrations so the business can operate without constant fire drills. This creates a solid foundation for future growth.',
+        'First we seek to understand your goals and requirements. Through research and analysis, we create a tailored plan to guide the project from start to finish.',
+    },
+    {
+      icon: Pencil,
+      eyebrow: 'Shaping the vision',
+      title: 'Design & Prototyping',
+      description:
+        'We develop wireframes and prototypes to visualize the user experience and interface. This phase focuses on usability, aesthetics, and aligning with your brand identity.',
     },
     {
       icon: Settings,
-      eyebrow: 'Next phase',
-      title: 'Optimize or Scale',
+      eyebrow: 'Bringing it all together',
+      title: 'Development & QA',
       description:
-        'Once the foundation is stable, we automate and streamline what exists or redesign the platform for growth, migrations, and new product lines.',
+        'Using an agile approach, we build the product in iterations, allowing for regular feedback and adjustments. Rigorous testing ensures quality and performance before launch.',
     },
     {
       icon: Sparkles,
-      eyebrow: 'Ongoing support',
-      title: 'Maintain & Evolve',
+      eyebrow: 'Final step',
+      title: 'Launch & Support',
       description:
-        'We provide ongoing support, monitoring, and iterative improvements to ensure systems continue to perform as the business grows and changes.',
+        'After deployment, we provide ongoing support and maintenance to ensure the product remains effective and up-to-date, helping you achieve long-term success.',
     }
   ];
 
@@ -55,16 +64,14 @@ export function Process({ isLoading }: ProcessProps) {
       <div className={`max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
         <div className="max-w-3xl mb-12 md:mb-16">
           <h2 className="text-slate-100 mb-4 text-4xl md:text-5xl lg:text-6xl">
-            How We Engage
+            Our Process
           </h2>
-          <p className="text-slate-300 text-lg md:text-xl">
-            Most engagements start with Stabilize to untangle what is brittle or fragmented. From
-            there, we decide whether to Optimize what exists or Scale with a redesigned foundation.
-            After launch, we provide ongoing maintenance to keep things running smoothly.
-          </p>
+            <p className="text-slate-300 text-lg md:text-xl">
+            Our typical client project process begins with a discovery and planning phase to understand your goals and requirements. Next, we move into design and prototyping, followed by iterative development with regular feedback. After thorough testing and quality assurance, we launch your project and provide ongoing support and maintenance to ensure long-term success.
+            </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-4 gap-6">
           {steps.map((step) => (
             <div
               key={step.title}
@@ -79,9 +86,9 @@ export function Process({ isLoading }: ProcessProps) {
               </p>
               <h3 className="text-slate-100 text-2xl mb-3">{step.title}</h3>
               <p className="text-slate-300">{step.description}</p>
-              <a href={`#contact`} className="mt-6 inline-block text-[color:var(--brand-primary)] hover:underline">
+              {/* <a href={`#contact`} className="mt-6 inline-block text-[color:var(--brand-primary)] hover:underline">
                 I'm interested &rarr;
-              </a>
+              </a> */}
             </div>
           ))}
         </div>

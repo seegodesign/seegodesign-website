@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
@@ -13,6 +15,7 @@ export function Hero({ isLoading }: HeroProps) {
   const [isDeleting, setIsDeleting] = useState(false);
   const headlineSeed = "Web solutions for businesses that";
   const phrases = [
+    "have a vision for growth",
     "have outgrown patchwork systems",
     "are ready to automate ",
     "need to scale efficiently",

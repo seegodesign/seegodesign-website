@@ -1,15 +1,35 @@
-import React, { useState, useEffect } from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+
+type NavItem = {
+  href: string;
+  label: string;
+  children?: { href: string; label: string }[];
+};
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
-  const navItems = [
-    { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
-    { id: 'work', label: 'Case Studies' },
-    { id: 'process', label: 'Process' },
+  const pathname = usePathname();
+  const navItems: NavItem[] = [
+    { href: '/', label: 'Home' },
+    // { href: '/about', label: 'About' },
+    {
+      href: '/services',
+      label: 'Services',
+      children: [
+        { href: '/services/website-optimization', label: 'Website Optimization' },
+        { href: '/services/app-development', label: 'App Development' },
+        { href: '/services/branding', label: 'Branding' },
+        { href: '/services/ux-ui-design', label: 'UX/UI Design' },
+        { href: '/services/system-overhaul', label: 'System Overhaul' },
+      ],
+    },
+    { href: '/contact', label: 'Contact' },
   ];
 
   useEffect(() => {
@@ -20,78 +40,82 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const sectionIds = ['hero', ...navItems.map((item) => item.id), 'contact'];
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((section): section is HTMLElement => Boolean(section));
-
-    if (sections.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible.length > 0) {
-          setActiveSection(visible[0].target.id);
-        }
-      },
-      {
-        rootMargin: '-40% 0px -45% 0px',
-        threshold: [0.15, 0.35, 0.6],
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
-  }, [navItems]);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
-  };
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-800/95 shadow-md' : ''
+        isScrolled ? 'bg-slate-800/95 shadow-md z-50' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
-          <button
-            onClick={() => scrollToSection('hero')}
-            className="text-white tracking-tight text-2xl"
-          >
+          <Link href="/" className="text-white tracking-tight text-2xl">
             seego<span className="text-[color:var(--brand-primary)]">design</span>
-          </button>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`border-b-2 pb-1 transition-colors ${
-                  activeSection === item.id
-                    ? 'border-[color:var(--brand-primary)] text-white'
-                    : 'border-transparent text-white/90 hover:text-white'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-            <button
-              onClick={() => scrollToSection('contact')}
+            {navItems.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (item.children && pathname.startsWith(`${item.href}/`));
+
+              if (item.children) {
+                return (
+                  <div key={item.href} className="relative group flex items-center">
+                    <Link
+                      href={item.href}
+                      className={`border-b-2 pb-1 transition-colors ${
+                        isActive
+                          ? 'border-[color:var(--brand-primary)] text-white'
+                          : 'border-transparent text-white/90 hover:text-white'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                    <div className="absolute left-0 top-full w-64 pt-3 opacity-0 pointer-events-none transition duration-200 group-hover:opacity-100 group-hover:pointer-events-auto">
+                      <div className="rounded-xl border border-slate-800 bg-slate-900/95 shadow-xl p-3">
+                        {item.children.map((child) => {
+                          const isChildActive = pathname === child.href;
+                          return (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
+                                isChildActive
+                                  ? 'text-[color:var(--brand-primary)]'
+                                  : 'text-slate-200 hover:text-[color:var(--brand-primary)]'
+                              }`}
+                            >
+                              {child.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`border-b-2 pb-1 transition-colors ${
+                    isActive
+                      ? 'border-[color:var(--brand-primary)] text-white'
+                      : 'border-transparent text-white/90 hover:text-white'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <Link
+              href="/contact"
               className="bg-[color:var(--brand-primary-dark)] text-white px-6 py-2.5 rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
             >
               Get in Touch
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -114,25 +138,55 @@ export function Navigation() {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-secondary border-t border-[color:var(--brand-primary)] min-h-screen">
           <div className="px-4 py-4 space-y-3">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
-                  activeSection === item.id
-                    ? 'bg-[color:var(--brand-primary)] text-white'
-                    : 'text-white/90 hover:text-white hover:bg-[color:var(--brand-primary)]'
-                }`}
-              >
-                {item.label}
-              </button>
-            ))}
-            <button
-              onClick={() => scrollToSection('contact')}
+            {navItems.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (item.children && pathname.startsWith(`${item.href}/`));
+
+              return (
+                <div key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
+                      isActive
+                        ? 'bg-[color:var(--brand-primary)] text-white'
+                        : 'text-white/90 hover:text-white hover:bg-[color:var(--brand-primary)]'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                  {item.children && (
+                    <div className="ml-4 mt-2 space-y-2">
+                      {item.children.map((child) => {
+                        const isChildActive = pathname === child.href;
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className={`block w-full text-left px-4 py-2 rounded-lg text-sm transition-colors ${
+                              isChildActive
+                                ? 'text-[color:var(--brand-primary)]'
+                                : 'text-white/80 hover:text-[color:var(--brand-primary)]'
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-4 py-2 bg-[color:var(--brand-primary-dark)] text-white rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
             >
               Get in Touch
-            </button>
+            </Link>
           </div>
         </div>
       )}

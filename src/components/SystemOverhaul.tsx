@@ -1,12 +1,15 @@
+'use client';
+
 import React from 'react';
 import { useInViewOnce } from '../hooks/useInViewOnce';
 import { Compass, Settings, Rocket } from 'lucide-react';
+import { AnimatedNetworkBackground } from './AnimatedNetworkBackground';
 
-type ServicesProps = {
+type SystemOverhaulProps = {
   isLoading: boolean;
 };
 
-export function Services({ isLoading }: ServicesProps) {
+export function SystemOverhaul({ isLoading }: SystemOverhaulProps) {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
   const shouldAnimate = !isLoading && isInView;
 
@@ -62,26 +65,34 @@ export function Services({ isLoading }: ServicesProps) {
 
   return (
     <section
-      id="services"
+      id="system-overhaul"
       ref={ref}
-      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-800 to-slate-900"
+      className="relative isolate py-16 md:py-24 px-4 sm:px-6 lg:px-8"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 bg-fixed z-0"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1644088379091-d574269d422f)' }}
-      />
+      <AnimatedNetworkBackground />
       {/* <div className="absolute inset-0 bg-black/50 pointer-events-none" /> */}
-      <div className={`relative max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
-        <div className="max-w-3xl mb-12 md:mb-16">
+      <div
+        className={`relative z-10 max-w-7xl mx-auto section-reveal ${
+          shouldAnimate ? 'animate-section-rise' : ''
+        }`}
+      >
+        <div className="max-w-5xl mb-12 md:mb-16">
           <h2 className="text-slate-100 mb-4 text-4xl md:text-5xl lg:text-6xl">
-            Recommended 3-Tier Service Structure
+            System Overhaul
           </h2>
-          <p className="text-slate-300 text-lg md:text-xl">
+          <h3 className="text-slate-300 text-lg md:text-xl mb-6">
+            We fix deep-seated problems, modernize, enhance performance, improve security, and increase scalability.
+          </h3>
+          {/* <p className="text-slate-300 mb-4">
+            Is your business running on systems that have been duct-taped together over the years? Struggling with unreliable tools, manual workarounds, or data scattered across platforms? These issues slow you down, create risk, and make it hard to grow. A system overhaul solves these pain points by bringing clarity, stability, and efficiency to your operations.
+          </p>
+          <p className="text-slate-300 mb-4">
             Most projects start with Stabilize. From there, we optimize or redesign based on what
             your business actually needs.
-          </p>
+          </p> */}
         </div>
 
+        {/* <h3 className="text-slate-300 text-lg md:text-xl mb-6">Recommended 3-Tier Service Structure</h3> */}
         <div className="grid lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
