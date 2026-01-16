@@ -116,13 +116,13 @@ export function QuestionnaireScreen({ onComplete }: QuestionnaireScreenProps) {
   const currentQuestion = questions[currentStep];
   const progress = ((currentStep + 1) / questions.length) * 100;
   const isLastQuestion = currentStep === questions.length - 1;
-  
+
   const currentAnswer = answers[currentQuestion.id];
 
   const handleChoice = (value: string) => {
     const newAnswers = { ...answers, [currentQuestion.id]: value };
     setAnswers(newAnswers);
-    
+
     // Automatically advance to next question or complete
     setTimeout(() => {
       if (isLastQuestion) {
@@ -140,12 +140,12 @@ export function QuestionnaireScreen({ onComplete }: QuestionnaireScreenProps) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col">
       {/* Progress Bar */}
       <div className="w-full h-1" style={{ backgroundColor: 'var(--engine-border)' }}>
         <div
           className="h-1 transition-all duration-500 ease-out"
-          style={{ 
+          style={{
             width: `${progress}%`,
             backgroundColor: 'var(--engine-primary)'
           }}
@@ -153,7 +153,7 @@ export function QuestionnaireScreen({ onComplete }: QuestionnaireScreenProps) {
       </div>
 
       {/* Question Content */}
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
+      <div className="flex-1 flex items-center justify-center px-4 py-12 min-h-[800px]">
         <div key={currentStep} className="max-w-2xl w-full animate-section-rise">
           <div className="mb-10">
             <p
@@ -197,7 +197,7 @@ export function QuestionnaireScreen({ onComplete }: QuestionnaireScreenProps) {
                   }
                 }}
               >
-                <span className="text-lg" style={{ 
+                <span className="text-lg" style={{
                   color: currentAnswer === option.value ? 'var(--engine-text)' : 'var(--engine-text-strong)',
                   fontWeight: currentAnswer === option.value ? '600' : '500'
                 }}>

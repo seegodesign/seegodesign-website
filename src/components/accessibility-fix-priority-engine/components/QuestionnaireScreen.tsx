@@ -134,7 +134,7 @@ export function QuestionnaireScreen({ onComplete }: QuestionnaireScreenProps) {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col">
       <div className="w-full h-1" style={{ backgroundColor: 'var(--engine-border)' }}>
         <div
           className="h-1 transition-all duration-500 ease-out"
@@ -145,7 +145,7 @@ export function QuestionnaireScreen({ onComplete }: QuestionnaireScreenProps) {
         />
       </div>
 
-      <div className="flex-1 flex items-center justify-center px-4 py-12">
+      <div className="flex-1 flex items-center justify-center px-4 py-12 min-h-[800px]">
         <div key={currentStep} className="max-w-2xl w-full animate-section-rise">
           <div className="mb-10">
             <p

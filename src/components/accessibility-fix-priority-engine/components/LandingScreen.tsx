@@ -31,7 +31,7 @@ export function LandingScreen({ onStart }: LandingScreenProps) {
           className="inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold uppercase tracking-[0.2em] text-white transition hover:brightness-110"
           style={{ backgroundColor: 'var(--engine-cta)' }}
         >
-          Start the audit
+          Let's Begin
         </button>
       </div>
     </div>

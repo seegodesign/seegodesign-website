@@ -1,3 +1,4 @@
 export const ONE_DAY_WEBSITE_FIX_PRICE = 1200;
 export const ONE_DAY_WEBSITE_DEPOSIT_PRICE = 500;
+export const WEBSITE_FIX_PRIORITY_PRODUCT_PRICE = 27;
 export const EMAIL_CONTACT = "cameron@seegodesign.com";

@@ -23,6 +23,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
           body: JSON.stringify({
             successUrl: `${origin}/services/website-optimization?status=success`,
             cancelUrl: `${origin}/services/website-optimization?status=cancel`,
+            notes: priorities.map(p => p.title).join(', ')
           }),
         });
 

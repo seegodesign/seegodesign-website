@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useInViewOnce } from '../hooks/useInViewOnce';
+import Link from 'next/link';
 
 type FooterProps = {
   isLoading: boolean;
@@ -20,7 +21,7 @@ export function Footer({ isLoading }: FooterProps) {
       <div className={`max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-white/80 text-sm">
-            © {currentYear} Seego Design. All rights reserved.
+            © {currentYear} <Link href="/" className="hover:underline">Seego Design</Link>. All rights reserved.
           </div>
           <div className="text-white/80 text-sm">
             Designing seamless systems for growing businesses.
