@@ -114,7 +114,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
         {/* Value Bridge */}
         <div className="text-center mb-12 py-6">
           <p className="text-xl font-medium" style={{ color: 'var(--engine-text-muted)', fontStyle: 'italic' }}>
-            Most people stop here. Some want it done.
+            You know what needs fixing. Now, let’s make it happen—fast, with expert help, and zero hassle.
           </p>
         </div>
 
@@ -230,7 +230,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
               disabled={isRedirecting}
               aria-busy={isRedirecting}
             >
-              {isRedirecting ? 'Redirecting to checkout...' : 'Reserve a One-Day Website Fix'}
+              {isRedirecting ? 'Redirecting to checkout...' : 'Reserve Your VIP Day'}
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </button>
             <p className="text-sm mb-4" style={{ color: 'var(--engine-text-muted)' }}>
@@ -243,21 +243,21 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
         </div>
 
         {/* Risk Reducers */}
-        <div className="mb-12 space-y-6">
+        <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
           <div
-            className="p-6 rounded-xl text-center"
+            className="p-6 rounded-xl text-center h-full"
             style={{ backgroundColor: 'var(--engine-card-soft)', border: '2px solid var(--engine-border)' }}
           >
             <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text)' }}>
               🗓️ Limited Spots Per Month
             </h4>
             <p style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-              I only take 4 VIP days per month to ensure quality and focus. Book early to secure your spot.
+              We only take 4 VIP days per month to ensure quality and focus. Book early to secure your spot.
             </p>
           </div>
 
           <div
-            className="p-6 rounded-xl text-center"
+            className="p-6 rounded-xl text-center h-full"
             style={{ backgroundColor: 'var(--engine-card-soft)', border: '2px solid var(--engine-border)' }}
           >
             <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text)' }}>
@@ -272,9 +272,12 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
         {/* Footer */}
         <div className="text-center" style={{ color: 'var(--engine-text-muted)', fontSize: '0.875rem' }}>
           <p>
-            Questions? Email me at{' '}
-            <a href="mailto:hello@yourdomain.com" style={{ color: 'var(--engine-primary)', textDecoration: 'underline' }}>
-              hello@yourdomain.com
+            Questions? {' '}
+            <a
+              href="/contact"
+              style={{ color: 'var(--engine-primary)', textDecoration: 'underline' }}
+            >
+              Contact us here
             </a>
           </p>
         </div>

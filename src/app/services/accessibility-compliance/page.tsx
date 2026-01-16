@@ -1,56 +1,58 @@
-import { Navigation } from '../../../components/Navigation';
+'use client';
+
 import { Footer } from '../../../components/Footer';
+import { Navigation } from '../../../components/Navigation';
 import { WhatYouReceive } from '../../../components/WhatYouReceive';
 import ContactButton from '../../../components/ContactButton';
 
-export default function AppDevelopmentPage() {
+export default function AccessibilityCompliancePage() {
   return (
     <div className="min-h-screen bg-[#0b1828] flex flex-col relative isolate overflow-hidden">
-      <div className="pointer-events-none absolute -top-32 left-1/3 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.22),transparent_60%)] blur-3xl" />
-      <div className="pointer-events-none absolute top-24 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(86,101,108,0.32),transparent_65%)] blur-3xl" />
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.25),transparent_60%)] blur-3xl" />
+      <div className="pointer-events-none absolute top-40 right-0 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(86,101,108,0.35),transparent_65%)] blur-3xl" />
       <Navigation />
       <main className="pt-24 flex-1 relative z-10">
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
+          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
             <div>
-              <span className="text-xs uppercase tracking-[0.35em] text-white/55">App Development</span>
+              <span className="text-xs uppercase tracking-[0.35em] text-white/55">Accessibility Compliance</span>
               <h1 className="text-4xl md:text-6xl font-semibold text-white mt-4 mb-6 animate-hero-headline">
-                Web, iOS, and Android apps built to launch fast and scale cleanly.
+                Audit, fix, and document accessibility issues before they become legal exposure.
               </h1>
               <p className="text-lg text-slate-200 max-w-2xl animate-hero-subhead">
-                We design and ship production-ready apps with modern stacks, polished UI, and infrastructure
-                that is built for growth. From MVP to v2, we help you move faster without sacrificing
-                performance, reliability, or compliance.
+                We help teams ship WCAG-aligned experiences, prioritize high-risk issues, and build a paper
+                trail that proves ongoing compliance. From audit to remediation, we move fast and leave you
+                with evidence you can stand behind.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 animate-hero-cta-primary">
-                <ContactButton text="Plan your app build" />
+                <ContactButton text="Start a compliance audit" />
               </div>
             </div>
             <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/40">
-              <p className="text-sm uppercase tracking-[0.3em] text-white/50">Launch Profile</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-white/50">Risk Snapshot</p>
               <div className="mt-6 space-y-6 text-white">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">6-10</p>
-                    <p className="text-sm text-slate-300">weeks for MVP web or mobile release.</p>
+                    <p className="text-3xl font-semibold text-white">72%</p>
+                    <p className="text-sm text-slate-300">of homepages we audit fail basic WCAG AA checks.</p>
                   </div>
                   <div className="h-12 w-12 rounded-full bg-[color:var(--brand-primary)]/20 flex items-center justify-center text-[color:var(--brand-primary)] text-xl font-semibold">
-                    ⏱
+                    !
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">3x</p>
-                    <p className="text-sm text-slate-300">faster build cycles with reusable components.</p>
+                    <p className="text-3xl font-semibold text-white">30-45</p>
+                    <p className="text-sm text-slate-300">day remediation window we target after audit.</p>
                   </div>
                   <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
-                    ⚡
+                    30
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
                     <p className="text-3xl font-semibold text-white">100%</p>
-                    <p className="text-sm text-slate-300">handoff-ready with docs and QA coverage.</p>
+                    <p className="text-sm text-slate-300">evidence package delivered for legal review.</p>
                   </div>
                   <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
                     ✓
@@ -59,8 +61,8 @@ export default function AppDevelopmentPage() {
               </div>
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="text-sm text-slate-300">
-                  We deliver production code, QA coverage, and onboarding so your team can scale without
-                  surprises.
+                  We document every finding with screenshots, code references, and severity ratings so
+                  legal, product, and engineering stay aligned.
                 </p>
               </div>
             </div>
@@ -71,16 +73,19 @@ export default function AppDevelopmentPage() {
           <div className="grid lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Web Apps',
-                description: 'Next.js, React, and modern APIs tailored for performance and SEO.',
+                title: 'Compliance Audits',
+                description:
+                  'Manual + automated testing for WCAG 2.2 AA, ADA Title III, Section 508, and EN 301 549.',
               },
               {
-                title: 'iOS + Android',
-                description: 'Native and cross-platform builds with unified design and shared logic.',
+                title: 'Remediation Sprints',
+                description:
+                  'Design and development fixes prioritized by legal risk, customer impact, and effort.',
               },
               {
-                title: 'Backend Systems',
-                description: 'Secure APIs, auth, billing, and analytics that scale with demand.',
+                title: 'Ongoing Monitoring',
+                description:
+                  'Monthly regression checks, release reviews, and reporting to maintain compliance.',
               },
             ].map((item) => (
               <div
@@ -97,16 +102,16 @@ export default function AppDevelopmentPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-start">
             <div className="bg-gradient-to-br from-slate-900/80 to-slate-900/30 border border-white/10 rounded-2xl p-8">
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Build Workflow</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Audit Workflow</p>
               <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
-                We align product, design, and engineering from day one.
+                We surface risk fast, then map fixes to a clear owner.
               </h2>
               <ol className="space-y-5 text-slate-200">
                 {[
-                  'Discovery sprint to define scope, target users, and success metrics.',
-                  'UX/UI design with rapid prototyping and stakeholder reviews.',
-                  'Iterative development with weekly demos and QA checkpoints.',
-                  'Launch prep, store submissions, and post-launch monitoring.',
+                  'Intake + scope mapping for high-traffic journeys and legal exposure zones.',
+                  'Manual testing with assistive tech, color contrast review, and keyboard navigation checks.',
+                  'Issue triage scored by severity, business impact, and likelihood of complaint.',
+                  'Live remediation plan with design, engineering, and compliance sign-off.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-4">
                     <span className="h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
@@ -118,16 +123,16 @@ export default function AppDevelopmentPage() {
               </ol>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Platforms + Stack</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Standards Covered</p>
               <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
-                Modern tooling for scalable web and mobile experiences.
+                Compliance targets that match what legal teams and regulators expect.
               </h2>
               <div className="grid gap-4">
                 {[
-                  'React, Next.js, and TypeScript for fast, accessible web apps.',
-                  'React Native and native modules for iOS and Android parity.',
-                  'Node.js, Supabase, or Firebase for secure backend services.',
-                  'CI/CD pipelines with monitoring and analytics baked in.',
+                  'WCAG 2.2 AA alignment with documented exceptions.',
+                  'ADA Title III risk review for public-facing digital experiences.',
+                  'Section 508 compliance for government or public sector contracts.',
+                  'EN 301 549 guidance for international accessibility requirements.',
                 ].map((item) => (
                   <div
                     key={item}
@@ -140,7 +145,8 @@ export default function AppDevelopmentPage() {
               </div>
               <div className="mt-6 border border-white/10 rounded-xl p-5 bg-slate-900/50">
                 <p className="text-sm text-slate-300">
-                  Need HIPAA, SOC 2, or PCI in mind? We build with compliance requirements from the start.
+                  You receive a full evidence package: audit report, annotated screenshots, code-level
+                  guidance, and remediation verification notes.
                 </p>
               </div>
             </div>
@@ -150,19 +156,20 @@ export default function AppDevelopmentPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Deliverables</p>
+              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Fix + Verify</p>
               <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
-                Everything you need to launch, iterate, and grow.
+                We fix what matters most, then validate every change.
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                We ship design systems, feature roadmaps, and clean codebases that your internal team or
-                external partners can build on. You get clarity, velocity, and a predictable path to scale.
+                Remediation starts with the highest-risk blockers: forms, navigation, checkout, and critical
+                workflows. We ship fixes quickly, retest with assistive technology, and package the evidence
+                so you can demonstrate compliance progress to legal and leadership.
               </p>
               <div className="mt-6 space-y-4 text-sm text-slate-200">
                 {[
-                  'Product roadmap, prioritized backlog, and sprint delivery plan.',
-                  'Design system, reusable components, and responsive UI library.',
-                  'App store packaging, release checklists, and post-launch QA.',
+                  'Design remediation: contrast, focus states, semantics, and content hierarchy.',
+                  'Engineering fixes: ARIA labels, keyboard support, and dynamic component updates.',
+                  'Verification: re-testing, regression checks, and compliance attestations.',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--brand-primary)]" />
@@ -174,20 +181,20 @@ export default function AppDevelopmentPage() {
             <WhatYouReceive
               items={[
                 {
-                  title: 'Product blueprint',
-                  description: 'User flows, PRD, and technical architecture aligned to business goals.',
+                  title: 'Executive summary',
+                  description: 'Risk overview, priority fixes, and business impact in one page.',
                 },
                 {
-                  title: 'Design + prototype',
-                  description: 'High-fidelity UX, interactive prototypes, and usability validation.',
+                  title: 'Issue tracker',
+                  description: 'Severity-rated backlog with owners, screenshots, and code references.',
                 },
                 {
-                  title: 'Production codebase',
-                  description: 'Clean, documented code with CI/CD and testing foundations.',
+                  title: 'Remediation plan',
+                  description: 'Sequenced sprints with effort estimates and release targets.',
                 },
                 {
-                  title: 'Launch support',
-                  description: 'Store submissions, monitoring dashboards, and rollout strategy.',
+                  title: 'Verification report',
+                  description: 'Retest notes, assistive tech findings, and compliance attestations.',
                 },
               ]}
             />
@@ -198,13 +205,13 @@ export default function AppDevelopmentPage() {
           <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-[color:var(--brand-primary)]/20 via-slate-900/60 to-slate-900/20 px-8 py-12 md:px-12">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-white/55">Ready to build</p>
+                <p className="text-xs uppercase tracking-[0.35em] text-white/55">Ready when you are</p>
                 <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
-                  Launch the app your customers expect.
+                  Protect your customers, your brand, and your legal exposure.
                 </h2>
                 <p className="text-sm text-slate-200 mt-4 max-w-2xl">
-                  We can start with a discovery sprint, accelerate into development, and keep you supported
-                  long after launch. Tell us the platform mix and timeline, and we will scope the right plan.
+                  We deliver audits in two weeks, remediation in 30-45 days, and continuous monitoring after
+                  launch. Tell us your risk timeline and we will build the right plan.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
@@ -213,13 +220,13 @@ export default function AppDevelopmentPage() {
                   className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:brightness-110"
                   style={{ backgroundColor: 'var(--brand-primary)' }}
                 >
-                  Start a discovery sprint
+                  Book a discovery call
                 </button>
                 <button
                   type="button"
                   className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 border border-white/30 hover:border-white/60 hover:text-white transition"
                 >
-                  Download sample roadmap
+                  Download sample audit
                 </button>
               </div>
             </div>

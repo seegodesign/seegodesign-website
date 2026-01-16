@@ -13,7 +13,7 @@ export function Hero({ isLoading }: HeroProps) {
   const [typedText, setTypedText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const headlineSeed = "Web solutions for businesses that";
+  const headlineSeed = "Solutions for businesses that";
   const phrases = [
     "have a vision for growth",
     "have outgrown patchwork systems",
@@ -128,8 +128,7 @@ export function Hero({ isLoading }: HeroProps) {
               !isLoading && isInView ? "animate-hero-subhead" : ""
               }`}
             >
-              We help growing companies design better web experiences backed by
-              clean, scalable systems that automate busywork and support growth.
+              Seego Design offers custom web solutions that drive growth, streamline operations, and bring your vision to life with clarity and efficiency.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

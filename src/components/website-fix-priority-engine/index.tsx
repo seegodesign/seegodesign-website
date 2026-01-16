@@ -63,6 +63,7 @@ export default function WebsiteFixPriorityEngine() {
 
   const handleViewVIPDay = () => {
     setScreen('vipday');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToResults = () => {
@@ -76,25 +77,23 @@ export default function WebsiteFixPriorityEngine() {
       className="border border-slate-700/60 shadow-[0_25px_60px_rgba(8,15,30,0.45)] backdrop-blur-sm"
       style={engineTheme}
     >
-      <div className="min-h-screen text-slate-100">
-        <div key={screen} className="animate-section-rise">
-          {screen === 'landing' && <LandingScreen onStart={handleStart} />}
-          {screen === 'questionnaire' && <QuestionnaireScreen onComplete={handleComplete} />}
-          {screen === 'results' && (
-            <ResultsScreen
-              answers={answers}
-              onRestart={handleRestart}
-              onViewVIPDay={handleViewVIPDay}
-            />
-          )}
-          {screen === 'vipday' && (
-            <VIPDayPage
-              priorities={priorities}
-              onBack={handleBackToResults}
-            />
-          )}
-          {screen === 'confirmation' && <ConfirmationPage onBackToResults={handleBackToResults} />}
-        </div>
+      <div key={screen} className="animate-section-rise">
+        {screen === 'landing' && <LandingScreen onStart={handleStart} />}
+        {screen === 'questionnaire' && <QuestionnaireScreen onComplete={handleComplete} />}
+        {screen === 'results' && (
+          <ResultsScreen
+            answers={answers}
+            onRestart={handleRestart}
+            onViewVIPDay={handleViewVIPDay}
+          />
+        )}
+        {screen === 'vipday' && (
+          <VIPDayPage
+            priorities={priorities}
+            onBack={handleBackToResults}
+          />
+        )}
+        {screen === 'confirmation' && <ConfirmationPage onBackToResults={handleBackToResults} />}
       </div>
     </div>
   );

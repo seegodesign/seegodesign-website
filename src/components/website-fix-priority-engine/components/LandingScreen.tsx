@@ -6,7 +6,7 @@ interface LandingScreenProps {
 
 export function LandingScreen({ onStart }: LandingScreenProps) {
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-24">
+    <div className="flex items-center justify-center px-4 py-24">
       <div className="max-w-2xl w-full text-center">
         <h1
           className="text-5xl font-semibold tracking-tight mb-6 text-[color:var(--engine-text)]"

@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react';
-import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE } from '../../../library/constants';
+import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE, EMAIL_CONTACT } from '../../../library/constants';
 
 interface ConfirmationPageProps {
   onBackToResults: () => void;
@@ -123,8 +123,11 @@ export function ConfirmationPage({ onBackToResults }: ConfirmationPageProps) {
         {/* Footer */}
         <p className="mt-8 text-sm" style={{ color: 'var(--engine-text-muted)' }}>
           Questions? Email{' '}
-          <a href="mailto:hello@yourdomain.com" style={{ color: 'var(--engine-primary)', textDecoration: 'underline' }}>
-            hello@yourdomain.com
+          <a
+            href="/contact"
+            style={{ color: 'var(--engine-primary)', textDecoration: 'underline' }}
+          >
+            Contact us here
           </a>
         </p>
       </div>

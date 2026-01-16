@@ -188,14 +188,18 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
                 <div className="px-8 pb-8 pt-0">
                   <div className="pl-16 ml-1" style={{ borderLeft: `3px solid var(--engine-border)` }}>
                     <div className="prose prose-neutral max-w-none">
-                      {priority.detailedContent.split('\n\n').map((paragraph, idx) => (
-                        <p
-                          key={idx}
-                          className="mb-4"
-                          style={{ color: 'var(--engine-text-strong)', lineHeight: '1.8', fontSize: '1rem' }}
-                        >
-                          {paragraph}
-                        </p>
+                      {priority.detailedContent.map((section, idx) => (
+                        <div key={idx} className="mb-5">
+                          <h4
+                            className="mb-2 text-xs uppercase tracking-[0.2em]"
+                            style={{ color: 'var(--engine-text-muted)' }}
+                          >
+                            {section.heading}
+                          </h4>
+                          <p style={{ color: 'var(--engine-text-strong)', lineHeight: '1.8', fontSize: '1rem' }}>
+                            {section.body}
+                          </p>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -371,7 +375,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
             className="text-lg mb-4"
             style={{ color: 'var(--engine-text)', fontWeight: '500', lineHeight: '1.7' }}
           >
-            These priorities reflect the same patterns I see across dozens of small business websites.
+            These priorities reflect the same patterns we see across dozens of small business websites.
           </p>
           <p
             style={{ color: 'var(--engine-text-muted)', lineHeight: '1.7', maxWidth: '700px', margin: '0 auto' }}
@@ -410,16 +414,10 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            Reserve a One-Day Website Fix
+            Learn More
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
 
-          {/* Small text */}
-          <div className="space-y-1 text-sm" style={{ color: 'var(--engine-text-muted)' }}>
-            <p>• $500 non-refundable deposit to reserve your spot</p>
-            <p>• Scheduling confirmed after scope review</p>
-            <p>• Limited to 4 VIP days per month</p>
-          </div>
         </div>
 
         {/* Footer Actions */}

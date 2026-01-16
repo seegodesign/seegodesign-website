@@ -22,14 +22,22 @@ export function Navigation() {
       href: '/services',
       label: 'Services',
       children: [
-        { href: '/services/website-optimization', label: 'Website Optimization' },
+        { href: '/services/accessibility-compliance', label: 'Accessibility Compliance' },
         { href: '/services/app-development', label: 'App Development' },
         { href: '/services/branding', label: 'Branding' },
-        { href: '/services/ux-ui-design', label: 'UX/UI Design' },
         { href: '/services/system-overhaul', label: 'System Overhaul' },
+        { href: '/services/ux-ui-design', label: 'UX/UI Design' },
+        { href: '/services/website-optimization', label: 'Website Optimization' },
       ],
     },
-    { href: '/contact', label: 'Contact' },
+    {
+      href: '/tools',
+      label: 'Tools',
+      children: [
+        { href: '/tools/website-fix-priorities', label: 'Website Fix Priorities' },
+        { href: '/tools/accessibility-fix-priorities', label: 'Accessibility Fix Priorities' },
+      ],
+    }
   ];
 
   useEffect(() => {
@@ -136,7 +144,7 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-secondary border-t border-[color:var(--brand-primary)] min-h-screen">
+        <div className="md:hidden bg-slate-900 border-t border-[color:var(--brand-primary)] min-h-screen">
           <div className="px-4 py-4 space-y-3">
             {navItems.map((item) => {
               const isActive =
@@ -185,7 +193,7 @@ export function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-4 py-2 bg-[color:var(--brand-primary-dark)] text-white rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
             >
-              Get in Touch
+              Contact
             </Link>
           </div>
         </div>
