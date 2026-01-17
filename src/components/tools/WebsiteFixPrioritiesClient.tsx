@@ -22,7 +22,7 @@ export default function WebsiteFixPrioritiesClient() {
       <div className="relative z-100">
         <Navigation />
       </div>
-      <main className="pt-24 flex-1 relative z-10">
+      <main className="pt-16 md:pt-20 flex-1 relative z-10">
         {!hasAccess && (
           <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">

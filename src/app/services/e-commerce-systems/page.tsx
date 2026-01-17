@@ -9,7 +9,7 @@ export default function EcommerceSystemsPage() {
       <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(96,205,255,0.22),transparent_60%)] blur-3xl" />
       <div className="pointer-events-none absolute top-28 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.2),transparent_65%)] blur-3xl" />
       <Navigation />
-      <main className="pt-24 flex-1 relative z-10">
+      <main className="pt-16 md:pt-20 flex-1 relative z-10">
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
             <div>

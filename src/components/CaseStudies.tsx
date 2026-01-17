@@ -9,7 +9,7 @@ const caseStudies = [
   {
     title: 'Custom Water Bottle Customizer',
     client: 'Owala',
-    image: 'owala.jpg',
+    image: '/owala.jpg',
     problem: 'Customer needed a modern 3D product customizer to allow users to build and price custom water bottles. Their existing Flash-based tool was outdated, not mobile-friendly, and couldn\'t integrate with their ERP system. Sales reps spent hours manually quoting simple orders.',
     work: 'Developed a Vue.js customizer with real-time 3D previews and dynamic pricing. Made it fully responsive for mobile.',
     outcome: 'Client sold 32,625 custom bottles in 2025.',
@@ -18,7 +18,7 @@ const caseStudies = [
   {
     title: 'Custom Goalie Gear Customizer',
     client: 'Bauer Skates',
-    image: 'bauer.jpg',
+    image: '/bauer.jpg',
     problem: 'Customer struggled with a clunky Flash-based product customizer from 2008. It only worked on desktop, crashed frequently, and couldn\'t integrate with their modern ERP system. Sales reps spent hours manually quoting simple orders.',
     work: 'Developed a Vue.js customizer with real-time 3D previews and pricing. Built integrations with their ERP and CRM systems for seamless quote generation. Made it fully responsive so field sales could demo products on tablets.',
     outcome: 'Quote generation time dropped from hours to minutes. Mobile orders increased 200% in the first quarter. The customizer reduced pricing errors by 90%, and customer satisfaction scores jumped significantly.',
@@ -27,7 +27,7 @@ const caseStudies = [
   {
     title: 'Find a Trade Ally Contractor Tool',
     client: 'EnergyTrust of Oregon',
-    image: 'eto-fac.jpg',
+    image: '/eto-fac.jpg',
     problem: 'Their existing contractor search tool was outdated, slow, and hard to use. It relied on a static database that was difficult to update, leading to inaccurate listings. Users often complained about poor search functionality and long load times.',
     work: 'Built a new Vue.js application with a dynamic backend that allowed for easy updates to contractor listings. Implemented advanced search and filtering options, along with a responsive design for mobile users. Optimized performance to ensure fast load times.',
     outcome: 'User engagement increased by 150%, with average session duration rising from 2 to 5 minutes. The number of contractor searches grew by 80%, and user satisfaction surveys showed a significant improvement in usability ratings.',
@@ -36,7 +36,7 @@ const caseStudies = [
   {
     title: 'HAEMR Website',
     client: 'Harvard Affiliated Emergency Residency Program',
-    image: 'haemr.jpg',
+    image: '/haemr.jpg',
     problem: 'The existing website was built on an outdated CMS that made content updates cumbersome. The design was not mobile-friendly, leading to a poor user experience on smartphones and tablets. Additionally, the site had slow load times and accessibility issues.',
     work: 'Redesigned the website using Wordpress for easy content management. Implemented a responsive design to ensure optimal viewing on all devices. Focused on performance optimization and accessibility compliance throughout the development process.',
     outcome: 'The new website saw a 60% increase in mobile traffic and a 40% reduction in bounce rates. Content updates became significantly easier for the staff, leading to more frequent updates. Accessibility audits showed full compliance with WCAG 2.1 standards.',

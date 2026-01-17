@@ -110,7 +110,7 @@ export function Hero({ isLoading }: HeroProps) {
           <div className="max-w-5xl">
 
             <h1
-              className={`text-white mb-8 leading-tight text-2xl sm:text-6xl md:text-4xl lg:text-6xl ${
+              className={`text-white mb-8 leading-tight text-4xl sm:text-6xl md:text-4xl lg:text-6xl ${
                 !isLoading && isInView ? "animate-hero-headline" : ""
               }`}
             >

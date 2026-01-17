@@ -148,9 +148,34 @@ export function Navigation() {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-slate-900 border-t border-[color:var(--brand-primary)] min-h-screen">
-          <div className="px-4 py-4 space-y-3">
+      <div
+        className={`md:hidden fixed inset-0 z-50 transition-opacity duration-300 ${
+          isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      >
+        <button
+          type="button"
+          aria-label="Close menu"
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute inset-0 bg-slate-950/70"
+        />
+        <div
+          className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-slate-900 border-l transition-transform duration-300 ${
+            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
+        >
+          <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
+            <span className="text-sm uppercase tracking-[0.3em] text-white/50">Menu</span>
+            <button
+              type="button"
+              aria-label="Close menu"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition-colors"
+            >
+              <X size={18} />
+            </button>
+          </div>
+          <div className="h-full overflow-y-auto px-4 py-6 space-y-3">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href ||
@@ -163,7 +188,7 @@ export function Navigation() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
                       isActive
-                        ? 'bg-[color:var(--brand-primary)] text-white'
+                        ? 'text-[color:var(--brand-primary)]'
                         : 'text-white/90 hover:text-white hover:bg-[color:var(--brand-primary)]'
                     }`}
                   >
@@ -194,15 +219,15 @@ export function Navigation() {
               );
             })}
             <Link
-              href="/contact"
+              href="/book-a-call"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block w-full text-left px-4 py-2 bg-[color:var(--brand-primary-dark)] text-white rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
             >
-              Contact
+              Book a Call
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
