@@ -37,8 +37,12 @@ export function BookCall({ isLoading }: BookCallProps) {
     if (!host) return;
 
     if (host.childElementCount > 0) {
-      setIsWidgetLoading(false);
-      return;
+      const initialReveal = window.setTimeout(() => {
+        setIsWidgetLoading(false);
+      }, 1000);
+      return () => {
+        window.clearTimeout(initialReveal);
+      };
     }
 
     let revealTimeout: number | null = null;
@@ -86,6 +90,7 @@ export function BookCall({ isLoading }: BookCallProps) {
             </div>
             <div ref={widgetHostRef} className="hb-p-693c73881592dd002ef0c31b-1" />
           </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img height="1" width="1" className="hidden" src="https://www.honeybook.com/p.png?pid=693c73881592dd002ef0c31b" alt="" />
         </div>
       </div>

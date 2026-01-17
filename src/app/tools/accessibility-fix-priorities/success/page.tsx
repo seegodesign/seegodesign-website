@@ -2,11 +2,11 @@ import { redirect } from 'next/navigation';
 import { getPaidToolSuccessUrl } from '../../../../lib/paidToolSuccess';
 
 type SuccessPageProps = {
-  searchParams: { session_id?: string };
+  searchParams: Promise<{ session_id?: string }>;
 };
 
 export default async function AccessibilityFixPrioritiesSuccessPage({ searchParams }: SuccessPageProps) {
-  const sessionId = searchParams.session_id;
+  const { session_id: sessionId } = await searchParams;
 
   if (!sessionId) {
     redirect('/tools/accessibility-fix-priorities?error=missing-session');

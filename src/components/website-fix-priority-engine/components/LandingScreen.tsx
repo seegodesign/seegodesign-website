@@ -9,7 +9,7 @@ export function LandingScreen({ onStart }: LandingScreenProps) {
     <div className="flex items-center justify-center px-4 py-24">
       <div className="max-w-2xl w-full text-center min-h-[500px] flex flex-col items-center justify-center">
         <h1 className="text-4xl md:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-sky-300 to-emerald-200 mt-4 mb-6 pb-4">
-          Thank you for your purchase! Let's get started.
+          Thank you for your purchase! Let&apos;s get started.
         </h1>
 
         <p

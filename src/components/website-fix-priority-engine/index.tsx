@@ -38,14 +38,22 @@ export default function WebsiteFixPriorityEngine() {
   >('landing');
   const [answers, setAnswers] = useState<Answers>({});
 
+  const status = searchParams.get('status');
+
   useEffect(() => {
-    const status = searchParams.get('status');
     if (status === 'success') {
-      setScreen('confirmation');
+      const timer = window.setTimeout(() => {
+        setScreen('confirmation');
+      }, 0);
+      return () => window.clearTimeout(timer);
     } else if (status === 'cancel') {
-      setScreen('vipday');
+      const timer = window.setTimeout(() => {
+        setScreen('vipday');
+      }, 0);
+      return () => window.clearTimeout(timer);
     }
-  }, [searchParams]);
+    return undefined;
+  }, [status]);
 
   const handleStart = () => {
     setScreen('questionnaire');

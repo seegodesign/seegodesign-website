@@ -29,7 +29,9 @@ export const usePaidToolAccess = (tool: PaidToolKey) => {
     const activeToken = token ?? storedToken;
 
     if (!activeToken) {
-      setHasAccess(false);
+      setTimeout(() => {
+        setHasAccess(false);
+      }, 0);
       return;
     }
 

@@ -68,7 +68,7 @@ export function Contact({ isLoading }: ContactProps) {
           {/* Left Column - Info */}
           <div>
             <h2 className="text-slate-100 mb-4 text-4xl md:text-5xl lg:text-6xl">
-              Let's build something great together
+              Let&apos;s build something great together
             </h2>
             <p className="text-slate-300 text-lg mb-8">
               If your systems feel fragmented, your workflows are stuck in manual mode, or your website is outdated, we should talk.

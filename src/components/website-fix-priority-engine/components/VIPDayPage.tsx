@@ -92,7 +92,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
           {/* What Gets Fixed */}
           <div className="mb-10">
             <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--engine-text)' }}>
-              What We'll Fix
+              What We&apos;ll Fix
             </h3>
             <div className="space-y-3">
               {[
@@ -150,7 +150,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
                 </div>
                 <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Real Completion</h4>
                 <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-                  You end the day with improvements live, not "in progress"
+                  You end the day with improvements live, not &ldquo;in progress&rdquo;
                 </p>
               </div>
             </div>
@@ -223,7 +223,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
               ✅ Clear Scope & Process
             </h4>
             <p style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-              Pre-day questionnaire ensures we're aligned. Day-of access to a shared workspace keeps you in the loop without interrupting flow.
+              Pre-day questionnaire ensures we&apos;re aligned. Day-of access to a shared workspace keeps you in the loop without interrupting flow.
             </p>
           </div>
         </div>

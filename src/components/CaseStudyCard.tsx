@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { CheckCircle2 } from 'lucide-react';
 
 interface CaseStudyCardProps {
@@ -40,10 +41,12 @@ export function CaseStudyCard({
       <div className="grid md:grid-cols-2 gap-0">
         {/* Image */}
         <div className={`relative h-64 md:h-full min-h-[400px] ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-          <img
+          <Image
             src={image}
             alt={title}
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[color:var(--brand-secondary)]/30 to-transparent"></div>
         </div>

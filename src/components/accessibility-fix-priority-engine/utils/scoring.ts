@@ -141,5 +141,9 @@ export const calculatePriorities = (answers: Answers): Priority[] => {
     }))
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
-    .map(({ score, ...priority }) => priority);
+    .map((priority) => {
+      const { score, ...rest } = priority;
+      void score;
+      return rest;
+    });
 };

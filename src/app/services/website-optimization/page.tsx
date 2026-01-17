@@ -1,16 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { Navigation } from '../../../components/Navigation';
 import { Footer } from '../../../components/Footer';
-import WebsiteFixPriorityEngine from '../../../components/website-fix-priority-engine';
 import { AnimatedNetworkBackground } from '../../../components/AnimatedNetworkBackground';
 import { WhatYouReceive } from '../../../components/WhatYouReceive';
 import ContactButton from '../../../components/ContactButton';
 
 export default function WebsiteOptimizationPage() {
-  const [showEngine, setShowEngine] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0b1828] flex flex-col relative isolate">
@@ -74,12 +71,6 @@ export default function WebsiteOptimizationPage() {
             </div>
           </div>
         </section>
-
-        {showEngine && (
-          <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-            <WebsiteFixPriorityEngine />
-          </section>
-        )}
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-[color:var(--brand-primary)]/20 via-slate-900/60 to-slate-900/20 px-8 py-12 md:px-12">

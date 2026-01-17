@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react';
-import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE, EMAIL_CONTACT } from '../../../library/constants';
+import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE } from '../../../library/constants';
 
 interface ConfirmationPageProps {
   onBackToResults: () => void;
@@ -22,11 +22,11 @@ export function ConfirmationPage({ onBackToResults }: ConfirmationPageProps) {
           className="text-4xl sm:text-5xl font-semibold mb-6"
           style={{ color: 'var(--engine-text)', lineHeight: '1.2', letterSpacing: '-0.02em' }}
         >
-          Thanks — You're Reserved!
+          Thanks — You&apos;re Reserved!
         </h1>
 
         <p className="text-xl mb-12" style={{ color: 'var(--engine-text-strong)', lineHeight: '1.7' }}>
-          Next, we'll confirm scope and schedule your day.
+          Next, we&apos;ll confirm scope and schedule your day.
         </p>
 
         {/* What Happens Next */}
@@ -50,7 +50,7 @@ export function ConfirmationPage({ onBackToResults }: ConfirmationPageProps) {
               </span>
               <div>
                 <p style={{ color: 'var(--engine-text-strong)', lineHeight: '1.6' }}>
-                  <strong>You'll receive a confirmation email</strong> with next steps within 24 hours
+                  <strong>You&apos;ll receive a confirmation email</strong> with next steps within 24 hours
                 </p>
               </div>
             </li>
@@ -63,7 +63,7 @@ export function ConfirmationPage({ onBackToResults }: ConfirmationPageProps) {
               </span>
               <div>
                 <p style={{ color: 'var(--engine-text-strong)', lineHeight: '1.6' }}>
-                  <strong>We'll review your priorities</strong> and send a pre-day questionnaire to align on scope
+                  <strong>We&apos;ll review your priorities</strong> and send a pre-day questionnaire to align on scope
                 </p>
               </div>
             </li>
@@ -76,7 +76,7 @@ export function ConfirmationPage({ onBackToResults }: ConfirmationPageProps) {
               </span>
               <div>
                 <p style={{ color: 'var(--engine-text-strong)', lineHeight: '1.6' }}>
-                  <strong>You'll choose your VIP day</strong> from available dates (typically 2-4 weeks out)
+                  <strong>You&apos;ll choose your VIP day</strong> from available dates (typically 2-4 weeks out)
                 </p>
               </div>
             </li>

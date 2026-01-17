@@ -69,7 +69,7 @@ export function About({ isLoading }: AboutProps) {
             About Our Services
           </h2>
           <p className="text-slate-300 text-lg md:text-2xl">
-            If you're a business that has outgrown your old website, or is stuck wrestling with disconnected systems, scattered data across multiple platforms, or trying to fit unique processes into rigid, one-size-fits-all solutions, we have solutions for you. We build custom web sites and tools that actually work the way you do.
+            If you&apos;re a business that has outgrown your old website, or is stuck wrestling with disconnected systems, scattered data across multiple platforms, or trying to fit unique processes into rigid, one-size-fits-all solutions, we have solutions for you. We build custom web sites and tools that actually work the way you do.
           </p>
         </div>
 

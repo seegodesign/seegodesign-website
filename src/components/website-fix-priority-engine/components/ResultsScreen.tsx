@@ -61,7 +61,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
             className="text-lg mb-6"
             style={{ color: 'var(--engine-text-muted)', lineHeight: '1.7', fontWeight: '400' }}
           >
-            Based on your answers, here's the highest-impact place to focus first.
+            Based on your answers, here&apos;s the highest-impact place to focus first.
           </p>
 
           {/* Download PDF Button */}
@@ -355,7 +355,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
                   Fixing speed before clarity
                 </p>
                 <p style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-                  A fast website that confuses visitors still won't convert. Message clarity comes first, then performance optimization.
+                  A fast website that confuses visitors still won&apos;t convert. Message clarity comes first, then performance optimization.
                 </p>
               </div>
             </div>
@@ -399,7 +399,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
                   Making changes without tracking results
                 </p>
                 <p style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-                  Without baseline metrics, you can't know if your changes actually improved performance. Set up tracking, then optimize.
+                  Without baseline metrics, you can&apos;t know if your changes actually improved performance. Set up tracking, then optimize.
                 </p>
               </div>
             </div>
