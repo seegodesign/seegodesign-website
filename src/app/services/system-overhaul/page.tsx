@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navigation } from '../../../components/Navigation';
 import { Footer } from '../../../components/Footer';
 import { useInViewOnce } from '../../../hooks/useInViewOnce';
@@ -11,7 +11,21 @@ import ContactButton from '../../../components/ContactButton';
 
 export default function SystemOverhaulPage() {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
-  const shouldAnimate = isInView;
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (isInView) {
+      setIsVisible(true);
+    }
+  }, [isInView]);
+
+  useEffect(() => {
+    const fallbackTimer = window.setTimeout(() => {
+      setIsVisible(true);
+    }, 400);
+
+    return () => window.clearTimeout(fallbackTimer);
+  }, []);
 
   const handleGlow = (event: React.MouseEvent<HTMLElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -77,7 +91,7 @@ export default function SystemOverhaulPage() {
         >
           <div
             className={`relative z-10 max-w-7xl mx-auto section-reveal ${
-              shouldAnimate ? 'animate-section-rise' : ''
+              isVisible ? 'animate-section-rise' : ''
             }`}
           >
             <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start mb-14 md:mb-20">

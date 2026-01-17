@@ -15,13 +15,19 @@ export function useInViewOnce<T extends HTMLElement>({
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
+    const fallbackTimer = window.setTimeout(() => {
+      setIsInView(true);
+    }, 400);
     const element = ref.current;
-    if (!element) return;
+    if (!element) {
+      return () => window.clearTimeout(fallbackTimer);
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
+          window.clearTimeout(fallbackTimer);
           observer.disconnect();
         }
       },
@@ -29,7 +35,10 @@ export function useInViewOnce<T extends HTMLElement>({
     );
 
     observer.observe(element);
-    return () => observer.disconnect();
+    return () => {
+      window.clearTimeout(fallbackTimer);
+      observer.disconnect();
+    };
   }, [threshold, rootMargin]);
 
   return { ref, isInView };
