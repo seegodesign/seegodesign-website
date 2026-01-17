@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 type HeroProps = {
   isLoading: boolean;
@@ -13,15 +14,18 @@ export function Hero({ isLoading }: HeroProps) {
   const [typedText, setTypedText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const headlineSeed = "Solutions for businesses that";
-  const phrases = [
-    "have a vision for growth",
-    "have outgrown patchwork systems",
-    "are ready to automate ",
-    "need to scale efficiently",
-    "want to turn ideas into reality",
-    "need clarity, not complexity"
-  ];
+  const headlineSeed = "Creative solutions for businesses that";
+  const phrases = useMemo(
+    () => [
+      "have a vision for growth",
+      "have outgrown patchwork systems",
+      "are ready to automate ",
+      "need to scale efficiently",
+      "want to turn ideas into reality",
+      "need clarity, not complexity"
+    ],
+    []
+  );
 
   useEffect(() => {
     const element = sectionRef.current;
@@ -76,13 +80,7 @@ export function Hero({ isLoading }: HeroProps) {
     }, isDeleting && isEmpty ? pauseAfterDelete : delay);
 
     return () => window.clearTimeout(timeout);
-  }, [isLoading, isInView, isDeleting, phraseIndex, typedText, phrases.length]);
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  }, [isLoading, isInView, isDeleting, phraseIndex, typedText, phrases.length, phrases]);
 
   const scrollToCaseStudies = () => {
     const element = document.getElementById("case-studies");
@@ -101,7 +99,7 @@ export function Hero({ isLoading }: HeroProps) {
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 bg-fixed"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab)' }}
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1698094276375-2989818836f5)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-[#000000]/75 to-[#0e1823]/85"></div>
       </div>
@@ -124,23 +122,23 @@ export function Hero({ isLoading }: HeroProps) {
             </h1>
 
             <p
-              className={`text-[color:var(--brand-secondary)]/95 text-xl md:text-2xl lg:text-3xl mb-10 max-w-3xl leading-relaxed ${
+              className={`text-white/55 text-xl md:text-2xl lg:text-3xl mb-10 max-w-3xl leading-relaxed ${
               !isLoading && isInView ? "animate-hero-subhead" : ""
               }`}
             >
-              Seego Design offers custom web solutions that drive growth, streamline operations, and bring your vision to life with clarity and efficiency.
+              We offer custom web solutions that drive growth, streamline operations, and bring your vision to life with clarity and efficiency.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={scrollToContact}
+              <Link
+                href="/contact"
                 className={`inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary-dark)] text-white px-8 py-4 rounded-lg hover:bg-[color:var(--brand-primary)] transition-all duration-200 shadow-lg shadow-black/30 hover:-translate-y-0.5 hover:shadow-[color:var(--brand-primary)]/30 text-lg ${
                   !isLoading && isInView ? "animate-hero-cta-primary" : ""
                 }`}
               >
                 Start a Conversation
                 <ArrowRight size={20} />
-              </button>
+              </Link>
               <button
                 onClick={scrollToCaseStudies}
                 className={`inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/20 text-lg ${

@@ -7,12 +7,9 @@ interface LandingScreenProps {
 export function LandingScreen({ onStart }: LandingScreenProps) {
   return (
     <div className="flex items-center justify-center px-4 py-24">
-      <div className="max-w-2xl w-full text-center">
-        <h1
-          className="text-5xl font-semibold tracking-tight mb-6 text-[color:var(--engine-text)]"
-          style={{ lineHeight: '1.15', letterSpacing: '-0.02em' }}
-        >
-          Find the 3 Website Fixes That Will Make the Biggest Difference
+      <div className="max-w-2xl w-full text-center min-h-[500px] flex flex-col items-center justify-center">
+        <h1 className="text-4xl md:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-sky-300 to-emerald-200 mt-4 mb-6 pb-4">
+          Thank you for your purchase! Let's get started.
         </h1>
 
         <p
@@ -36,9 +33,6 @@ export function LandingScreen({ onStart }: LandingScreenProps) {
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </button>
 
-        <p className="mt-8 text-sm" style={{ color: 'var(--engine-text-muted)' }}>
-          Takes ~5 minutes. No signup required.
-        </p>
       </div>
     </div>
   );

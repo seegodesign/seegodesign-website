@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import { Hero } from '../components/Hero';
 import { CaseStudies } from '../components/CaseStudies';
-import { Process } from '../components/Process';
+// import { Process } from '../components/Process';
 import { Footer } from '../components/Footer';
 
 export default function HomePage() {
@@ -30,7 +30,7 @@ export default function HomePage() {
       <Navigation />
       <Hero isLoading={isLoading} />
       <CaseStudies isLoading={isLoading} />
-      <Process isLoading={isLoading} />
+      {/* <Process isLoading={isLoading} /> */}
       <Footer isLoading={isLoading} />
     </div>
   );

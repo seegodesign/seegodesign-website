@@ -40,7 +40,7 @@ export async function POST(request: Request) {
         optional: true,
         text: {
           default_value: body.notes,
-          maximum_length: 512,
+          maximum_length: 255,
         },
       },
     ],

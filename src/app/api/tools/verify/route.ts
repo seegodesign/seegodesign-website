@@ -1,19 +1,19 @@
 import { verifyAccessToken } from '../../../../lib/websiteFixPriorityToken';
+import { getPaidToolConfig, type PaidToolKey } from '../../../../lib/paidToolConfig';
 
-const tokenSecret = process.env.WEBSITE_FIX_PRIORITY_TOKEN_SECRET;
-
-if (!tokenSecret) {
-  throw new Error('Missing WEBSITE_FIX_PRIORITY_TOKEN_SECRET environment variable');
-}
+const isPaidToolKey = (value: string | null): value is PaidToolKey =>
+  value === 'website-fix-priorities' || value === 'accessibility-fix-priorities';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const token = searchParams.get('token');
+  const tool = searchParams.get('tool');
 
-  if (!token) {
+  if (!token || !isPaidToolKey(tool)) {
     return Response.json({ valid: false }, { status: 400 });
   }
 
+  const { tokenSecret } = getPaidToolConfig(tool);
   const payload = verifyAccessToken(token, tokenSecret);
 
   if (!payload) {

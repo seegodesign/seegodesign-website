@@ -7,32 +7,42 @@ import { CaseStudyCard } from './CaseStudyCard';
 
 const caseStudies = [
   {
-    title: 'MSP Client Portal Rebuild',
-    client: 'Regional IT Services Provider',
-    image: 'https://images.unsplash.com/photo-1759752394755-1241472b589d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGRhc2hib2FyZCUyMGludGVyZmFjZXxlbnwxfHx8fDE3Njc1Njk3MzN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    problem: 'Their client portal was built on a heavily customized WordPress setup. Every small feature request required days of work navigating plugin conflicts. The site frequently broke after updates, and mobile performance was poor.',
-    work: 'Built a new React-based frontend with a clean REST API connecting to their existing backend systems. Implemented a design system for consistency and created reusable components for common workflows like ticket submission and billing.',
-    outcome: 'Feature development time dropped by 60%. The portal now handles 3x the traffic without performance issues. Most importantly, their team can confidently add new features without fear of breaking existing functionality.',
-    tech: ['React', 'TypeScript', 'REST API', 'TailwindCSS'],
-  },
-  {
-    title: 'SaaS Marketing Site Modernization',
-    client: 'B2B Analytics Platform',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71',
-    problem: 'Their marketing site was a Frankenstein of legacy jQuery and inline scripts. Making updates required a developer, and A/B testing was nearly impossible. Page load times were hurting SEO rankings.',
-    work: 'Migrated to Next.js with server-side rendering and static generation. Set up a headless CMS for content management, allowing the marketing team to update pages without developer intervention. Optimized images and implemented proper caching strategies.',
-    outcome: 'Page load times improved from 6.2s to 1.4s. Marketing can now deploy changes independently, and they run 5-10 A/B tests monthly. Organic traffic increased 40% within three months of launch.',
-    tech: ['Next.js', 'Headless CMS', 'SSR/SSG', 'Performance Optimization'],
-  },
-  {
-    title: 'Custom Product Configurator',
-    client: 'Bauer Skates',
-    image: 'https://seegodesign.com/wp-content/uploads/2018/08/bauer-845x684.jpg',
-    problem: 'Customer struggled with a clunky Flash-based product configurator from 2008. It only worked on desktop, crashed frequently, and couldn\'t integrate with their modern ERP system. Sales reps spent hours manually quoting simple orders.',
-    work: 'Developed a Vue.js configurator with real-time 3D previews and pricing. Built integrations with their ERP and CRM systems for seamless quote generation. Made it fully responsive so field sales could demo products on tablets.',
-    outcome: 'Quote generation time dropped from hours to minutes. Mobile orders increased 200% in the first quarter. The configurator reduced pricing errors by 90%, and customer satisfaction scores jumped significantly.',
+    title: 'Custom Water Bottle Customizer',
+    client: 'Owala',
+    image: 'owala.jpg',
+    problem: 'Customer needed a modern 3D product customizer to allow users to build and price custom water bottles. Their existing Flash-based tool was outdated, not mobile-friendly, and couldn\'t integrate with their ERP system. Sales reps spent hours manually quoting simple orders.',
+    work: 'Developed a Vue.js customizer with real-time 3D previews and dynamic pricing. Made it fully responsive for mobile.',
+    outcome: 'Client sold 32,625 custom bottles in 2025.',
     tech: ['Vue.js', 'Three.js', 'API Integration', 'Responsive Design'],
   },
+  {
+    title: 'Custom Goalie Gear Customizer',
+    client: 'Bauer Skates',
+    image: 'bauer.jpg',
+    problem: 'Customer struggled with a clunky Flash-based product customizer from 2008. It only worked on desktop, crashed frequently, and couldn\'t integrate with their modern ERP system. Sales reps spent hours manually quoting simple orders.',
+    work: 'Developed a Vue.js customizer with real-time 3D previews and pricing. Built integrations with their ERP and CRM systems for seamless quote generation. Made it fully responsive so field sales could demo products on tablets.',
+    outcome: 'Quote generation time dropped from hours to minutes. Mobile orders increased 200% in the first quarter. The customizer reduced pricing errors by 90%, and customer satisfaction scores jumped significantly.',
+    tech: ['Vue.js', 'Three.js', 'API Integration', 'Responsive Design'],
+  },
+  {
+    title: 'Find a Trade Ally Contractor Tool',
+    client: 'EnergyTrust of Oregon',
+    image: 'eto-fac.jpg',
+    problem: 'Their existing contractor search tool was outdated, slow, and hard to use. It relied on a static database that was difficult to update, leading to inaccurate listings. Users often complained about poor search functionality and long load times.',
+    work: 'Built a new Vue.js application with a dynamic backend that allowed for easy updates to contractor listings. Implemented advanced search and filtering options, along with a responsive design for mobile users. Optimized performance to ensure fast load times.',
+    outcome: 'User engagement increased by 150%, with average session duration rising from 2 to 5 minutes. The number of contractor searches grew by 80%, and user satisfaction surveys showed a significant improvement in usability ratings.',
+    tech: ['Vue', 'Javascript', 'REST API'],
+  },
+  {
+    title: 'HAEMR Website',
+    client: 'Harvard Affiliated Emergency Residency Program',
+    image: 'haemr.jpg',
+    problem: 'The existing website was built on an outdated CMS that made content updates cumbersome. The design was not mobile-friendly, leading to a poor user experience on smartphones and tablets. Additionally, the site had slow load times and accessibility issues.',
+    work: 'Redesigned the website using Wordpress for easy content management. Implemented a responsive design to ensure optimal viewing on all devices. Focused on performance optimization and accessibility compliance throughout the development process.',
+    outcome: 'The new website saw a 60% increase in mobile traffic and a 40% reduction in bounce rates. Content updates became significantly easier for the staff, leading to more frequent updates. Accessibility audits showed full compliance with WCAG 2.1 standards.',
+    tech: ['WordPress', 'Performance Optimization'],
+  },
+
 ];
 
 type CaseStudiesProps = {

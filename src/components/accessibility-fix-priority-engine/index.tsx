@@ -4,7 +4,9 @@ import { useState, type CSSProperties } from 'react';
 import { LandingScreen } from './components/LandingScreen';
 import { QuestionnaireScreen } from './components/QuestionnaireScreen';
 import { ResultsScreen } from './components/ResultsScreen';
+import { VIPDayPage } from './components/VIPDayPage';
 import type { Answers } from './types';
+import { calculatePriorities } from './utils/scoring';
 
 const engineTheme = {
   '--engine-page-bg': '#0b1828',
@@ -27,7 +29,7 @@ const engineTheme = {
 } as CSSProperties;
 
 export default function AccessibilityFixPriorityEngine() {
-  const [screen, setScreen] = useState<'landing' | 'questionnaire' | 'results'>('landing');
+  const [screen, setScreen] = useState<'landing' | 'questionnaire' | 'results' | 'vipday'>('landing');
   const [answers, setAnswers] = useState<Answers>({});
 
   const handleStart = () => setScreen('questionnaire');
@@ -42,6 +44,17 @@ export default function AccessibilityFixPriorityEngine() {
     setScreen('landing');
   };
 
+  const handleViewVIPDay = () => {
+    setScreen('vipday');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToResults = () => {
+    setScreen('results');
+  };
+
+  const priorities = calculatePriorities(answers);
+
   return (
     <div
       className="border border-slate-700/60 shadow-[0_25px_60px_rgba(8,15,30,0.45)] backdrop-blur-sm"
@@ -51,7 +64,19 @@ export default function AccessibilityFixPriorityEngine() {
         <div key={screen} className="animate-section-rise">
           {screen === 'landing' && <LandingScreen onStart={handleStart} />}
           {screen === 'questionnaire' && <QuestionnaireScreen onComplete={handleComplete} />}
-          {screen === 'results' && <ResultsScreen answers={answers} onRestart={handleRestart} />}
+          {screen === 'results' && (
+            <ResultsScreen
+              answers={answers}
+              onRestart={handleRestart}
+              onViewVIPDay={handleViewVIPDay}
+            />
+          )}
+          {screen === 'vipday' && (
+            <VIPDayPage
+              priorities={priorities}
+              onBack={handleBackToResults}
+            />
+          )}
         </div>
       </div>
     </div>

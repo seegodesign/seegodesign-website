@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useInViewOnce } from '../hooks/useInViewOnce';
-import { Mail, Linkedin, Github, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
 
 type ContactProps = {
   isLoading: boolean;
@@ -11,6 +11,8 @@ type ContactProps = {
 export function Contact({ isLoading }: ContactProps) {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
   const shouldAnimate = !isLoading && isInView;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<'idle' | 'success' | 'error'>('idle');
 
   const [formData, setFormData] = useState({
     name: '',
@@ -19,11 +21,28 @@ export function Contact({ isLoading }: ContactProps) {
     message: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real implementation, this would send to a backend
-    console.log('Form submitted:', formData);
-    alert('Thanks for reaching out! This is a demo, but in production this would send your message.');
+    setIsSubmitting(true);
+    setSubmitState('idle');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        setSubmitState('error');
+        return;
+      }
+      setSubmitState('success');
+      setFormData({ name: '', email: '', company: '', message: '' });
+    } catch (error) {
+      console.error(error);
+      setSubmitState('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -49,7 +68,7 @@ export function Contact({ isLoading }: ContactProps) {
           {/* Left Column - Info */}
           <div>
             <h2 className="text-slate-100 mb-4 text-4xl md:text-5xl lg:text-6xl">
-              Ready to get started?
+              Let's build something great together
             </h2>
             <p className="text-slate-300 text-lg mb-8">
               If your systems feel fragmented, your workflows are stuck in manual mode, or your website is outdated, we should talk.
@@ -72,34 +91,6 @@ export function Contact({ isLoading }: ContactProps) {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="flex gap-4">
-              <a
-                href="mailto:cameron@seegodesign.com"
-                className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-slate-800 text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
-                aria-label="Email"
-              >
-                <Mail size={20} />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-slate-800 text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-slate-800 text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
-                aria-label="GitHub"
-              >
-                <Github size={20} />
-              </a>
             </div>
           </div>
 
@@ -171,11 +162,18 @@ export function Contact({ isLoading }: ContactProps) {
 
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary-dark)] text-white px-8 py-4 rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors shadow-lg shadow-gray-900/10"
+                disabled={isSubmitting}
+                className="w-full inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary-dark)] text-white px-8 py-4 rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors shadow-lg shadow-gray-900/10 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
                 <Send size={18} />
               </button>
+              {submitState === 'success' && (
+                <p className="text-sm text-[color:var(--brand-primary)]">Thanks! Your message is on its way.</p>
+              )}
+              {submitState === 'error' && (
+                <p className="text-sm text-red-300">Something went wrong. Please email cameron@seegodesign.com directly.</p>
+              )}
             </form>
           </div>
         </div>

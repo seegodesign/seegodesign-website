@@ -31,7 +31,7 @@ export default function WebsiteOptimizationPage() {
                 that move the needle in weeks, not quarters. Every sprint is built around impact, not busywork.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 animate-hero-cta-primary">
-                <ContactButton text="Schedule a consultation" />
+                <ContactButton text="Contact us to get started" />
               </div>
             </div>
             <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/40">
@@ -87,7 +87,7 @@ export default function WebsiteOptimizationPage() {
               <div>
                 <p className="text-xs uppercase tracking-[0.35em] text-white/55">Website Fix Priorities</p>
                 <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
-                  Try our free tool to identify your top 3 fixes.
+                  Use our tool to identify your top 3 fixes
                 </h2>
                 <p className="text-sm text-slate-200 mt-4 max-w-2xl">
                   Use the Website Fix Priorities tool to surface the top 3 changes you should make right

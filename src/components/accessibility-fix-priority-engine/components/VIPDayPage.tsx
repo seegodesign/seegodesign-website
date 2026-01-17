@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { ArrowRight, Check, Zap, Shield, Calendar } from 'lucide-react';
-import type { Priority } from '../utils/scoring';
-// Update the path below to the correct relative path from this file to constants.ts
-import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE } from '../../../library/constants';
+import { ArrowRight, Check, Shield, Zap, Calendar } from 'lucide-react';
+import type { Priority } from '../types';
 
 interface VIPDayPageProps {
   priorities: Priority[];
@@ -21,9 +19,9 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            successUrl: `${origin}/services/website-optimization?status=success`,
-            cancelUrl: `${origin}/services/website-optimization?status=cancel`,
-            notes: priorities.map(p => p.title).join(', ')
+            successUrl: `${origin}/services/accessibility-compliance?status=success`,
+            cancelUrl: `${origin}/services/accessibility-compliance?status=cancel`,
+            notes: priorities.map((priority) => priority.title).join(', '),
           }),
         });
 
@@ -48,9 +46,8 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
   };
 
   return (
-    <div className="min-h-screen px-4 py-16">
+    <div className="min-h-screen px-4 py-4 md:py-16">
       <div className="max-w-4xl mx-auto">
-        {/* Back Link */}
         <button
           onClick={onBack}
           className="mb-8 inline-flex items-center gap-2 transition-colors"
@@ -61,23 +58,60 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
           ← Back to Results
         </button>
 
-        {/* Header */}
         <div className="text-center mb-12">
           <h1
             className="text-4xl sm:text-5xl font-semibold mb-4"
             style={{ color: 'var(--engine-text)', lineHeight: '1.2', letterSpacing: '-0.02em' }}
           >
-            One-Day Website Fix
+            Accessibility Remediation Sprint
           </h1>
           <p
             className="text-xl"
             style={{ color: 'var(--engine-text-muted)', lineHeight: '1.7', maxWidth: '700px', margin: '0 auto' }}
           >
-            Get your highest-impact website fixes implemented in a single focused day—no dragging projects or endless revisions.
+            Fix your highest-risk accessibility issues in a focused sprint with clear documentation and retesting.
           </p>
         </div>
 
-        {/* VIP Day Offer */}
+        <div
+          className="mb-12 p-8 rounded-xl"
+          style={{ backgroundColor: 'var(--engine-card-soft)', border: '2px solid var(--engine-border)' }}
+        >
+          <h2 className="text-2xl font-semibold mb-3" style={{ color: 'var(--engine-text)' }}>
+            Based on Your Answers
+          </h2>
+          <p className="text-lg mb-6" style={{ color: 'var(--engine-text-strong)', lineHeight: '1.7' }}>
+            Here are the top accessibility priorities we would tackle first.
+          </p>
+
+          <div className="space-y-3">
+            {priorities.map((priority, index) => (
+              <div key={priority.id} className="flex items-start gap-3">
+                <div
+                  className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-semibold"
+                  style={{ backgroundColor: 'var(--engine-primary)', color: 'var(--engine-primary-contrast)' }}
+                >
+                  {index + 1}
+                </div>
+                <div>
+                  <h3 className="font-semibold" style={{ color: 'var(--engine-text)' }}>
+                    {priority.title}
+                  </h3>
+                  <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
+                    {priority.why}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center mb-12 py-6">
+          <p className="text-xl font-medium" style={{ color: 'var(--engine-text-muted)', fontStyle: 'italic' }}>
+            You have the priorities. Now get a compliant, test-ready experience with less risk.
+          </p>
+        </div>
+
         <div
           className="rounded-xl p-10 mb-12"
           style={{
@@ -86,22 +120,21 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
           }}
         >
           <h2 className="text-3xl font-semibold mb-8 text-center" style={{ color: 'var(--engine-text)' }}>
-            What You Get in Your VIP Fix Day
+            What You Get in the Remediation Sprint
           </h2>
 
-          {/* What Gets Fixed */}
           <div className="mb-10">
             <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--engine-text)' }}>
-              What We'll Fix
+              What We Fix
             </h3>
             <div className="space-y-3">
               {[
-                'Implementation of your top 3 priority fixes',
-                'Mobile optimization and responsive design adjustments',
-                'Page speed improvements and performance optimization',
-                'Clear call-to-action placement and design',
-                'Homepage messaging clarity and structure',
-                'Basic conversion tracking setup (if needed)',
+                'Keyboard navigation and focus visibility',
+                'Form labels, error summaries, and input guidance',
+                'Color contrast and visual hierarchy',
+                'ARIA roles, states, and dynamic announcements',
+                'Critical-page audit documentation with screenshots',
+                'Verification testing with assistive tech',
               ].map((item, idx) => (
                 <div key={idx} className="flex items-start gap-3">
                   <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--engine-primary)' }} />
@@ -111,10 +144,9 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
             </div>
           </div>
 
-          {/* Why One Day Works */}
           <div className="mb-10">
-            <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--engine-text)' }}>
-              Why One Day Works
+            <h3 className="text-xl font-semibold mb-4 text-center md:text-left" style={{ color: 'var(--engine-text)' }}>
+              Why a Sprint Works
             </h3>
             <div className="grid sm:grid-cols-3 gap-6">
               <div className="text-center">
@@ -124,9 +156,9 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
                 >
                   <Zap className="w-6 h-6" style={{ color: 'var(--engine-primary-contrast)' }} />
                 </div>
-                <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Focused Intensity</h4>
+                <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Focused Remediation</h4>
                 <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-                  Dedicated time means faster decisions and immediate results
+                  We prioritize the highest-risk issues first.
                 </p>
               </div>
               <div className="text-center">
@@ -136,9 +168,9 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
                 >
                   <Shield className="w-6 h-6" style={{ color: 'var(--engine-primary-contrast)' }} />
                 </div>
-                <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Clear Scope</h4>
+                <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Compliance Proof</h4>
                 <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-                  No scope creep—we tackle the highest-impact fixes only
+                  Clear documentation and evidence for legal review.
                 </p>
               </div>
               <div className="text-center">
@@ -148,97 +180,54 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
                 >
                   <Calendar className="w-6 h-6" style={{ color: 'var(--engine-primary-contrast)' }} />
                 </div>
-                <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Real Completion</h4>
+                <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Fast Turnaround</h4>
                 <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-                  You end the day with improvements live, not "in progress"
+                  Fixes and retesting delivered on a clear timeline.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* What You Avoid */}
           <div className="mb-8 p-6 rounded-lg" style={{ backgroundColor: 'var(--engine-card-bg)' }}>
             <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--engine-text)' }}>
               What You Avoid
             </h3>
             <ul className="space-y-2">
-              <li style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>❌ Dragging projects that take weeks or months</li>
-              <li style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>❌ Endless back-and-forth emails and revisions</li>
-              <li style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>❌ Scope creep and budget overruns</li>
-              <li style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>❌ Technical jargon you do not understand</li>
+              <li style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>❌ Unclear compliance ownership</li>
+              <li style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>❌ Risky changes without validation</li>
+              <li style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>❌ Documentation gaps during legal review</li>
+              <li style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>❌ Regressions after the fixes ship</li>
             </ul>
           </div>
 
-          {/* CTA */}
           <div className="text-center">
             <button
               onClick={handleStripeCheckout}
-              className="group inline-flex items-center gap-3 px-10 py-5 rounded-lg text-xl font-semibold transition-all shadow-lg hover:shadow-xl mb-4 disabled:cursor-not-allowed disabled:opacity-70"
+              disabled={isRedirecting}
+              className="group inline-flex items-center gap-3 px-10 py-5 rounded-lg text-xl font-semibold transition-all shadow-lg hover:shadow-xl mb-4"
               style={{
                 backgroundColor: 'var(--engine-cta)',
-                color: 'var(--engine-primary-contrast)'
+                color: 'var(--engine-primary-contrast)',
               }}
+              aria-disabled={isRedirecting}
               onMouseEnter={(e) => {
+                if (isRedirecting) return;
                 e.currentTarget.style.backgroundColor = 'var(--engine-cta-hover)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.transform = 'translateY(-1px)';
               }}
               onMouseLeave={(e) => {
+                if (isRedirecting) return;
                 e.currentTarget.style.backgroundColor = 'var(--engine-cta)';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
-              disabled={isRedirecting}
-              aria-busy={isRedirecting}
             >
-              {isRedirecting ? 'Redirecting to checkout...' : 'Reserve Your VIP Day'}
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              {isRedirecting ? 'Redirecting...' : 'Book a remediation sprint'}
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <p className="text-sm mb-4" style={{ color: 'var(--engine-text-muted)' }}>
-              ${ONE_DAY_WEBSITE_DEPOSIT_PRICE} non-refundable deposit (Total: ${ONE_DAY_WEBSITE_FIX_PRICE})
-            </p>
-            <p className="text-xs" style={{ color: 'var(--engine-text-muted)' }}>
-              Remaining ${ONE_DAY_WEBSITE_FIX_PRICE - ONE_DAY_WEBSITE_DEPOSIT_PRICE} due before your scheduled VIP day
+            <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
+              We will scope the sprint, confirm risk areas, and ship verified fixes.
             </p>
           </div>
-        </div>
-
-        {/* Risk Reducers */}
-        <div className="mb-12 grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-          <div
-            className="p-6 rounded-xl text-center h-full"
-            style={{ backgroundColor: 'var(--engine-card-soft)', border: '2px solid var(--engine-border)' }}
-          >
-            <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text)' }}>
-              🗓️ Limited Spots Per Month
-            </h4>
-            <p style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-              We only take 4 VIP days per month to ensure quality and focus. Book early to secure your spot.
-            </p>
-          </div>
-
-          <div
-            className="p-6 rounded-xl text-center h-full"
-            style={{ backgroundColor: 'var(--engine-card-soft)', border: '2px solid var(--engine-border)' }}
-          >
-            <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text)' }}>
-              ✅ Clear Scope & Process
-            </h4>
-            <p style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-              Pre-day questionnaire ensures we're aligned. Day-of access to a shared workspace keeps you in the loop without interrupting flow.
-            </p>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center" style={{ color: 'var(--engine-text-muted)', fontSize: '0.875rem' }}>
-          <p>
-            Questions? {' '}
-            <a
-              href="/contact"
-              style={{ color: 'var(--engine-primary)', textDecoration: 'underline' }}
-            >
-              Contact us here
-            </a>
-          </p>
         </div>
       </div>
     </div>

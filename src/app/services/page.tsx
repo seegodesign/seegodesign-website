@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatedNetworkBackground } from '../../components/AnimatedNetworkBackground';
+import { AnimatedWavesBackground } from '../../components/AnimatedWavesBackground';
 import { Navigation } from '../../components/Navigation';
 import { Footer } from '../../components/Footer';
 import ScrollDownArrow from '../../components/ScrollDownArrow';
@@ -30,15 +30,15 @@ export default function ServicesPage() {
       href: '/services/branding',
     },
     {
-      title: 'UX/UI Design',
+      title: 'E-Commerce Systems',
       description:
-        'Design that moves people forward. We pair research-backed UX with elegant UI so your product is easier to use, easier to love, and measurably better at converting curious visitors into customers.',
+        'Launch or rebuild a shop that feels premium and converts. We build Shopify themes and WooCommerce stores that are fast, branded, and easy to run.',
       outcomes: [
-        'User flows and journey maps that remove friction',
-        'High-fidelity UI with a cohesive component library',
-        'Prototype testing and iteration before build',
+        'Custom storefronts designed around your merchandising',
+        'Product, collection, and checkout flows tuned to convert',
+        'Clean integrations for inventory, fulfillment, and analytics',
       ],
-      href: '/services/ux-ui-design',
+      href: '/services/e-commerce-systems',
     },
     {
       title: 'System Overhaul',
@@ -50,6 +50,17 @@ export default function ServicesPage() {
         'Migration plan that keeps revenue flowing',
       ],
       href: '/services/system-overhaul',
+    },
+    {
+      title: 'UX/UI Design',
+      description:
+        'Design that moves people forward. We pair research-backed UX with elegant UI so your product is easier to use, easier to love, and measurably better at converting curious visitors into customers.',
+      outcomes: [
+        'User flows and journey maps that remove friction',
+        'High-fidelity UI with a cohesive component library',
+        'Prototype testing and iteration before build',
+      ],
+      href: '/services/ux-ui-design',
     },
     {
       title: 'Website Optimization',
@@ -76,7 +87,7 @@ export default function ServicesPage() {
   };
   return (
     <div className="relative overflow-hidden bg-[#0b1828] isolate">
-      <AnimatedNetworkBackground />
+      <AnimatedWavesBackground />
       <Navigation />
       <main className="relative z-10 pt-24">
         <section className="max-w-6xl mx-auto min-h-screen relative -top-12 flex flex-col justify-center items-center text-center">

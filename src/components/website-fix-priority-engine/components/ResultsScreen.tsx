@@ -14,6 +14,23 @@ interface ResultsScreenProps {
 export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScreenProps) {
   const priorities = calculatePriorities(answers);
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set());
+  const comparisonRows = [
+    {
+      label: 'Time',
+      diy: 'Several weeks of scattered effort',
+      oneDay: '1 focused day, live by 5pm',
+    },
+    {
+      label: 'Risk',
+      diy: 'Wrong priorities, half-finished fixes',
+      oneDay: 'Low (proven process, expert execution)',
+    },
+    {
+      label: 'Outcome',
+      diy: 'Partial improvements, unclear results',
+      oneDay: 'Fully implemented and tested',
+    },
+  ];
 
   const toggleExpanded = (id: string) => {
     const newExpanded = new Set(expandedIds);
@@ -221,75 +238,101 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
               backgroundColor: 'var(--engine-card-bg)',
             }}
           >
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b" style={{ borderColor: 'var(--engine-border)' }}>
-                  <th className="px-6 py-4 text-sm uppercase tracking-[0.2em]" style={{ color: 'var(--engine-text-muted)' }}>
-                    Category
-                  </th>
-                  <th className="px-6 py-4 text-sm uppercase tracking-[0.2em]" style={{ color: 'var(--engine-text-muted)' }}>
-                    DIY
-                  </th>
-                  <th
-                    className="px-6 py-4 text-sm uppercase tracking-[0.2em]"
-                    style={{
-                      color: 'var(--engine-text)',
-                      backgroundColor: 'var(--engine-highlight-bg)',
-                      borderLeft: '1px solid var(--engine-border)',
-                    }}
-                  >
-                    One-Day Fix
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  {
-                    label: 'Time',
-                    diy: 'Several weeks of scattered effort',
-                    oneDay: '1 focused day, live by 5pm',
-                  },
-                  {
-                    label: 'Risk',
-                    diy: 'Wrong priorities, half-finished fixes',
-                    oneDay: 'Low (proven process, expert execution)',
-                  },
-                  {
-                    label: 'Outcome',
-                    diy: 'Partial improvements, unclear results',
-                    oneDay: 'Fully implemented and tested',
-                  },
-                ].map((row, index) => (
-                  <tr key={row.label} className={index < 2 ? 'border-b' : ''} style={{ borderColor: 'var(--engine-border)' }}>
-                    <td
-                      className="px-6 py-5 text-sm font-semibold uppercase tracking-[0.2em]"
-                      style={{ color: 'var(--engine-text-muted)' }}
-                    >
-                      {row.label}
-                    </td>
-                    <td className="px-6 py-5">
+            <div className="md:hidden">
+              {comparisonRows.map((row, index) => (
+                <div
+                  key={row.label}
+                  className={`px-6 py-5 ${index < comparisonRows.length - 1 ? 'border-b' : ''}`}
+                  style={{ borderColor: 'var(--engine-border)' }}
+                >
+                  <p className="text-xs uppercase tracking-[0.2em] mb-2" style={{ color: 'var(--engine-text-muted)' }}>
+                    {row.label}
+                  </p>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-[0.65rem] uppercase tracking-[0.2em] mb-2" style={{ color: 'var(--engine-text-muted)' }}>
+                        DIY
+                      </p>
                       <div className="flex items-start gap-2">
                         <Check className="w-5 h-5 mt-1" style={{ color: 'var(--engine-text-muted)' }} />
-                        <p className="text-lg" style={{ color: 'var(--engine-text-strong)' }}>
+                        <p className="text-base" style={{ color: 'var(--engine-text-strong)' }}>
                           {row.diy}
                         </p>
                       </div>
-                    </td>
-                    <td
-                      className="px-6 py-5"
-                      style={{ backgroundColor: 'var(--engine-highlight-bg)', borderLeft: '1px solid var(--engine-border)' }}
+                    </div>
+                    <div
+                      className="rounded-lg p-4"
+                      style={{ backgroundColor: 'var(--engine-highlight-bg)', border: '1px solid var(--engine-border)' }}
                     >
+                      <p className="text-[0.65rem] uppercase tracking-[0.2em] mb-2" style={{ color: 'var(--engine-text)' }}>
+                        One-Day Fix
+                      </p>
                       <div className="flex items-start gap-2">
                         <Check className="w-5 h-5 mt-1" style={{ color: 'var(--engine-primary)' }} />
-                        <p className="text-lg font-semibold" style={{ color: 'var(--engine-text-strong)' }}>
+                        <p className="text-base font-semibold" style={{ color: 'var(--engine-text-strong)' }}>
                           {row.oneDay}
                         </p>
                       </div>
-                    </td>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="hidden md:block">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b" style={{ borderColor: 'var(--engine-border)' }}>
+                    <th className="px-6 py-4 text-sm uppercase tracking-[0.2em]" style={{ color: 'var(--engine-text-muted)' }}>
+                      Category
+                    </th>
+                    <th className="px-6 py-4 text-sm uppercase tracking-[0.2em]" style={{ color: 'var(--engine-text-muted)' }}>
+                      DIY
+                    </th>
+                    <th
+                      className="px-6 py-4 text-sm uppercase tracking-[0.2em]"
+                      style={{
+                        color: 'var(--engine-text)',
+                        backgroundColor: 'var(--engine-highlight-bg)',
+                        borderLeft: '1px solid var(--engine-border)',
+                      }}
+                    >
+                      One-Day Fix
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((row, index) => (
+                    <tr key={row.label} className={index < 2 ? 'border-b' : ''} style={{ borderColor: 'var(--engine-border)' }}>
+                      <td
+                        className="px-6 py-5 text-sm font-semibold uppercase tracking-[0.2em]"
+                        style={{ color: 'var(--engine-text-muted)' }}
+                      >
+                        {row.label}
+                      </td>
+                      <td className="px-6 py-5">
+                        <div className="flex items-start gap-2">
+                          <Check className="w-5 h-5 mt-1" style={{ color: 'var(--engine-text-muted)' }} />
+                          <p className="text-lg" style={{ color: 'var(--engine-text-strong)' }}>
+                            {row.diy}
+                          </p>
+                        </div>
+                      </td>
+                      <td
+                        className="px-6 py-5"
+                        style={{ backgroundColor: 'var(--engine-highlight-bg)', borderLeft: '1px solid var(--engine-border)' }}
+                      >
+                        <div className="flex items-start gap-2">
+                          <Check className="w-5 h-5 mt-1" style={{ color: 'var(--engine-primary)' }} />
+                          <p className="text-lg font-semibold" style={{ color: 'var(--engine-text-strong)' }}>
+                            {row.oneDay}
+                          </p>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -383,9 +426,6 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
             Most service-based businesses struggle with the same core issues: unclear messaging that assumes visitors already understand what you do, CTAs that blend into the page instead of guiding action, and mobile experiences that frustrate the majority of your traffic. The good news is that these are known problems with known solutions. You are not starting from scratch—you are following a proven path that works because it addresses how real visitors actually use websites.
           </p>
         </div>
-
-        {/* Divider */}
-        <div className="border-t-2 mb-16" style={{ borderColor: 'var(--engine-border)' }}></div>
 
         {/* Simplified Upsell Section */}
         <div className="text-center mb-12">

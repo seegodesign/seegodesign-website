@@ -25,6 +25,7 @@ export function Navigation() {
         { href: '/services/accessibility-compliance', label: 'Accessibility Compliance' },
         { href: '/services/app-development', label: 'App Development' },
         { href: '/services/branding', label: 'Branding' },
+        { href: '/services/e-commerce-systems', label: 'E-Commerce Systems' },
         { href: '/services/system-overhaul', label: 'System Overhaul' },
         { href: '/services/ux-ui-design', label: 'UX/UI Design' },
         { href: '/services/website-optimization', label: 'Website Optimization' },
@@ -37,7 +38,11 @@ export function Navigation() {
         { href: '/tools/website-fix-priorities', label: 'Website Fix Priorities' },
         { href: '/tools/accessibility-fix-priorities', label: 'Accessibility Fix Priorities' },
       ],
-    }
+    },
+    {
+      href: '/contact',
+      label: 'Contact'
+    },
   ];
 
   useEffect(() => {
@@ -119,10 +124,10 @@ export function Navigation() {
               );
             })}
             <Link
-              href="/contact"
+              href="/book-a-call"
               className="bg-[color:var(--brand-primary-dark)] text-white px-6 py-2.5 rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
             >
-              Get in Touch
+              Book a Call
             </Link>
           </div>
 

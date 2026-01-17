@@ -32,7 +32,7 @@ export function AnimatedCubesBackground() {
 
       const sketch = (p: p5Type) => {
         const cubes: Cube[] = [];
-        const cubeCount = 36;
+        const cubeCount = 75;
         const bounds = 520;
 
         const createCubes = () => {
@@ -61,11 +61,15 @@ export function AnimatedCubesBackground() {
           canvas.parent(hostRef.current as HTMLDivElement);
           canvas.style('display', 'block');
           p.pixelDensity(1);
+          p.perspective(Math.PI / 6, p.width / p.height, 20, 3000);
+          p.camera(0, 0, 900, 0, 0, 0, 0, 1, 0);
           createCubes();
         };
 
         p.windowResized = () => {
           p.resizeCanvas(p.windowWidth, p.windowHeight);
+          p.perspective(Math.PI / 6, p.width / p.height, 20, 3000);
+          p.camera(0, 0, 900, 0, 0, 0, 0, 1, 0);
         };
 
         p.draw = () => {
