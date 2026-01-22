@@ -1,6 +1,6 @@
-import { Navigation } from '../../components/Navigation';
-import { Footer } from '../../components/Footer';
-import { BookCall } from '../../components/BookCall';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
+import { BookCall } from '@/components/BookCall';
 
 export default function BookACallPage() {
   return (

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { ArrowRight, RefreshCw, ChevronDown, ChevronUp, Download, X, Check } from 'lucide-react';
-import type { Answers } from '../types';
-import { calculatePriorities } from '../utils/scoring';
-import { generatePDFSummary } from '../utils/pdfGenerator';
-import { ONE_DAY_WEBSITE_FIX_PRICE } from '../../../library/constants';
+import type { Answers } from '@/components/website-fix-priority-engine/types';
+import { calculatePriorities } from '@/components/website-fix-priority-engine/utils/scoring';
+import { generatePDFSummary } from '@/components/website-fix-priority-engine/utils/pdfGenerator';
+import { ONE_DAY_WEBSITE_FIX_PRICE } from '@/library/constants';
 
 interface ResultsScreenProps {
   answers: Answers;

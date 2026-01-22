@@ -1,13 +1,13 @@
 'use client';
 
-import { Navigation } from '../../components/Navigation';
-import { Footer } from '../../components/Footer';
-import WebsiteFixPriorityEngine from '../../components/website-fix-priority-engine';
-import { AnimatedNetworkBackground } from '../../components/AnimatedNetworkBackground';
-import { WhatYouReceive } from '../../components/WhatYouReceive';
-import { WEBSITE_FIX_PRIORITY_PRODUCT_PRICE } from '../../library/constants';
-import { usePaidToolAccess } from '../../hooks/usePaidToolAccess';
-import { usePaidToolCheckout } from '../../hooks/usePaidToolCheckout';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
+import WebsiteFixPriorityEngine from '@/components/website-fix-priority-engine';
+import { AnimatedNetworkBackground } from '@/components/AnimatedNetworkBackground';
+import { WhatYouReceive } from '@/components/WhatYouReceive';
+import { WEBSITE_FIX_PRIORITY_PRODUCT_PRICE } from '@/library/constants';
+import { usePaidToolAccess } from '@/hooks/usePaidToolAccess';
+import { usePaidToolCheckout } from '@/hooks/usePaidToolCheckout';
 
 export default function WebsiteFixPrioritiesClient() {
   const { hasAccess } = usePaidToolAccess('website-fix-priorities');

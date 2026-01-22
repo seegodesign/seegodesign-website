@@ -1,9 +1,10 @@
 'use client';
 
-import { Footer } from '../../../components/Footer';
-import { Navigation } from '../../../components/Navigation';
-import { WhatYouReceive } from '../../../components/WhatYouReceive';
-import ContactButton from '../../../components/ContactButton';
+import { Footer } from '@/components/Footer';
+import { Navigation } from '@/components/Navigation';
+import { WhatYouReceive } from '@/components/WhatYouReceive';
+import ContactButton from '@/components/ContactButton';
+import Link from 'next/link';
 
 export default function AccessibilityCompliancePage() {
   return (
@@ -16,7 +17,7 @@ export default function AccessibilityCompliancePage() {
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
             <div>
               <span className="text-xs uppercase tracking-[0.35em] text-white/55">Accessibility Compliance</span>
-              <h1 className="text-4xl md:text-6xl font-semibold text-white mt-4 mb-6 animate-hero-headline">
+              <h1 className="text-4xl md:text-5xl font-semibold text-white mt-4 mb-6 animate-hero-headline">
                 Audit, fix, and document accessibility issues before they become legal exposure.
               </h1>
               <p className="text-lg text-slate-200 max-w-2xl animate-hero-subhead">
@@ -52,7 +53,7 @@ export default function AccessibilityCompliancePage() {
                 <div className="flex items-start justify-between gap-6">
                   <div>
                     <p className="text-3xl font-semibold text-white">100%</p>
-                    <p className="text-sm text-slate-300">evidence package delivered for legal review.</p>
+                    <p className="text-sm text-slate-300">Legal peace of mind with documented compliance evidence.</p>
                   </div>
                   <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
                     ✓
@@ -75,7 +76,7 @@ export default function AccessibilityCompliancePage() {
               {
                 title: 'Compliance Audits',
                 description:
-                  'Manual + automated testing for WCAG 2.2 AA, ADA Title III, Section 508, and EN 301 549.',
+                  'Testing for WCAG 2.2 AA, ADA Title III, Section 508, and EN 301 549.',
               },
               {
                 title: 'Remediation Sprints',
@@ -96,6 +97,25 @@ export default function AccessibilityCompliancePage() {
                 <p className="text-sm text-slate-300 leading-relaxed">{item.description}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/60 px-6 py-8 md:px-10">
+            <p className="text-xs uppercase tracking-[0.35em] text-white/55">Why this matters</p>
+            <div className="mt-4 border-l-2 border-[color:var(--brand-primary)]/70 pl-5">
+              <p className="text-lg text-slate-100 leading-relaxed">
+                “The ways that websites are designed and set up can create unnecessary barriers that make it
+                difficult or impossible for people with disabilities to use websites, just as physical barriers
+                like steps can prevent some people with disabilities from entering a building.”
+              </p>
+              <Link
+                className="mt-4 inline-flex text-sm uppercase tracking-[0.3em] text-white/50 hover:text-white"
+                href="https://www.ada.gov/resources/web-guidance/"
+              >
+                ADA.gov
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -214,20 +234,20 @@ export default function AccessibilityCompliancePage() {
                   launch. Tell us your risk timeline and we will build the right plan.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-4">
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:brightness-110"
+              <div className="flex flex-shrink-0 flex-wrap gap-4">
+                <Link
+                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase text-white transition hover:brightness-110"
+                  href="/book-a-call"
                   style={{ backgroundColor: 'var(--brand-primary)' }}
                 >
                   Book a discovery call
-                </button>
-                <button
+                </Link>
+                {/* <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 border border-white/30 hover:border-white/60 hover:text-white transition"
+                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase text-white/90 border border-white/30 hover:border-white/60 hover:text-white transition"
                 >
                   Download sample audit
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '../../../components/Navigation';
-import { Footer } from '../../../components/Footer';
-import { useInViewOnce } from '../../../hooks/useInViewOnce';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
+import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { Compass, Settings, Rocket } from 'lucide-react';
-import { AnimatedNetworkBackground } from '../../../components/AnimatedNetworkBackground';
-import { WhatYouReceive } from '../../../components/WhatYouReceive';
-import ContactButton from '../../../components/ContactButton';
+import { AnimatedNetworkBackground } from '@/components/AnimatedNetworkBackground';
+import { WhatYouReceive } from '@/components/WhatYouReceive';
+import ContactButton from '@/components/ContactButton';
 
 export default function SystemOverhaulPage() {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });

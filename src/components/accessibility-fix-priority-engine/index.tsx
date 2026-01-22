@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, type CSSProperties } from 'react';
-import { LandingScreen } from './components/LandingScreen';
-import { QuestionnaireScreen } from './components/QuestionnaireScreen';
-import { ResultsScreen } from './components/ResultsScreen';
-import { VIPDayPage } from './components/VIPDayPage';
-import type { Answers } from './types';
-import { calculatePriorities } from './utils/scoring';
+import { LandingScreen } from '@/components/accessibility-fix-priority-engine/components/LandingScreen';
+import { QuestionnaireScreen } from '@/components/accessibility-fix-priority-engine/components/QuestionnaireScreen';
+import { ResultsScreen } from '@/components/accessibility-fix-priority-engine/components/ResultsScreen';
+import { VIPDayPage } from '@/components/accessibility-fix-priority-engine/components/VIPDayPage';
+import type { Answers } from '@/components/accessibility-fix-priority-engine/types';
+import { calculatePriorities } from '@/components/accessibility-fix-priority-engine/utils/scoring';
 
 const engineTheme = {
   '--engine-page-bg': '#0b1828',

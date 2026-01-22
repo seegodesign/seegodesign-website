@@ -1,4 +1,4 @@
-import type { Answers } from '../types';
+import type { Answers } from '@/components/website-fix-priority-engine/types';
 
 export interface Priority {
   id: string;

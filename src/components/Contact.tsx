@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useInViewOnce } from '../hooks/useInViewOnce';
+import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { Send } from 'lucide-react';
 
 type ContactProps = {
@@ -68,22 +68,22 @@ export function Contact({ isLoading }: ContactProps) {
           {/* Left Column - Info */}
           <div>
             <h2 className="text-slate-100 mb-4 text-4xl md:text-5xl lg:text-6xl">
-              Let&apos;s build something great together
+              Turn your website into a revenue engine
             </h2>
             <p className="text-slate-300 text-lg mb-8">
-              If your systems feel fragmented, your workflows are stuck in manual mode, or your website is outdated, we should talk.
+              We design and build premium web experiences that convert, scale, and make your team look good. If your
+              current site is underperforming, unclear, or a pain to maintain, we will fix the fundamentals and deliver
+              a platform you can confidently grow on.
             </p>
 
             <div className="space-y-4 mb-8">
-              <h3 className="text-slate-100">Ideal for:</h3>
+              <h3 className="text-slate-100">You might be a good fit for us if:</h3>
               <ul className="space-y-3">
                 {[
-                  'Businesses with disconnected tools and data',
-                  'Operations leaders tired of manual workarounds',
-                  'Product teams preparing for a redesign or migration',
-                  'Founder-led teams ready to scale processes',
-                  'Marketing teams needing websites that reflect how they actually operate',
-                  'Businesses seeking custom solutions that fit their unique workflows',
+                  'You need a redesign that improves conversion rates, not just aesthetics.',
+                  'You want a custom site that positions you as the clear category leader.',
+                  'You are ready to fix performance, accessibility, and UX gaps for good.',
+                  'You need a partner who can move fast and keep you out of the weeds.',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3 text-slate-300">
                     <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--brand-primary)] mt-2 flex-shrink-0"></div>
@@ -146,7 +146,7 @@ export function Contact({ isLoading }: ContactProps) {
 
               <div>
                 <label htmlFor="message" className="block text-slate-200 mb-2">
-                  Tell me about your project
+                  Project goals and blockers
                 </label>
                 <textarea
                   id="message"

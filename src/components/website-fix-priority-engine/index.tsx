@@ -2,13 +2,13 @@
 
 import { useEffect, useState, type CSSProperties } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { LandingScreen } from './components/LandingScreen';
-import { QuestionnaireScreen } from './components/QuestionnaireScreen';
-import { ResultsScreen } from './components/ResultsScreen';
-import { VIPDayPage } from './components/VIPDayPage';
-import { ConfirmationPage } from './components/ConfirmationPage';
-import type { Answers } from './types';
-import { calculatePriorities } from './utils/scoring';
+import { LandingScreen } from '@/components/website-fix-priority-engine/components/LandingScreen';
+import { QuestionnaireScreen } from '@/components/website-fix-priority-engine/components/QuestionnaireScreen';
+import { ResultsScreen } from '@/components/website-fix-priority-engine/components/ResultsScreen';
+import { VIPDayPage } from '@/components/website-fix-priority-engine/components/VIPDayPage';
+import { ConfirmationPage } from '@/components/website-fix-priority-engine/components/ConfirmationPage';
+import type { Answers } from '@/components/website-fix-priority-engine/types';
+import { calculatePriorities } from '@/components/website-fix-priority-engine/utils/scoring';
 
 const engineTheme = {
   '--engine-page-bg': '#0b1828',

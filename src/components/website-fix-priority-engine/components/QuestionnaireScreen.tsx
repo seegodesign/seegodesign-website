@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowLeft } from 'lucide-react';
-import type { Answers } from '../types';
+import type { Answers } from '@/components/website-fix-priority-engine/types';
 
 interface QuestionnaireScreenProps {
   onComplete: (answers: Answers) => void;

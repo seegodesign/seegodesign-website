@@ -1,5 +1,5 @@
 import { Check } from 'lucide-react';
-import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE } from '../../../library/constants';
+import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE } from '@/library/constants';
 
 interface ConfirmationPageProps {
   onBackToResults: () => void;

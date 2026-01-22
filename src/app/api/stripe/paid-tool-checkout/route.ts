@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-import { getPaidToolConfig, type PaidToolKey } from '../../../../lib/paidToolConfig';
+import { getPaidToolConfig, type PaidToolKey } from '@/lib/paidToolConfig';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 

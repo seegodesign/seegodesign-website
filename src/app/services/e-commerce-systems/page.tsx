@@ -1,7 +1,7 @@
-import { Navigation } from '../../../components/Navigation';
-import { Footer } from '../../../components/Footer';
-import { WhatYouReceive } from '../../../components/WhatYouReceive';
-import ContactButton from '../../../components/ContactButton';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
+import { WhatYouReceive } from '@/components/WhatYouReceive';
+import ContactButton from '@/components/ContactButton';
 
 export default function EcommerceSystemsPage() {
   return (

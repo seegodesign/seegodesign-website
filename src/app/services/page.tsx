@@ -1,12 +1,23 @@
 "use client";
 
-import { AnimatedWavesBackground } from '../../components/AnimatedWavesBackground';
-import { Navigation } from '../../components/Navigation';
-import { Footer } from '../../components/Footer';
-import ScrollDownArrow from '../../components/ScrollDownArrow';
+import { AnimatedWavesBackground } from '@/components/AnimatedWavesBackground';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
+import ScrollDownArrow from '@/components/ScrollDownArrow';
 
 export default function ServicesPage() {
   const services = [
+    {
+      title: 'Accessibility Compliance',
+      description:
+        'Ensure your digital product is usable by everyone. We help you meet legal standards and create inclusive experiences that broaden your reach and build trust with all users.',
+      outcomes: [
+        'Comprehensive accessibility audits and reports',
+        'Remediation plans with prioritized fixes',
+        'Ongoing monitoring and compliance support',
+      ],
+      href: '/services/accessibility-compliance',
+    },
     {
       title: 'App Development',
       description:
@@ -18,49 +29,60 @@ export default function ServicesPage() {
       ],
       href: '/services/app-development',
     },
+    // {
+    //   title: 'App Development',
+    //   description:
+    //     'Ship a product that feels inevitable: fast, stable, and quietly beautiful. We build modern web and product experiences that reduce friction, scale with your roadmap, and give your team a clean foundation to grow from.',
+    //   outcomes: [
+    //     'Production-ready architecture and thoughtful component systems',
+    //     'Performance-focused builds with analytics baked in',
+    //     'Reliable releases with QA and launch support',
+    //   ],
+    //   href: '/services/app-development',
+    // },
+    // {
+    //   title: 'Branding',
+    //   description:
+    //     'Clarify your story and turn it into a visual system people remember. From naming to identity, we give you a brand that feels confident, distinct, and immediately trustworthy across every touchpoint.',
+    //   outcomes: [
+    //     'Positioning, voice, and messaging frameworks',
+    //     'Logo and identity systems built for digital',
+    //     'A full kit of brand assets and usage guidance',
+    //   ],
+    //   href: '/services/branding',
+    // },
+    // {
+    //   title: 'E-Commerce Systems',
+    //   description:
+    //     'Launch or rebuild a shop that feels premium and converts. We build Shopify themes and WooCommerce stores that are fast, branded, and easy to run.',
+    //   outcomes: [
+    //     'Custom storefronts designed around your merchandising',
+    //     'Product, collection, and checkout flows tuned to convert',
+    //     'Clean integrations for inventory, fulfillment, and analytics',
+    //   ],
+    //   href: '/services/e-commerce-systems',
+    // },
+    // {
+    //   title: 'System Overhaul',
+    //   description:
+    //     'When your product has outgrown its foundations, we modernize it without breaking momentum. We untangle messy UX, simplify complex workflows, and rebuild the system so teams can ship faster with fewer risks.',
+    //   outcomes: [
+    //     'Audit of UX, IA, and interface debt',
+    //     'New system architecture and design language',
+    //     'Migration plan that keeps revenue flowing',
+    //   ],
+    //   href: '/services/system-overhaul',
+    // },
     {
-      title: 'Branding',
+      title: 'Web Design',
       description:
-        'Clarify your story and turn it into a visual system people remember. From naming to identity, we give you a brand that feels confident, distinct, and immediately trustworthy across every touchpoint.',
+        'Build web sites that captivate and convert. We design beautiful, user-focused websites that tell your brand story, engage visitors, and drive action across all devices.',
       outcomes: [
-        'Positioning, voice, and messaging frameworks',
-        'Logo and identity systems built for digital',
-        'A full kit of brand assets and usage guidance',
+        'Custom, responsive designs that reflect your brand identity',
+        'User-centric layouts optimized for engagement and conversion',
+        'Designs delivered with clear implementation guidelines',
       ],
-      href: '/services/branding',
-    },
-    {
-      title: 'E-Commerce Systems',
-      description:
-        'Launch or rebuild a shop that feels premium and converts. We build Shopify themes and WooCommerce stores that are fast, branded, and easy to run.',
-      outcomes: [
-        'Custom storefronts designed around your merchandising',
-        'Product, collection, and checkout flows tuned to convert',
-        'Clean integrations for inventory, fulfillment, and analytics',
-      ],
-      href: '/services/e-commerce-systems',
-    },
-    {
-      title: 'System Overhaul',
-      description:
-        'When your product has outgrown its foundations, we modernize it without breaking momentum. We untangle messy UX, simplify complex workflows, and rebuild the system so teams can ship faster with fewer risks.',
-      outcomes: [
-        'Audit of UX, IA, and interface debt',
-        'New system architecture and design language',
-        'Migration plan that keeps revenue flowing',
-      ],
-      href: '/services/system-overhaul',
-    },
-    {
-      title: 'UX/UI Design',
-      description:
-        'Design that moves people forward. We pair research-backed UX with elegant UI so your product is easier to use, easier to love, and measurably better at converting curious visitors into customers.',
-      outcomes: [
-        'User flows and journey maps that remove friction',
-        'High-fidelity UI with a cohesive component library',
-        'Prototype testing and iteration before build',
-      ],
-      href: '/services/ux-ui-design',
+      href: '/services/web-design',
     },
     {
       title: 'Website Optimization',

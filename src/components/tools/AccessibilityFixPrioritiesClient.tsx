@@ -1,13 +1,13 @@
 'use client';
 
-import { Navigation } from '../../components/Navigation';
-import { Footer } from '../../components/Footer';
-import AccessibilityFixPriorityEngine from '../../components/accessibility-fix-priority-engine';
-import { AnimatedCubesBackground } from '../../components/AnimatedCubesBackground';
-import { WhatYouReceive } from '../../components/WhatYouReceive';
-import { ACCESSIBILITY_FIX_PRIORITY_PRODUCT_PRICE } from '../../library/constants';
-import { usePaidToolAccess } from '../../hooks/usePaidToolAccess';
-import { usePaidToolCheckout } from '../../hooks/usePaidToolCheckout';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
+import AccessibilityFixPriorityEngine from '@/components/accessibility-fix-priority-engine';
+import { AnimatedCubesBackground } from '@/components/AnimatedCubesBackground';
+import { WhatYouReceive } from '@/components/WhatYouReceive';
+import { ACCESSIBILITY_FIX_PRIORITY_PRODUCT_PRICE } from '@/library/constants';
+import { usePaidToolAccess } from '@/hooks/usePaidToolAccess';
+import { usePaidToolCheckout } from '@/hooks/usePaidToolCheckout';
 
 export default function AccessibilityFixPrioritiesClient() {
   const { hasAccess } = usePaidToolAccess('accessibility-fix-priorities');

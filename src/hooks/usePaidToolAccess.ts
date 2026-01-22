@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import type { PaidToolKey } from '../lib/paidToolConfig';
+import type { PaidToolKey } from '@/lib/paidToolConfig';
 
 export const usePaidToolAccess = (tool: PaidToolKey) => {
   const searchParams = useSearchParams();

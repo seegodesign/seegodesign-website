@@ -24,10 +24,10 @@ export function Navigation() {
       children: [
         { href: '/services/accessibility-compliance', label: 'Accessibility Compliance' },
         { href: '/services/app-development', label: 'App Development' },
-        { href: '/services/branding', label: 'Branding' },
-        { href: '/services/e-commerce-systems', label: 'E-Commerce Systems' },
-        { href: '/services/system-overhaul', label: 'System Overhaul' },
-        { href: '/services/ux-ui-design', label: 'UX/UI Design' },
+        // { href: '/services/branding', label: 'Branding' },
+        // { href: '/services/e-commerce-systems', label: 'E-Commerce Systems' },
+        // { href: '/services/system-overhaul', label: 'System Overhaul' },
+        { href: '/services/web-design', label: 'Web Design' },
         { href: '/services/website-optimization', label: 'Website Optimization' },
       ],
     },
@@ -35,8 +35,9 @@ export function Navigation() {
       href: '/tools',
       label: 'Tools',
       children: [
-        { href: '/tools/website-fix-priorities', label: 'Website Fix Priorities' },
         { href: '/tools/accessibility-fix-priorities', label: 'Accessibility Fix Priorities' },
+        { href: '/tools/app-decision-tool', label: 'App Decision Tool' },
+        { href: '/tools/website-fix-priorities', label: 'Website Fix Priorities' },
       ],
     },
     {

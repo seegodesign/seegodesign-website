@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { useInViewOnce } from '../hooks/useInViewOnce';
+import { useInViewOnce } from '@/hooks/useInViewOnce';
 
 type BookCallProps = {
   isLoading: boolean;

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { PaidToolKey } from '../lib/paidToolConfig';
+import type { PaidToolKey } from '@/lib/paidToolConfig';
 
 export const usePaidToolCheckout = (tool: PaidToolKey, cancelPath: string) => {
   const [isRedirecting, setIsRedirecting] = useState(false);

@@ -1,4 +1,4 @@
-import type { Answers, Priority } from '../types';
+import type { Answers, Priority } from '@/components/accessibility-fix-priority-engine/types';
 
 const priorities: Priority[] = [
   {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useInViewOnce } from '../hooks/useInViewOnce';
+import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { Compass, Sparkles, Settings, Pencil } from 'lucide-react';
 
 type ProcessProps = {

@@ -1,7 +1,20 @@
-import { Navigation } from '../../../components/Navigation';
-import { Footer } from '../../../components/Footer';
-import { WhatYouReceive } from '../../../components/WhatYouReceive';
-import ContactButton from '../../../components/ContactButton';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
+import { WhatYouReceive } from '@/components/WhatYouReceive';
+import ContactButton from '@/components/ContactButton';
+// import { CaseStudies } from '@/components/CaseStudies';
+
+// const caseStudies = [
+//   {
+//     title: 'Custom Water Bottle Customizer',
+//     client: 'Owala',
+//     image: '/owala.jpg',
+//     problem: 'Customer needed a modern 3D product customizer to allow users to build and price custom water bottles. Their existing Flash-based tool was outdated, not mobile-friendly, and couldn\'t integrate with their ERP system. Sales reps spent hours manually quoting simple orders.',
+//     work: 'Developed a Vue.js customizer with real-time 3D previews and dynamic pricing. Made it fully responsive for mobile.',
+//     outcome: 'Client sold 32,625 custom bottles in 2025.',
+//     tech: ['Vue.js', 'Three.js', 'API Integration', 'Responsive Design'],
+//   }
+// ];
 
 export default function BrandingPage() {
   return (

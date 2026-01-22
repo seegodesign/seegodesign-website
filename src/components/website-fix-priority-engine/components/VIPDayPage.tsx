@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { ArrowRight, Check, Zap, Shield, Calendar } from 'lucide-react';
-import type { Priority } from '../utils/scoring';
+import type { Priority } from '@/components/website-fix-priority-engine/utils/scoring';
 // Update the path below to the correct relative path from this file to constants.ts
-import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE } from '../../../library/constants';
+import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE } from '@/library/constants';
 
 interface VIPDayPageProps {
   priorities: Priority[];

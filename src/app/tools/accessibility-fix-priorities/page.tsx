@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import AccessibilityFixPrioritiesClient from '../../../components/tools/AccessibilityFixPrioritiesClient';
+import AccessibilityFixPrioritiesClient from '@/components/tools/AccessibilityFixPrioritiesClient';
 
 export default function AccessibilityFixPrioritiesPage() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, Check, Shield, Zap, Calendar } from 'lucide-react';
-import type { Priority } from '../types';
+import type { Priority } from '@/components/accessibility-fix-priority-engine/types';
 
 interface VIPDayPageProps {
   priorities: Priority[];

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useInViewOnce } from '../hooks/useInViewOnce';
+import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { Layers, Workflow, Compass } from 'lucide-react';
 
 type AboutProps = {

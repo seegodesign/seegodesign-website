@@ -139,14 +139,14 @@ export function Hero({ isLoading }: HeroProps) {
                 Start a Conversation
                 <ArrowRight size={20} />
               </Link>
-              <button
+              {/* <button
                 onClick={scrollToCaseStudies}
                 className={`inline-flex items-center justify-center gap-2 border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white/10 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-white/20 text-lg ${
                   !isLoading && isInView ? "animate-hero-cta-secondary" : ""
                 }`}
               >
                 See Our Work
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

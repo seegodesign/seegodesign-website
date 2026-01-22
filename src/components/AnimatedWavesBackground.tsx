@@ -14,17 +14,18 @@ export function AnimatedWavesBackground() {
       const p5 = (await import('p5')).default;
       if (cancelled || !hostRef.current) return;
 
-      const sketch = (p: p5Type) => {
-        const waves: {
-          amplitude: number;
-          frequency: number;
-          speed: number;
-          phase: number;
-          offset: number;
-          color: [number, number, number, number];
-        }[] = [];
-        const waveCount = 6;
-        const backgroundColor: [number, number, number] = [10, 21, 36];
+        const sketch = (p: p5Type) => {
+          const waves: {
+            amplitude: number;
+            frequency: number;
+            speed: number;
+            phase: number;
+            offset: number;
+            color: [number, number, number, number];
+          }[] = [];
+          const waveCount = 6;
+          const backgroundColor: [number, number, number] = [10, 21, 36];
+          const pointSpacing = 96;
 
         const createWaves = () => {
           waves.length = 0;
@@ -58,14 +59,14 @@ export function AnimatedWavesBackground() {
           createWaves();
         };
 
-        p.draw = () => {
-          p.clear();
-          p.background(...backgroundColor);
+          p.draw = () => {
+            p.clear();
+            p.background(...backgroundColor);
 
-          const time = p.millis();
-          for (const wave of waves) {
-            const centerY = p.height * wave.offset;
-            const verticalDrift = Math.sin(time * wave.speed * 0.6 + wave.phase) * wave.amplitude * 0.8;
+            const time = p.millis();
+            for (const wave of waves) {
+              const centerY = p.height * wave.offset;
+              const verticalDrift = Math.sin(time * wave.speed * 0.6 + wave.phase) * wave.amplitude * 0.8;
             const fillAlpha = Math.max(12, Math.floor(wave.color[3] * 0.4));
             p.stroke(...wave.color);
             p.strokeWeight(1.5);
@@ -77,6 +78,18 @@ export function AnimatedWavesBackground() {
               p.curveVertex(x, y);
             }
             p.endShape();
+
+            const pulse = Math.sin(time * 0.002 + wave.phase) * 0.5 + 0.5;
+            const pointAlpha = Math.min(120, wave.color[3] + 20);
+            const pointSize = 3 + pulse * 2.5;
+            p.noStroke();
+            p.fill(wave.color[0], wave.color[1], wave.color[2], pointAlpha);
+            for (let x = 0; x <= p.width; x += pointSpacing) {
+              const angle = x * wave.frequency + wave.phase + time * wave.speed;
+              const y = centerY + Math.sin(angle) * wave.amplitude + verticalDrift;
+              p.circle(x, y, pointSize);
+              p.circle(x + pointSpacing * 0.5, y + Math.sin(angle + 0.5) * 6, pointSize * 0.75);
+            }
 
             p.noStroke();
             p.fill(wave.color[0], wave.color[1], wave.color[2], fillAlpha);

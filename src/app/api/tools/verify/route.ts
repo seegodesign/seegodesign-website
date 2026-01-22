@@ -1,8 +1,10 @@
-import { verifyAccessToken } from '../../../../lib/websiteFixPriorityToken';
-import { getPaidToolConfig, type PaidToolKey } from '../../../../lib/paidToolConfig';
+import { verifyAccessToken } from '@/lib/websiteFixPriorityToken';
+import { getPaidToolConfig, type PaidToolKey } from '@/lib/paidToolConfig';
 
 const isPaidToolKey = (value: string | null): value is PaidToolKey =>
-  value === 'website-fix-priorities' || value === 'accessibility-fix-priorities';
+  value === 'website-fix-priorities' ||
+  value === 'accessibility-fix-priorities' ||
+  value === 'app-decision-tool';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

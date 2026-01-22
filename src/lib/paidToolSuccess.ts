@@ -1,6 +1,6 @@
 import Stripe from 'stripe';
-import { signAccessToken } from './websiteFixPriorityToken';
-import { getPaidToolConfig, type PaidToolKey } from './paidToolConfig';
+import { signAccessToken } from '@/lib/websiteFixPriorityToken';
+import { getPaidToolConfig, type PaidToolKey } from '@/lib/paidToolConfig';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 

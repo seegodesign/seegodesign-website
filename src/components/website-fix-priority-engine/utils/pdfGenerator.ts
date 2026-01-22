@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf';
-import type { Priority } from './scoring';
+import type { Priority } from '@/components/website-fix-priority-engine/utils/scoring';
 
 const PAGE_MARGIN = 18;
 const SECTION_GAP = 8;

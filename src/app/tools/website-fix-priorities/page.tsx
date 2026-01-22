@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import WebsiteFixPrioritiesClient from '../../../components/tools/WebsiteFixPrioritiesClient';
+import WebsiteFixPrioritiesClient from '@/components/tools/WebsiteFixPrioritiesClient';
 
 export default function WebsiteFixPrioritiesPage() {
   return (

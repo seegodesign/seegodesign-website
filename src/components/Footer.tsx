@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useInViewOnce } from '../hooks/useInViewOnce';
+import { useInViewOnce } from '@/hooks/useInViewOnce';
 import Link from 'next/link';
 import { Mail, Linkedin, Github } from 'lucide-react';
 

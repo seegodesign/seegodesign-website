@@ -1,17 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { Navigation } from '../../../components/Navigation';
-import { Footer } from '../../../components/Footer';
-import { AnimatedNetworkBackground } from '../../../components/AnimatedNetworkBackground';
-import { WhatYouReceive } from '../../../components/WhatYouReceive';
-import ContactButton from '../../../components/ContactButton';
+import { Navigation } from '@/components/Navigation';
+import { Footer } from '@/components/Footer';
+import { WhatYouReceive } from '@/components/WhatYouReceive';
+import ContactButton from '@/components/ContactButton';
 
 export default function WebsiteOptimizationPage() {
 
   return (
     <div className="min-h-screen bg-[#0b1828] flex flex-col relative isolate">
-      <AnimatedNetworkBackground />
       <div className="relative z-100">
         <Navigation />
       </div>

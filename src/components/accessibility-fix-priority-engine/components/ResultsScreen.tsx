@@ -1,7 +1,7 @@
 import { ArrowRight, Check, Download, RefreshCw } from 'lucide-react';
-import type { Answers } from '../types';
-import { calculatePriorities } from '../utils/scoring';
-import { generatePDFSummary } from '../utils/pdfGenerator';
+import type { Answers } from '@/components/accessibility-fix-priority-engine/types';
+import { calculatePriorities } from '@/components/accessibility-fix-priority-engine/utils/scoring';
+import { generatePDFSummary } from '@/components/accessibility-fix-priority-engine/utils/pdfGenerator';
 
 interface ResultsScreenProps {
   answers: Answers;

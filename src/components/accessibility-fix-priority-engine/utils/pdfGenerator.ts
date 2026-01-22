@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf';
-import type { Priority } from '../types';
+import type { Priority } from '@/components/accessibility-fix-priority-engine/types';
 
 const PAGE_MARGIN = 18;
 const SECTION_GAP = 8;

@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import { getPaidToolSuccessUrl } from '../../../../lib/paidToolSuccess';
+import { getPaidToolSuccessUrl } from '@/lib/paidToolSuccess';
 
 type SuccessPageProps = {
   searchParams: Promise<{ session_id?: string }>;
