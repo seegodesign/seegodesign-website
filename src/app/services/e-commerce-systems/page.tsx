@@ -5,7 +5,7 @@ import ContactButton from '@/components/ContactButton';
 
 export default function EcommerceSystemsPage() {
   return (
-    <div className="min-h-screen bg-[#0b1828] flex flex-col relative isolate overflow-hidden">
+    <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate overflow-hidden">
       <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(96,205,255,0.22),transparent_60%)] blur-3xl" />
       <div className="pointer-events-none absolute top-28 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.2),transparent_65%)] blur-3xl" />
       <Navigation />
@@ -13,12 +13,12 @@ export default function EcommerceSystemsPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
             <div>
-              <span className="text-xs uppercase tracking-[0.35em] text-white/55">E-Commerce Systems</span>
+              <span className="eyebrow">E-Commerce Systems</span>
               <h1 className="text-4xl md:text-6xl font-semibold text-white mt-4 mb-6 animate-hero-headline">
                 Build a storefront that feels premium and converts on every device.
               </h1>
               <p className="text-lg text-slate-200 max-w-2xl animate-hero-subhead">
-                We design and build Shopify themes, WooCommerce shops, and custom commerce experiences that
+                I design and build Shopify themes, WooCommerce shops, and custom commerce experiences that
                 move fast, look sharp, and scale with your catalog. Every flow is tuned for clarity, trust,
                 and conversion.
               </p>
@@ -26,40 +26,40 @@ export default function EcommerceSystemsPage() {
                 <ContactButton text="Plan a commerce build" />
               </div>
             </div>
-            <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/40">
-              <p className="text-sm uppercase tracking-[0.3em] text-white/50">Commerce Impact</p>
+            <div className="hero-card">
+              <p className="hero-card__eyebrow">Commerce Impact</p>
               <div className="mt-6 space-y-6 text-white">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">4-6</p>
-                    <p className="text-sm text-slate-300">weeks to launch a tailored storefront.</p>
+                    <p className="hero-card__stat">4-6</p>
+                    <p className="hero-card__stat-words">weeks to launch a tailored storefront.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-[color:var(--brand-primary)]/20 flex items-center justify-center text-[color:var(--brand-primary)] text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     🛒
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">2x</p>
-                    <p className="text-sm text-slate-300">faster updates with clean sections and blocks.</p>
+                    <p className="hero-card__stat">2x</p>
+                    <p className="hero-card__stat-words">faster updates with clean sections and blocks.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     ⚡
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">100%</p>
-                    <p className="text-sm text-slate-300">handoff-ready with documentation and QA.</p>
+                    <p className="hero-card__stat">100%</p>
+                    <p className="hero-card__stat-words">handoff-ready with documentation and QA.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     ✓
                   </div>
                 </div>
               </div>
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="text-sm text-slate-300">
-                  We focus on product discovery, checkout confidence, and post-purchase retention.
+                  Ifocus on product discovery, checkout confidence, and post-purchase retention.
                 </p>
               </div>
             </div>
@@ -93,8 +93,8 @@ export default function EcommerceSystemsPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Commerce Workflow</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+              <p className="eyebrow">Commerce Workflow</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
                 A clear build process that keeps launches predictable.
               </h2>
               <ol className="space-y-5 text-slate-200">

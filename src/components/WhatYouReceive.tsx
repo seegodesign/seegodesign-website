@@ -16,8 +16,8 @@ export function WhatYouReceive({ items, heading = 'What you receive' }: WhatYouR
   const [activatedItems, setActivatedItems] = useState<Record<string, boolean>>({});
 
   return (
-    <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8">
-      <h3 className="text-xl font-semibold text-white mb-4">{heading}</h3>
+    <div className="hero-card">
+      <h3 className="hero-card__title">{heading}</h3>
       <div className="grid gap-4">
         {items.map((item) => {
           const isActivated = !!activatedItems[item.title];
@@ -30,7 +30,7 @@ export function WhatYouReceive({ items, heading = 'What you receive' }: WhatYouR
                   setActivatedItems((prev) => ({ ...prev, [item.title]: true }));
                 }
               }}
-              className="group relative overflow-hidden rounded-xl border border-white/10 bg-slate-950/60 p-4"
+              className="what-you-receive-item group relative overflow-hidden rounded-xl border border-white/10 bg-slate-950/60 p-4"
             >
               <div
                 className={`pointer-events-none absolute inset-y-0 left-0 w-0 bg-[color:var(--brand-primary)]/20 transition-all duration-500 ease-out ${
@@ -54,8 +54,8 @@ export function WhatYouReceive({ items, heading = 'What you receive' }: WhatYouR
                   </svg>
                 </span>
               </div>
-              <p className="relative text-sm font-semibold text-white">{item.title}</p>
-              <p className="relative text-xs text-slate-300 mt-2">{item.description}</p>
+              <p className="what-you-receive-title relative text-sm font-semibold text-white">{item.title}</p>
+              <p className="what-you-receive-desc relative text-xs text-slate-300 mt-2">{item.description}</p>
             </div>
           );
         })}

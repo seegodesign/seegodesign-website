@@ -1,13 +1,12 @@
 export default function ScrollDownArrow({ handleDownArrowClick }: { handleDownArrowClick: () => void }) {
   return (
     <button
-        aria-label="Scroll to services"
-        onClick={handleDownArrowClick}
-        className="mt-16 mx-auto animate-pulse rounded-full bg-white/10 hover:bg-white/20 transition-colors p-4 flex flex-col items-center group w-12 h-12 justify-center"
-        style={{ outline: 'none', border: 'none' }}
+      aria-label="Scroll to services"
+      onClick={handleDownArrowClick}
+      className="scroll-down-arrow"
     >
       <svg
-        className="w-8 h-8 text-[color:var(--brand-primary)] group-hover:text-white transition-colors"
+        className="scroll-down-arrow__icon"
         fill="none"
         stroke="currentColor"
         strokeWidth={2.5}

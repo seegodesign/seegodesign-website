@@ -418,7 +418,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
             className="text-lg mb-4"
             style={{ color: 'var(--engine-text)', fontWeight: '500', lineHeight: '1.7' }}
           >
-            These priorities reflect the same patterns we see across dozens of small business websites.
+            These priorities reflect the same patterns Isee across dozens of small business websites.
           </p>
           <p
             style={{ color: 'var(--engine-text-muted)', lineHeight: '1.7', maxWidth: '700px', margin: '0 auto' }}

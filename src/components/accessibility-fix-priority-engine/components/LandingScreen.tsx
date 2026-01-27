@@ -12,7 +12,7 @@ export function LandingScreen({ onStart }: LandingScreenProps) {
         >
           Accessibility Fix Priorities
         </p>
-        <h1 className="text-4xl md:text-5xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-200 via-sky-300 to-emerald-200 mt-4 mb-6 pb-4">
+        <h1 className="headline headline--gradient">
           Thanks for your purchase! Let&apos;s get started on identifying your top accessibility fixes.
         </h1>
         <p

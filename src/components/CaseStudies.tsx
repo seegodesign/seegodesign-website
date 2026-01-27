@@ -44,7 +44,7 @@ export function CaseStudies({ isLoading, caseStudies }: CaseStudiesProps) {
     <section
       id="case-studies"
       ref={ref}
-      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-800"
+      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[color:var(--color-surface-strong)]"
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 bg-fixed"
@@ -61,7 +61,7 @@ export function CaseStudies({ isLoading, caseStudies }: CaseStudiesProps) {
             Case Studies
           </h2>
           <p className="text-slate-300 text-lg md:text-xl">
-            These case studies show how we approach frontend modernization —
+            These case studies show how I approach frontend modernization —
             identifying the real pain points, implementing clean solutions, and delivering measurable improvements.
           </p>
         </div>

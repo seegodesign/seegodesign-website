@@ -1,11 +1,19 @@
 import Link from 'next/link';
-export default function ContactButton({ text }: { text: string }) {
+import type { LucideIcon } from 'lucide-react';
+
+type ContactButtonProps = {
+  text: string;
+  icon?: LucideIcon;
+};
+
+export default function ContactButton({ text, icon: Icon }: ContactButtonProps) {
   return (
     <Link
       href="/contact"
-      className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 border border-white/30 hover:border-white/60 hover:text-white transition bg-[color:var(--brand-primary-dark)] hover:bg-[color:var(--brand-primary)]"
+      className="button inline-flex items-center gap-2"
     >
       {text}
+      {Icon ? <Icon size={18} aria-hidden="true" /> : null}
     </Link>
   );
 }

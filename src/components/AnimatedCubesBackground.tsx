@@ -73,8 +73,9 @@ export function AnimatedCubesBackground() {
         };
 
         p.draw = () => {
+          const isLight = document.documentElement.dataset.theme === 'light';
           p.clear();
-          p.background(10, 21, 36);
+          p.background(isLight ? 245 : 10, isLight ? 246 : 21, isLight ? 251 : 36);
           p.orbitControl(0, 0, 0);
           p.noFill();
           p.stroke(125, 202, 47, 120);
@@ -118,7 +119,7 @@ export function AnimatedCubesBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 opacity-35 pointer-events-none bg-gradient-to-b from-[#0f2742] via-[#0b1828] to-[#060b14]">
+    <div className="animated-bg fixed inset-0 z-0 opacity-35 pointer-events-none bg-gradient-to-b from-[#0f2742] via-[#0b1828] to-[#060b14]">
       <div ref={hostRef} />
     </div>
   );

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 type NavItem = {
   href: string;
@@ -17,13 +18,14 @@ export function Navigation() {
   const pathname = usePathname();
   const navItems: NavItem[] = [
     { href: '/', label: 'Home' },
-    // { href: '/about', label: 'About' },
+    { href: '/about', label: 'About' },
     {
       href: '/services',
       label: 'Services',
       children: [
         { href: '/services/accessibility-compliance', label: 'Accessibility Compliance' },
         { href: '/services/app-development', label: 'App Development' },
+        { href: '/services/wordpress-development', label: 'Wordpress Development' },
         // { href: '/services/branding', label: 'Branding' },
         // { href: '/services/e-commerce-systems', label: 'E-Commerce Systems' },
         // { href: '/services/system-overhaul', label: 'System Overhaul' },
@@ -57,13 +59,13 @@ export function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-slate-800/95 shadow-md z-50' : ''
+        isScrolled ? 'bg-[color:var(--color-nav-bg)] shadow-md z-50' : ''
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
-          <Link href="/" className="text-white tracking-tight text-2xl">
-            seego<span className="text-[color:var(--brand-primary)]">design</span>
+          <Link href="/" className="text-[color:var(--color-text)] tracking-tight text-2xl">
+            &lt;Seego<span className="text-[color:var(--brand-primary)]">Design/&gt;</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -80,14 +82,14 @@ export function Navigation() {
                       href={item.href}
                       className={`border-b-2 pb-1 transition-colors ${
                         isActive
-                          ? 'border-[color:var(--brand-primary)] text-white'
-                          : 'border-transparent text-white/90 hover:text-white'
+                          ? 'border-[color:var(--brand-primary)] text-[color:var(--color-text)]'
+                          : 'border-transparent text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]'
                       }`}
                     >
                       {item.label}
                     </Link>
                     <div className="absolute left-0 top-full w-64 pt-3 opacity-0 pointer-events-none transition duration-200 group-hover:opacity-100 group-hover:pointer-events-auto">
-                      <div className="rounded-xl border border-slate-800 bg-slate-900/95 shadow-xl p-3">
+                      <div className="rounded-xl border border-[color:var(--color-border-muted)] bg-[color:var(--color-surface-strong)] shadow-xl p-3">
                         {item.children.map((child) => {
                           const isChildActive = pathname === child.href;
                           return (
@@ -97,7 +99,7 @@ export function Navigation() {
                               className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
                                 isChildActive
                                   ? 'text-[color:var(--brand-primary)]'
-                                  : 'text-slate-200 hover:text-[color:var(--brand-primary)]'
+                                  : 'text-[color:var(--color-text-muted)] hover:text-[color:var(--brand-primary)]'
                               }`}
                             >
                               {child.label}
@@ -116,17 +118,18 @@ export function Navigation() {
                   href={item.href}
                   className={`border-b-2 pb-1 transition-colors ${
                     isActive
-                      ? 'border-[color:var(--brand-primary)] text-white'
-                      : 'border-transparent text-white/90 hover:text-white'
+                      ? 'border-[color:var(--brand-primary)] text-[color:var(--color-text)]'
+                      : 'border-transparent text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]'
                   }`}
                 >
                   {item.label}
                 </Link>
               );
             })}
+            <ThemeToggle />
             <Link
               href="/book-a-call"
-              className="bg-[color:var(--brand-primary-dark)] text-white px-6 py-2.5 rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
+              className="button"
             >
               Book a Call
             </Link>
@@ -135,7 +138,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-white transition-transform duration-300 hover:scale-105"
+            className="md:hidden p-2 text-[color:var(--color-text)] transition-transform duration-300 hover:scale-105"
           >
             <span
               className={`inline-flex items-center justify-center transition-transform duration-300 ${
@@ -161,17 +164,17 @@ export function Navigation() {
           className="absolute inset-0 bg-slate-950/70"
         />
         <div
-          className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-slate-900 border-l transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-[color:var(--color-surface-strong)] border-l border-[color:var(--color-border)] transition-transform duration-300 ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="flex items-center justify-between px-4 py-4 border-b border-white/10">
-            <span className="text-sm uppercase tracking-[0.3em] text-white/50">Menu</span>
+          <div className="flex items-center justify-between px-4 py-4 border-b border-[color:var(--color-border-muted)]">
+            <span className="text-sm uppercase tracking-[0.3em] text-[color:var(--color-text-muted)]">Menu</span>
             <button
               type="button"
               aria-label="Close menu"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition-colors"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[color:var(--color-border-muted)] text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)] hover:border-[color:var(--color-border)] transition-colors"
             >
               <X size={18} />
             </button>
@@ -190,7 +193,7 @@ export function Navigation() {
                     className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
                       isActive
                         ? 'text-[color:var(--brand-primary)]'
-                        : 'text-white/90 hover:text-white hover:bg-[color:var(--brand-primary)]'
+                        : 'text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)] hover:bg-[color:var(--brand-primary)]'
                     }`}
                   >
                     {item.label}
@@ -207,7 +210,7 @@ export function Navigation() {
                             className={`block w-full text-left px-4 py-2 rounded-lg text-sm transition-colors ${
                               isChildActive
                                 ? 'text-[color:var(--brand-primary)]'
-                                : 'text-white/80 hover:text-[color:var(--brand-primary)]'
+                                : 'text-[color:var(--color-text-muted)] hover:text-[color:var(--brand-primary)]'
                             }`}
                           >
                             {child.label}
@@ -226,6 +229,9 @@ export function Navigation() {
             >
               Book a Call
             </Link>
+            <div className="pt-2">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>

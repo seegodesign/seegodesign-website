@@ -138,7 +138,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
                 </div>
                 <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Clear Scope</h4>
                 <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-                  No scope creep—we tackle the highest-impact fixes only
+                  No scope creep—Itackle the highest-impact fixes only
                 </p>
               </div>
               <div className="text-center">
@@ -211,7 +211,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
               🗓️ Limited Spots Per Month
             </h4>
             <p style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-              We only take 4 VIP days per month to ensure quality and focus. Book early to secure your spot.
+              Ionly take 4 VIP days per month to ensure quality and focus. Book early to secure your spot.
             </p>
           </div>
 

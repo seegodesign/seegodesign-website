@@ -17,17 +17,17 @@ export function Footer({ isLoading }: FooterProps) {
   return (
     <footer
       ref={ref}
-      className="bg-black/50 text-white py-8 px-4 sm:px-6 lg:px-8"
+      className="bg-[color:var(--color-surface-strong)] text-[color:var(--color-text)] py-8 px-4 sm:px-6 lg:px-8"
     >
       <div className={`max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-white/80 text-sm">
+          <div className="text-[color:var(--color-text-muted)] text-sm">
             © {currentYear} <Link href="/" className="hover:underline">Seego Design</Link>. All rights reserved.
           </div>
           <div className="flex gap-4">
             <a
               href="mailto:cameron@seegodesign.com"
-              className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-slate-800 text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[color:var(--color-surface-muted)] text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
               aria-label="Email"
             >
               <Mail size={20} />
@@ -36,7 +36,7 @@ export function Footer({ isLoading }: FooterProps) {
               href="https://www.linkedin.com/company/seego-design/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-slate-800 text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[color:var(--color-surface-muted)] text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
@@ -45,7 +45,7 @@ export function Footer({ isLoading }: FooterProps) {
               href="https://github.com/seegodesign/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-slate-800 text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
+              className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[color:var(--color-surface-muted)] text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
               aria-label="GitHub"
             >
               <Github size={20} />

@@ -18,7 +18,7 @@ import ContactButton from '@/components/ContactButton';
 
 export default function BrandingPage() {
   return (
-    <div className="min-h-screen bg-[#0b1828] flex flex-col relative isolate overflow-hidden">
+    <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate overflow-hidden">
       <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.22),transparent_60%)] blur-3xl" />
       <div className="pointer-events-none absolute top-28 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(86,101,108,0.32),transparent_65%)] blur-3xl" />
       <Navigation />
@@ -26,53 +26,53 @@ export default function BrandingPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
             <div>
-              <span className="text-xs uppercase tracking-[0.35em] text-white/55">Brand Strategy + Identity</span>
+              <span className="eyebrow">Brand Strategy + Identity</span>
               <h1 className="text-4xl md:text-6xl font-semibold text-white mt-4 mb-6 animate-hero-headline">
                 Build a brand that feels consistent, trusted, and unmistakably you.
               </h1>
               <p className="text-lg text-slate-200 max-w-2xl animate-hero-subhead">
-                We craft brand strategy, visual identity systems, and marketing collateral that align every
-                touchpoint. From your logo and typography to pitch decks and product UI, we keep the story
+                I will craft your brand strategy, visual identity systems, and marketing collateral that align every
+                touchpoint. From your logo and typography to pitch decks and product UI, I keep the story
                 tight and the experience cohesive.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 animate-hero-cta-primary">
                 <ContactButton text="Schedule a brand audit" />
               </div>
             </div>
-            <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/40">
-              <p className="text-sm uppercase tracking-[0.3em] text-white/50">Brand Impact</p>
+            <div className="hero-card">
+              <p className="hero-card__eyebrow">Brand Impact</p>
               <div className="mt-6 space-y-6 text-white">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">5-7</p>
-                    <p className="text-sm text-slate-300">weeks to launch a full identity system.</p>
+                    <p className="hero-card__stat">5-7</p>
+                    <p className="hero-card__stat-words">weeks to launch a full identity system.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-[color:var(--brand-primary)]/20 flex items-center justify-center text-[color:var(--brand-primary)] text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     ⏱
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">12+</p>
-                    <p className="text-sm text-slate-300">touchpoints aligned across web, mobile, and print.</p>
+                    <p className="hero-card__stat">12+</p>
+                    <p className="hero-card__stat-words">touchpoints aligned across web, mobile, and print.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     ✳
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">100%</p>
-                    <p className="text-sm text-slate-300">brand toolkit delivered with usage guidelines.</p>
+                    <p className="hero-card__stat">100%</p>
+                    <p className="hero-card__stat-words">brand toolkit delivered with usage guidelines.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     ✓
                   </div>
                 </div>
               </div>
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="text-sm text-slate-300">
-                  We deliver brand guidelines, assets, and templates so your team can scale with confidence.
+                  I deliver brand guidelines, assets, and templates so your team can scale with confidence.
                 </p>
               </div>
             </div>
@@ -108,10 +108,10 @@ export default function BrandingPage() {
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-start">
-            <div className="bg-gradient-to-br from-slate-900/80 to-slate-900/30 border border-white/10 rounded-2xl p-8">
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Brand Workflow</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
-                We define, design, and deploy the brand across every surface.
+            <div className="hero-card">
+              <p className="eyebrow">Brand Workflow</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
+                I define, design, and deploy the brand across every surface.
               </h2>
               <ol className="space-y-5 text-slate-200">
                 {[
@@ -130,8 +130,8 @@ export default function BrandingPage() {
               </ol>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Touchpoints Covered</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+              <p className="eyebrow">Touchpoints Covered</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
                 A unified system across every customer moment.
               </h2>
               <div className="grid gap-4">
@@ -152,7 +152,7 @@ export default function BrandingPage() {
               </div>
               <div className="mt-6 border border-white/10 rounded-xl p-5 bg-slate-900/50">
                 <p className="text-sm text-slate-300">
-                  We include templates and usage rules so every team member stays on-brand.
+                  I include templates and usage rules so every team member stays on-brand.
                 </p>
               </div>
             </div>
@@ -162,13 +162,13 @@ export default function BrandingPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Deliverables</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+              <p className="eyebrow">Deliverables</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
                 Everything you need to scale a trusted brand.
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                We package strategy, creative, and production assets so your internal team can execute fast
-                without brand drift. Every deliverable ties back to the positioning and story we define
+                I package strategy, creative, and production assets so your internal team can execute fast
+                without brand drift. Every deliverable ties back to the positioning and story I define
                 together.
               </p>
               <div className="mt-6 space-y-4 text-sm text-slate-200">
@@ -208,16 +208,16 @@ export default function BrandingPage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-[color:var(--brand-primary)]/20 via-slate-900/60 to-slate-900/20 px-8 py-12 md:px-12">
+          <div className="hero-card hero-card--variant">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-white/55">Ready to align</p>
+                <p className="eyebrow">Ready to align</p>
                 <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
                   Build consistency across every customer interaction.
                 </h2>
                 <p className="text-sm text-slate-200 mt-4 max-w-2xl">
-                  We can run a strategy sprint, launch a visual refresh, or build a full collateral system.
-                  Tell us where you need consistency most, and we will scope the right plan.
+                  I can run a strategy sprint, launch a visual refresh, or build a full collateral system.
+                  Tell me where you need consistency most, and I will scope the right plan.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
@@ -228,12 +228,12 @@ export default function BrandingPage() {
                 >
                   Schedule a brand audit
                 </button>
-                <button
+                {/* <button
                   type="button"
                   className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 border border-white/30 hover:border-white/60 hover:text-white transition"
                 >
                   Request sample deliverables
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

@@ -56,38 +56,38 @@ export function Contact({ isLoading }: ContactProps) {
     <section
       id="contact"
       ref={ref}
-      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-900"
+      className="contact-section relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[color:var(--color-surface-strong)]"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 bg-fixed"
+        className="contact-bg absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1448454050639-2f8d4bf26975)' }}
-      />
-      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+      >
+        <div className="hero-overlay"></div>
+      </div>
       <div className={`relative max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {/* Left Column - Info */}
           <div>
-            <h2 className="text-slate-100 mb-4 text-4xl md:text-5xl lg:text-6xl">
-              Turn your website into a revenue engine
+            <h2 className="headline">
+              Turn your website into a <span>revenue engine</span>
             </h2>
-            <p className="text-slate-300 text-lg mb-8">
-              We design and build premium web experiences that convert, scale, and make your team look good. If your
-              current site is underperforming, unclear, or a pain to maintain, we will fix the fundamentals and deliver
+            <p className="subhead">
+              I design and build premium web experiences that convert, scale, and make your team look good. If your
+              current site is underperforming, unclear, or a pain to maintain, Iwill fix the fundamentals and deliver
               a platform you can confidently grow on.
             </p>
 
             <div className="space-y-4 mb-8">
-              <h3 className="text-slate-100">You might be a good fit for us if:</h3>
-              <ul className="space-y-3">
+              <h3 className="text-[color:var(--color-text)]">You might be a good fit for us if:</h3>
+              <ul className="bullets">
                 {[
                   'You need a redesign that improves conversion rates, not just aesthetics.',
                   'You want a custom site that positions you as the clear category leader.',
                   'You are ready to fix performance, accessibility, and UX gaps for good.',
                   'You need a partner who can move fast and keep you out of the weeds.',
                 ].map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 text-slate-300">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[color:var(--brand-primary)] mt-2 flex-shrink-0"></div>
-                    <span className="flex-1 min-w-0">{item}</span>
+                  <li key={index}>
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -98,7 +98,7 @@ export function Contact({ isLoading }: ContactProps) {
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-slate-200 mb-2">
+                <label htmlFor="name" className="block text-[color:var(--color-text-muted)] mb-2">
                   Name
                 </label>
                 <input
@@ -108,13 +108,13 @@ export function Contact({ isLoading }: ContactProps) {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-slate-800 text-slate-100"
+                  className="w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-[color:var(--color-surface-muted)] text-[color:var(--color-text)]"
                   placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-slate-200 mb-2">
+                <label htmlFor="email" className="block text-[color:var(--color-text-muted)] mb-2">
                   Email
                 </label>
                 <input
@@ -124,13 +124,13 @@ export function Contact({ isLoading }: ContactProps) {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-slate-800 text-slate-100"
+                  className="w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-[color:var(--color-surface-muted)] text-[color:var(--color-text)]"
                   placeholder="your@email.com"
                 />
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-slate-200 mb-2">
+                <label htmlFor="company" className="block text-[color:var(--color-text-muted)] mb-2">
                   Company
                 </label>
                 <input
@@ -139,13 +139,13 @@ export function Contact({ isLoading }: ContactProps) {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-slate-800 text-slate-100"
+                  className="w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-[color:var(--color-surface-muted)] text-[color:var(--color-text)]"
                   placeholder="Your company"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-slate-200 mb-2">
+                <label htmlFor="message" className="block text-[color:var(--color-text-muted)] mb-2">
                   Project goals and blockers
                 </label>
                 <textarea
@@ -155,7 +155,7 @@ export function Contact({ isLoading }: ContactProps) {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent resize-none bg-slate-800 text-slate-100"
+                  className="w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent resize-none bg-[color:var(--color-surface-muted)] text-[color:var(--color-text)]"
                   placeholder="What's holding your website back? What would you like to improve?"
                 />
               </div>

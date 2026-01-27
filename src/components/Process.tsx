@@ -11,42 +11,34 @@ export function Process({ isLoading }: ProcessProps) {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
   const shouldAnimate = !isLoading && isInView;
 
-  const handleGlow = (event: React.MouseEvent<HTMLElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    event.currentTarget.style.setProperty('--glow-x', `${x}px`);
-    event.currentTarget.style.setProperty('--glow-y', `${y}px`);
-  };
-
   const steps = [
     {
       icon: Compass,
       eyebrow: 'Typical starting point',
       title: 'Discovery & Planning',
       description:
-        'First we seek to understand your goals and requirements. Through research and analysis, we create a tailored plan to guide the project from start to finish.',
+        'First I seek to understand your goals and requirements. Through research and analysis, I create a tailored plan to guide the project from start to finish.',
     },
     {
       icon: Pencil,
       eyebrow: 'Shaping the vision',
       title: 'Design & Prototyping',
       description:
-        'We develop wireframes and prototypes to visualize the user experience and interface. This phase focuses on usability, aesthetics, and aligning with your brand identity.',
+        'I develop wireframes and prototypes to visualize the user experience and interface. This phase focuses on usability, aesthetics, and aligning with your brand identity.',
     },
     {
       icon: Settings,
       eyebrow: 'Bringing it all together',
       title: 'Development & QA',
       description:
-        'Using an agile approach, we build the product in iterations, allowing for regular feedback and adjustments. Rigorous testing ensures quality and performance before launch.',
+        'Using an agile approach, I build the product in iterations, allowing for regular feedback and adjustments. Rigorous testing ensures quality and performance before launch.',
     },
     {
       icon: Sparkles,
       eyebrow: 'Final step',
       title: 'Launch & Support',
       description:
-        'After deployment, we provide ongoing support and maintenance to ensure the product remains effective and up-to-date, helping you achieve long-term success.',
+        'After deployment, I provide ongoing support and maintenance to ensure the product remains effective and up-to-date, helping you achieve long-term success.',
     }
   ];
 
@@ -54,7 +46,7 @@ export function Process({ isLoading }: ProcessProps) {
     <section
       id="process"
       ref={ref}
-      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-800 min-h-screen flex items-center"
+      className="relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-[color:var(--color-surface-strong)] min-h-screen flex items-center"
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 bg-fixed"
@@ -75,7 +67,6 @@ export function Process({ isLoading }: ProcessProps) {
           {steps.map((step) => (
             <div
               key={step.title}
-              onMouseMove={handleGlow}
               className="cursor-glow rounded-2xl border border-white/10 bg-slate-900/70 p-8"
             >
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--brand-primary)]/15 text-[color:var(--brand-primary)]">

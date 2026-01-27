@@ -53,7 +53,8 @@ export function AnimatedNetworkBackground() {
 
         p.draw = () => {
           p.clear();
-          p.background(10, 21, 36);
+          const isLight = document.documentElement.dataset.theme === 'light';
+          p.background(isLight ? 255 : 10, isLight ? 255 : 21, isLight ? 255 : 36);
 
           for (const node of nodes) {
             node.x += node.vx;
@@ -107,7 +108,7 @@ export function AnimatedNetworkBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 opacity-40 pointer-events-none bg-gradient-to-b from-[#11335c] via-[#0b1828] to-[#000000]">
+    <div className="animated-bg fixed inset-0 z-0 opacity-40 pointer-events-none bg-gradient-to-b from-[#11335c] via-[#0b1828] to-[#000000]">
       <div ref={hostRef} />
     </div>
   );

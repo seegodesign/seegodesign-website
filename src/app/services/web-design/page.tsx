@@ -3,7 +3,6 @@ import { Footer } from '@/components/Footer';
 import { WhatYouReceive } from '@/components/WhatYouReceive';
 import ContactButton from '@/components/ContactButton';
 import { CaseStudies } from '@/components/CaseStudies';
-import Link from 'next/link';
 
 const caseStudies = [
   {
@@ -47,7 +46,7 @@ const caseStudies = [
 
 export default function WebDesignPage() {
   return (
-    <div className="min-h-screen bg-[#0b1828] flex flex-col relative isolate overflow-hidden">
+    <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate overflow-hidden">
       <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.22),transparent_60%)] blur-3xl" />
       <div className="pointer-events-none absolute top-28 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(86,101,108,0.32),transparent_65%)] blur-3xl" />
       <Navigation />
@@ -55,53 +54,53 @@ export default function WebDesignPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
             <div>
-              <span className="text-xs uppercase tracking-[0.35em] text-white/55">Web Design</span>
-              <h1 className="text-4xl md:text-6xl font-semibold text-white mt-4 mb-6 animate-hero-headline">
-                We design experiences that feel effortless, modern, and conversion-ready.
+              <span className="eyebrow">Web Design</span>
+              <h1 className="headline animate-hero-headline">
+                I design experiences that feel <span>effortless, modern, and conversion-ready.</span>
               </h1>
-              <p className="text-lg text-slate-200 max-w-2xl animate-hero-subhead">
-                We translate product strategy into clear user journeys, polished interfaces, and design
-                systems that scale. From discovery to prototyping to handoff, we make sure your product
+              <p className="subhead animate-hero-subhead">
+                I translate product strategy into clear user journeys, polished interfaces, and design
+                systems that scale. From discovery to prototyping to handoff, I make sure your product
                 feels cohesive across web and mobile.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 animate-hero-cta-primary">
                 <ContactButton text="Start your design project" />
               </div>
             </div>
-            <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/40">
-              <p className="text-sm uppercase tracking-[0.3em] text-white/50">Design Impact</p>
+            <div className="hero-card cursor-glow">
+              <p className="hero-card__eyebrow">Design Impact</p>
               <div className="mt-6 space-y-6 text-white">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">4-6</p>
-                    <p className="text-sm text-slate-300">weeks to launch a custom, conversion-ready site.</p>
+                    <p className="hero-card__stat">4-6</p>
+                    <p className="hero-card__stat-words">weeks to launch a custom, conversion-ready site.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-[color:var(--brand-primary)]/20 flex items-center justify-center text-[color:var(--brand-primary)] text-xl font-semibold">
-                    ✳
-                  </div>
-                </div>
-                <div className="flex items-start justify-between gap-6">
-                  <div>
-                    <p className="text-3xl font-semibold text-white">35%</p>
-                    <p className="text-sm text-slate-300">lower bounce rate from clearer structure and CTA flow.</p>
-                  </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
-                    ⚡
+                  <div className="hero-card__stat-icon">
+                    🚀
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">1</p>
-                    <p className="text-sm text-slate-300">clear path from homepage to conversion.</p>
+                    <p className="hero-card__stat">35%</p>
+                    <p className="hero-card__stat-words">lower bounce rate from clearer structure and CTA flow.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
+                    📉
+                  </div>
+                </div>
+                <div className="flex items-start justify-between gap-6">
+                  <div>
+                    <p className="hero-card__stat">1</p>
+                    <p className="hero-card__stat-words">clear path from homepage to conversion.</p>
+                  </div>
+                  <div className="hero-card__stat-icon">
                     ✓
                   </div>
                 </div>
               </div>
-              <div className="mt-8 border-t border-white/10 pt-6">
-                <p className="text-sm text-slate-300">
-                  We build custom sites that turn strategy into clear navigation, modern visuals, and measurable action.
+              <div className="hero-card__footer">
+                <p>
+                  I build custom sites that turn strategy into clear navigation, modern visuals, and measurable action.
                 </p>
               </div>
             </div>
@@ -126,10 +125,10 @@ export default function WebDesignPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="bg-white/10 border border-white/10 rounded-2xl p-8 shadow-lg shadow-black/30"
+                className="card"
               >
-                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
-                <p className="text-sm text-slate-300 leading-relaxed">{item.description}</p>
+                <h3 className="card__title">{item.title}</h3>
+                <p className="card__description">{item.description}</p>
               </div>
             ))}
           </div>
@@ -139,9 +138,9 @@ export default function WebDesignPage() {
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-start">
-            <div className="bg-gradient-to-br from-slate-900/80 to-slate-900/30 border border-white/10 rounded-2xl p-8">
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Design Workflow</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+            <div className="hero-card">
+              <p className="eyebrow">Design Workflow</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
                 A clear path from strategy to a live custom website.
               </h2>
               <ol className="space-y-5 text-slate-200">
@@ -161,8 +160,8 @@ export default function WebDesignPage() {
               </ol>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Platforms + Use Cases</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+              <p className="eyebrow">Platforms + Use Cases</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
                 Custom websites that convert across key business models.
               </h2>
               <div className="grid gap-4">
@@ -188,8 +187,8 @@ export default function WebDesignPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Deliverables</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+              <p className="eyebrow">Deliverables</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
                 A custom website package that is ready to launch and iterate.
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -236,8 +235,8 @@ export default function WebDesignPage() {
           <div className="pointer-events-none absolute -top-12 right-2 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.55),transparent_65%)] blur-2xl" />
           <div className="pointer-events-none absolute -bottom-16 left-2 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(74,163,220,0.45),transparent_65%)] blur-2xl" />
           <div className="rounded-3xl border border-[color:var(--brand-primary)]/30 bg-gradient-to-br from-[color:var(--brand-primary)]/25 via-slate-900/70 to-slate-900/35 px-8 py-10 md:px-12 shadow-[0_0_60px_rgba(125,202,47,0.18)]">
-            <p className="text-xs uppercase tracking-[0.35em] text-white/55">Our Guarantee</p>
-            <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+            <p className="eyebrow">Our Guarantee</p>
+            <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
               The project stays low-risk from day one.
             </h2>
             <div className="grid gap-6 text-slate-200">
@@ -245,7 +244,7 @@ export default function WebDesignPage() {
                 {
                   title: 'Design direction guarantee.',
                   copy:
-                    'If you’re not happy with the initial design direction, we revise it at no cost until it matches the agreed goals — or you can walk away before development begins.',
+                    'If you’re not happy with the initial design direction, Irevise it at no cost until it matches the agreed goals — or you can walk away before development begins.',
                 },
                 {
                   title: 'Two-week exit window.',
@@ -269,26 +268,20 @@ export default function WebDesignPage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-[color:var(--brand-primary)]/20 via-slate-900/60 to-slate-900/20 px-8 py-12 md:px-12">
+          <div className="hero-card hero-card--variant">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-white/55">Ready to design</p>
+                <p className="eyebrow">Ready to design</p>
                 <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
                   Build web sites that captivate and convert.
                 </h2>
                 <p className="text-sm text-slate-200 mt-4 max-w-2xl">
-                  We can redesign a product, build a new UI system, or run a rapid prototype sprint. Share
-                  your goals and we will map the right design plan.
+                  Ican redesign a product, build a new UI system, or run a rapid prototype sprint. Share
+                  your goals and Iwill map the right design plan.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/book-a-call"
-                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:brightness-110"
-                  style={{ backgroundColor: 'var(--brand-primary)' }}
-                >
-                  Book a Call
-                </Link>
+                <ContactButton text="Start your design project" />
                 {/* <button
                   type="button"
                   className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 border border-white/30 hover:border-white/60 hover:text-white transition"

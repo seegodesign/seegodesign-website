@@ -165,7 +165,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
 
         <div className="my-16">
           <h2 className="text-2xl font-semibold mb-8 text-center" style={{ color: 'var(--engine-text)' }}>
-            If You Do This Yourself vs. If We Do This For You
+            If You Do This Yourself vs. If IDo This For You
           </h2>
           <div
             className="rounded-2xl overflow-hidden"
@@ -331,7 +331,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
             className="text-lg mb-4"
             style={{ color: 'var(--engine-text)', fontWeight: '500', lineHeight: '1.7' }}
           >
-            These priorities reflect the most common accessibility complaints we see.
+            These priorities reflect the most common accessibility complaints Isee.
           </p>
           <p
             style={{ color: 'var(--engine-text-muted)', lineHeight: '1.7', maxWidth: '700px', margin: '0 auto' }}

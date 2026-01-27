@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export default function AccessibilityCompliancePage() {
   return (
-    <div className="min-h-screen bg-[#0b1828] flex flex-col relative isolate overflow-hidden">
+    <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate overflow-hidden">
       <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.25),transparent_60%)] blur-3xl" />
       <div className="pointer-events-none absolute top-40 right-0 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,rgba(86,101,108,0.35),transparent_65%)] blur-3xl" />
       <Navigation />
@@ -16,53 +16,53 @@ export default function AccessibilityCompliancePage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 items-start">
             <div>
-              <span className="text-xs uppercase tracking-[0.35em] text-white/55">Accessibility Compliance</span>
-              <h1 className="text-4xl md:text-5xl font-semibold text-white mt-4 mb-6 animate-hero-headline">
-                Audit, fix, and document accessibility issues before they become legal exposure.
+              <span className="eyebrow">Accessibility Compliance</span>
+              <h1 className="headline animate-hero-headline">
+                Audit, fix, and document accessibility issues <span>before they become legal exposure.</span>
               </h1>
-              <p className="text-lg text-slate-200 max-w-2xl animate-hero-subhead">
-                We help teams ship WCAG-aligned experiences, prioritize high-risk issues, and build a paper
-                trail that proves ongoing compliance. From audit to remediation, we move fast and leave you
+              <p className="subhead mx-auto animate-hero-subhead">
+                I help teams ship WCAG-aligned experiences, prioritize high-risk issues, and build a paper
+                trail that proves ongoing compliance. From audit to remediation, I move fast and leave you
                 with evidence you can stand behind.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 animate-hero-cta-primary">
                 <ContactButton text="Start a compliance audit" />
               </div>
             </div>
-            <div className="bg-slate-900/70 border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/40">
-              <p className="text-sm uppercase tracking-[0.3em] text-white/50">Risk Snapshot</p>
+            <div className="hero-card">
+              <p className="hero-card__eyebrow">Risk Snapshot</p>
               <div className="mt-6 space-y-6 text-white">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">72%</p>
-                    <p className="text-sm text-slate-300">of homepages we audit fail basic WCAG AA checks.</p>
+                    <p className="hero-card__stat">72%</p>
+                    <p className="hero-card__stat-words">of homepages I audit fail basic WCAG AA checks.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-[color:var(--brand-primary)]/20 flex items-center justify-center text-[color:var(--brand-primary)] text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     !
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">30-45</p>
-                    <p className="text-sm text-slate-300">day remediation window we target after audit.</p>
+                    <p className="hero-card__stat">30-45</p>
+                    <p className="hero-card__stat-words">day remediation window I target after audit.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     30
                   </div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="text-3xl font-semibold text-white">100%</p>
-                    <p className="text-sm text-slate-300">Legal peace of mind with documented compliance evidence.</p>
+                    <p className="hero-card__stat">100%</p>
+                    <p className="hero-card__stat-words">Legal peace of mind with documented compliance evidence.</p>
                   </div>
-                  <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-semibold">
+                  <div className="hero-card__stat-icon">
                     ✓
                   </div>
                 </div>
               </div>
-              <div className="mt-8 border-t border-white/10 pt-6">
-                <p className="text-sm text-slate-300">
-                  We document every finding with screenshots, code references, and severity ratings so
+              <div className="hero-card__footer">
+                <p>
+                  I document every finding with screenshots, code references, and severity ratings so
                   legal, product, and engineering stay aligned.
                 </p>
               </div>
@@ -71,7 +71,7 @@ export default function AccessibilityCompliancePage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid gap-8 lg:grid-cols-3">
             {[
               {
                 title: 'Compliance Audits',
@@ -91,10 +91,10 @@ export default function AccessibilityCompliancePage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="bg-slate-900/60 border border-white/10 rounded-2xl p-8 shadow-lg shadow-black/30"
+                className="card"
               >
-                <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
-                <p className="text-sm text-slate-300 leading-relaxed">{item.description}</p>
+                <h3 className="card__title">{item.title}</h3>
+                <p className="card__description">{item.description}</p>
               </div>
             ))}
           </div>
@@ -102,7 +102,7 @@ export default function AccessibilityCompliancePage() {
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="rounded-2xl border border-white/10 bg-slate-900/60 px-6 py-8 md:px-10">
-            <p className="text-xs uppercase tracking-[0.35em] text-white/55">Why this matters</p>
+            <p className="eyebrow">Why this matters</p>
             <div className="mt-4 border-l-2 border-[color:var(--brand-primary)]/70 pl-5">
               <p className="text-lg text-slate-100 leading-relaxed">
                 “The ways that websites are designed and set up can create unnecessary barriers that make it
@@ -121,10 +121,10 @@ export default function AccessibilityCompliancePage() {
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-start">
-            <div className="bg-gradient-to-br from-slate-900/80 to-slate-900/30 border border-white/10 rounded-2xl p-8">
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Audit Workflow</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
-                We surface risk fast, then map fixes to a clear owner.
+            <div className="hero-card">
+              <p className="eyebrow">Audit Workflow</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
+                I surface risk fast, then map fixes to a clear owner.
               </h2>
               <ol className="space-y-5 text-slate-200">
                 {[
@@ -143,8 +143,8 @@ export default function AccessibilityCompliancePage() {
               </ol>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Standards Covered</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+              <p className="text-xs uppercase tracking-[0.35em]">Standards Covered</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
                 Compliance targets that match what legal teams and regulators expect.
               </h2>
               <div className="grid gap-4">
@@ -156,7 +156,7 @@ export default function AccessibilityCompliancePage() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-slate-900/60 px-4 py-4 text-slate-200"
+                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-slate-900/60 px-4 py-4 text-[color:var(--color-text-muted)]"
                   >
                     <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--brand-primary)]" />
                     <p className="text-sm leading-relaxed">{item}</p>
@@ -176,16 +176,16 @@ export default function AccessibilityCompliancePage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
             <div>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/55">Fix + Verify</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
-                We fix what matters most, then validate every change.
+              <p className="text-xs uppercase tracking-[0.35em]">Fix + Verify</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
+                I fix what matters most, then validate every change.
               </h2>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-[color:var(--color-text-muted)] leading-relaxed">
                 Remediation starts with the highest-risk blockers: forms, navigation, checkout, and critical
-                workflows. We ship fixes quickly, retest with assistive technology, and package the evidence
+                workflows. I ship fixes quickly, retest with assistive technology, and package the evidence
                 so you can demonstrate compliance progress to legal and leadership.
               </p>
-              <div className="mt-6 space-y-4 text-sm text-slate-200">
+              <div className="mt-6 space-y-4 text-sm text-[color:var(--color-text-muted)]">
                 {[
                   'Design remediation: contrast, focus states, semantics, and content hierarchy.',
                   'Engineering fixes: ARIA labels, keyboard support, and dynamic component updates.',
@@ -222,16 +222,16 @@ export default function AccessibilityCompliancePage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-[color:var(--brand-primary)]/20 via-slate-900/60 to-slate-900/20 px-8 py-12 md:px-12">
+          <div className="hero-card hero-card--variant">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
-                <p className="text-xs uppercase tracking-[0.35em] text-white/55">Ready when you are</p>
+                <p className="eyebrow">Ready when you are</p>
                 <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
                   Protect your customers, your brand, and your legal exposure.
                 </h2>
                 <p className="text-sm text-slate-200 mt-4 max-w-2xl">
-                  We deliver audits in two weeks, remediation in 30-45 days, and continuous monitoring after
-                  launch. Tell us your risk timeline and we will build the right plan.
+                  I deliver audits in two weeks, remediation in 30-45 days, and continuous monitoring after
+                  launch. Tell me your risk timeline and I will build the right plan.
                 </p>
               </div>
               <div className="flex flex-shrink-0 flex-wrap gap-4">

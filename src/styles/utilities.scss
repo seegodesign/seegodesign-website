@@ -1,30 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
-
-@layer base {
-  :root {
-    --brand-primary: #7dca2f;
-    --brand-primary-dark: color-mix(in srgb, var(--brand-primary) 80%, black);
-    --brand-secondary: #56656c;
-    --font-heading: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-heading);
-  }
-}
-
+/************************ Utilities ************************/
 @layer utilities {
+  @keyframes testimonial-sheen {
+    0% {
+      transform: translateX(0) rotate(18deg);
+    }
+    // 45% {
+    //   transform: translateX(220%) rotate(18deg);
+    // }
+    100% {
+      transform: translateX(420%) rotate(18deg);
+    }
+  }
   @keyframes hero-rise {
     0% {
       opacity: 0;
       transform: translateY(18px);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0);
@@ -63,44 +56,31 @@
     0% {
       transform: rotate(0deg);
     }
+
     100% {
       transform: rotate(360deg);
     }
   }
 
-  @keyframes loader-sweep {
+  @keyframes hero-kenburns {
     0% {
-      transform: translateX(-120%);
-      opacity: 0;
+      transform: scale(1);
     }
-    40% {
-      opacity: 1;
+    50% {
+      transform: scale(1.08);
     }
     100% {
-      transform: translateX(140%);
-      opacity: 0.6;
+      transform: scale(1);
     }
-  }
-
-  .loader-ring {
-    width: 64px;
-    height: 64px;
-    border-radius: 9999px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-top-color: var(--brand-green);
-    animation: loader-spin 1s linear infinite;
-    box-shadow: 0 0 25px rgba(112, 163, 34, 0.35);
-  }
-
-  .loader-bar {
-    animation: loader-sweep 1.2s ease-in-out infinite;
   }
 
   @keyframes cursor-blink {
+
     0%,
     49% {
       opacity: 1;
     }
+
     50%,
     100% {
       opacity: 0;
@@ -120,11 +100,9 @@
     content: "";
     position: absolute;
     inset: -1px;
-    background: radial-gradient(
-      240px circle at var(--glow-x, 50%) var(--glow-y, 50%),
-      color-mix(in srgb, var(--brand-primary) 15%, transparent),
-      transparent 65%
-    );
+    background: radial-gradient(240px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+        color-mix(in srgb, var(--brand-primary) 15%, transparent),
+        transparent 65%);
     opacity: 0;
     transition: opacity 200ms ease;
     pointer-events: none;
@@ -132,9 +110,5 @@
 
   .cursor-glow:hover::before {
     opacity: 1;
-  }
-
-  button {
-    cursor: pointer;
   }
 }

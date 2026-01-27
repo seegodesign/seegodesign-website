@@ -10,7 +10,7 @@ export default function ServicesPage() {
     {
       title: 'Accessibility Compliance',
       description:
-        'Ensure your digital product is usable by everyone. We help you meet legal standards and create inclusive experiences that broaden your reach and build trust with all users.',
+        'Ensure your digital product is usable by everyone. I will help you meet legal standards and create inclusive experiences that broaden your reach and build trust with all users.',
       outcomes: [
         'Comprehensive accessibility audits and reports',
         'Remediation plans with prioritized fixes',
@@ -21,7 +21,7 @@ export default function ServicesPage() {
     {
       title: 'App Development',
       description:
-        'Ship a product that feels inevitable: fast, stable, and quietly beautiful. We build modern web and product experiences that reduce friction, scale with your roadmap, and give your team a clean foundation to grow from.',
+        'Ship a product that feels inevitable: fast, stable, and quietly beautiful. I build modern web and product experiences that reduce friction, scale with your roadmap, and give your team a clean foundation to grow from.',
       outcomes: [
         'Production-ready architecture and thoughtful component systems',
         'Performance-focused builds with analytics baked in',
@@ -29,10 +29,21 @@ export default function ServicesPage() {
       ],
       href: '/services/app-development',
     },
+    {
+      title: 'Wordpress Development',
+      description:
+        'Keep your WordPress site fast, secure, and current without disrupting your team. I handle updates, new pages, fixes, and ongoing maintenance so the site keeps earning its keep.',
+      outcomes: [
+        'Content updates, new pages, and layout changes on demand',
+        'Security patches, plugin updates, and uptime monitoring',
+        'Performance tuning and technical cleanup as needed',
+      ],
+      href: '/services/wordpress-development',
+    },
     // {
     //   title: 'App Development',
     //   description:
-    //     'Ship a product that feels inevitable: fast, stable, and quietly beautiful. We build modern web and product experiences that reduce friction, scale with your roadmap, and give your team a clean foundation to grow from.',
+    //     'Ship a product that feels inevitable: fast, stable, and quietly beautiful. I build modern web and product experiences that reduce friction, scale with your roadmap, and give your team a clean foundation to grow from.',
     //   outcomes: [
     //     'Production-ready architecture and thoughtful component systems',
     //     'Performance-focused builds with analytics baked in',
@@ -43,7 +54,7 @@ export default function ServicesPage() {
     // {
     //   title: 'Branding',
     //   description:
-    //     'Clarify your story and turn it into a visual system people remember. From naming to identity, we give you a brand that feels confident, distinct, and immediately trustworthy across every touchpoint.',
+    //     'Clarify your story and turn it into a visual system people remember. From naming to identity, I will help you build a brand that feels confident, distinct, and immediately trustworthy across every touchpoint.',
     //   outcomes: [
     //     'Positioning, voice, and messaging frameworks',
     //     'Logo and identity systems built for digital',
@@ -54,7 +65,7 @@ export default function ServicesPage() {
     // {
     //   title: 'E-Commerce Systems',
     //   description:
-    //     'Launch or rebuild a shop that feels premium and converts. We build Shopify themes and WooCommerce stores that are fast, branded, and easy to run.',
+    //     'Launch or rebuild a shop that feels premium and converts. I build Shopify themes and WooCommerce stores that are fast, branded, and easy to run.',
     //   outcomes: [
     //     'Custom storefronts designed around your merchandising',
     //     'Product, collection, and checkout flows tuned to convert',
@@ -65,7 +76,7 @@ export default function ServicesPage() {
     // {
     //   title: 'System Overhaul',
     //   description:
-    //     'When your product has outgrown its foundations, we modernize it without breaking momentum. We untangle messy UX, simplify complex workflows, and rebuild the system so teams can ship faster with fewer risks.',
+    //     'When your product has outgrown its foundations, I can help modernize it without breaking momentum. I untangle messy UX, simplify complex workflows, and rebuild the system so teams can ship faster with fewer risks.',
     //   outcomes: [
     //     'Audit of UX, IA, and interface debt',
     //     'New system architecture and design language',
@@ -76,7 +87,7 @@ export default function ServicesPage() {
     {
       title: 'Web Design',
       description:
-        'Build web sites that captivate and convert. We design beautiful, user-focused websites that tell your brand story, engage visitors, and drive action across all devices.',
+        'Build web sites that captivate and convert. I design beautiful, user-focused websites that tell your brand story, engage visitors, and drive action across all devices.',
       outcomes: [
         'Custom, responsive designs that reflect your brand identity',
         'User-centric layouts optimized for engagement and conversion',
@@ -87,7 +98,7 @@ export default function ServicesPage() {
     {
       title: 'Website Optimization',
       description:
-        'Transform a slow, leaky site into a high-converting platform. We optimize performance, sharpen messaging, and tune every page so your site feels premium and converts like it should.',
+        'Transform a slow, leaky site into a high-converting platform. I optimize performance, sharpen messaging, and tune every page so your site feels premium and converts like it should.',
       outcomes: [
         'Speed, SEO, and accessibility improvements',
         'Conversion-focused page structure and copy',
@@ -108,15 +119,23 @@ export default function ServicesPage() {
     }
   };
   return (
-    <div className="relative overflow-hidden bg-[#0b1828] isolate">
+    <div className="relative overflow-hidden bg-[color:var(--color-bg)] isolate">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 bg-fixed"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40)' }}
+        />
+        <div className="hero-overlay"></div>
+      </div>
       <AnimatedWavesBackground />
       <Navigation />
       <main className="relative z-10 pt-24">
         <section className="max-w-6xl mx-auto min-h-screen relative -top-12 flex flex-col justify-center items-center text-center">
-          <h1 className="max-w-2xl text-4xl md:text-6xl font-semibold text-white mb-4">
+          <h1 className="max-w-2xl text-4xl md:text-6xl font-semibold text-[color:var(--color-text)] mb-4">
             Services built for <span className='text-[color:var(--brand-primary)]'>clarity and momentum</span>
           </h1>
-          <p className="text-lg text-slate-300 max-w-2xl">
+          <p className="text-lg text-[color:var(--color-text-muted)] max-w-2xl">
             Each engagement is designed to reduce friction, elevate your brand,
             and move your product forward. Explore the services below and dive
             deeper into each offering.
@@ -127,9 +146,9 @@ export default function ServicesPage() {
           <section
             key={service.title}
             id={service.title.toLowerCase().replace(/\s+/g, '-')}
-            className={`min-h-screen flex items-center border-b border-slate-300/20 ${
+            className={`service-section ${
               index % 2 === 0
-                ? 'bg-gradient-to-b from-slate-800/80 to-slate-900/80'
+                ? 'inverse'
                 : ''
             }`}
           >
@@ -139,10 +158,10 @@ export default function ServicesPage() {
                   <span className="text-sm uppercase tracking-[0.3em] text-white/40">
                     Service 0{index + 1}
                   </span>
-                  <h2 className="text-3xl md:text-5xl font-semibold text-white mt-4 mb-4">
+                  <h2 className="service-section__headline">
                     {service.title}
                   </h2>
-                  <p className="text-lg text-slate-300 mb-6">
+                  <p className="service-section__description">
                     {service.description}
                   </p>
                   <a
@@ -153,13 +172,12 @@ export default function ServicesPage() {
                     <span aria-hidden>→</span>
                   </a>
                 </div>
-                <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-xl shadow-black/30">
-                  <h3 className="text-white text-xl mb-4">What you can expect</h3>
-                  <ul className="space-y-3 text-slate-300">
+                <div className="card">
+                  <h3 className="card__title">What you can expect</h3>
+                  <ul className="bullets">
                     {service.outcomes.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--brand-primary)]" />
-                        <span>{item}</span>
+                      <li key={item}>
+                        {item}
                       </li>
                     ))}
                   </ul>

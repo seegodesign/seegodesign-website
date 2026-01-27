@@ -103,6 +103,29 @@ export function ResultsScreen({ answers, onRestart }: ResultsScreenProps) {
             <p className="mt-4 text-lg" style={{ color: 'var(--engine-text-strong)', lineHeight: '1.7' }}>
               {results.summary}
             </p>
+            <div
+              className="mt-6 grid gap-4"
+              style={{ color: 'var(--engine-text-muted)' }}
+            >
+              <div className="flex items-start gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full" style={{ backgroundColor: 'var(--engine-primary)' }} />
+                <p className="text-sm" style={{ lineHeight: '1.7' }}>
+                  This summary reflects your current inputs across scope, users, and technical readiness.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full" style={{ backgroundColor: 'var(--engine-primary)' }} />
+                <p className="text-sm" style={{ lineHeight: '1.7' }}>
+                  Use the readiness score and complexity tier as guardrails for budget, timeline, and MVP focus.
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full" style={{ backgroundColor: 'var(--engine-primary)' }} />
+                <p className="text-sm" style={{ lineHeight: '1.7' }}>
+                  If any answer changes, rerun the tool to compare outcomes before committing to build.
+                </p>
+              </div>
+            </div>
           </div>
           <div className="space-y-4">
             <div
@@ -191,7 +214,7 @@ export function ResultsScreen({ answers, onRestart }: ResultsScreenProps) {
             {results.recommendedNextStep}
           </h2>
           <p className="mt-3 text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-            We recommend focusing here before committing full build budget. It protects scope and shortens timelines.
+            Irecommend focusing here before committing full build budget. It protects scope and shortens timelines.
           </p>
         </div>
 
@@ -200,13 +223,13 @@ export function ResultsScreen({ answers, onRestart }: ResultsScreenProps) {
           style={{ backgroundColor: 'var(--engine-card-bg)', border: '1px solid var(--engine-border)' }}
         >
           <h2 className="text-3xl font-semibold mb-4" style={{ color: 'var(--engine-text)' }}>
-            If You Want This Done For You
+            Want help with your app?
           </h2>
           <p
             className="text-lg mb-6 max-w-2xl mx-auto"
             style={{ color: 'var(--engine-text-muted)', lineHeight: '1.7' }}
           >
-            We can help with your next steps. Your ${APP_DECISION_TOOL_PRODUCT_PRICE} diagnostic is credited toward the planning session.
+            Ican help with your next steps. Your ${APP_DECISION_TOOL_PRODUCT_PRICE} diagnostic is credited toward the planning session.
           </p>
           <button
             onClick={handleStripeCheckout}

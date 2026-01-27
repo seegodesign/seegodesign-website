@@ -125,7 +125,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
 
           <div className="mb-10">
             <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--engine-text)' }}>
-              What We Fix
+              What IFix
             </h3>
             <div className="space-y-3">
               {[
@@ -158,7 +158,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
                 </div>
                 <h4 className="font-semibold mb-2" style={{ color: 'var(--engine-text-strong)' }}>Focused Remediation</h4>
                 <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-                  We prioritize the highest-risk issues first.
+                  Iprioritize the highest-risk issues first.
                 </p>
               </div>
               <div className="text-center">
@@ -225,7 +225,7 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <p className="text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-              We will scope the sprint, confirm risk areas, and ship verified fixes.
+              Iwill scope the sprint, confirm risk areas, and ship verified fixes.
             </p>
           </div>
         </div>

@@ -1,0 +1,226 @@
+@import "tailwindcss";
+@layer components {
+  /************************ Light Theme ************************/
+  [data-theme='light'] {
+
+    .button {
+      &--secondary {
+        @apply bg-white/30 border-slate-600 text-slate-600 hover:border-slate-400 hover:bg-slate-100;
+      }
+    }
+    .bullets {
+      @apply text-sm text-slate-800/90;
+
+      li::before {
+        @apply bg-[color:var(--brand-primary)];
+      }
+    }
+
+    .hero-overlay {
+      background: rgba(255, 255, 255, 0.75) !important;
+    }
+
+    .loading-screen {
+      @apply bg-white;
+
+      &__ring {
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-top-color: var(--brand-primary);
+      }
+
+      &__text {
+        @apply text-xs uppercase text-slate-700/60;
+      }
+    }
+
+    .eyebrow {
+      @apply text-slate-700/55;
+    }
+
+    .headline {
+      @apply text-slate-900;
+
+      span {
+        @apply text-[color:var(--brand-primary)];
+      }
+
+      &--gradient {
+        @apply text-4xl md:text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-cyan-900 via-sky-300 to-emerald-500 mt-4 mb-4;
+      }
+    }
+
+    .subhead {
+      @apply text-slate-700;
+    }
+
+    .service-section {
+      @apply bg-none;
+
+      &.inverse {
+        @apply bg-gradient-to-b from-[color:var(--brand-primary)] to-[color:var(--brand-primary-dark)];
+
+        .service-section__headline {
+          @apply text-white;
+        }
+
+        .service-section__description {
+          @apply text-white/90;
+        }
+      }
+    }
+
+    .hero-card {
+      @apply bg-gradient-to-b from-white/20 to-white/5 border border-slate-300/20 rounded-2xl p-8 shadow-2xl shadow-black/10;
+
+      p {
+        @apply text-slate-900;
+      }
+
+      &__eyebrow {
+        @apply text-sm uppercase tracking-[0.1em] text-slate-700/70;
+      }
+
+      &__stat {
+        @apply text-3xl font-semibold text-slate-900;
+      }
+
+      &__stat-words {
+        @apply text-sm text-slate-700;
+      }
+
+      &__stat-icon {
+        @apply h-12 w-12 rounded-full bg-[color:var(--brand-primary)]/20 flex items-center justify-center text-[color:var(--brand-primary-dark)] text-xl font-semibold;
+      }
+
+      &__footer {
+        @apply mt-8 border-t border-slate-300/80 pt-6;
+
+        p {
+          @apply text-slate-700;
+        }
+      }
+    }
+
+    .card {
+      @apply bg-white/50 border-black/15;
+
+      &__tag {
+        @apply text-slate-700/70;
+      }
+
+      &__title {
+        @apply text-slate-900;
+      }
+
+      &__description {
+        @apply text-slate-800;
+      }
+
+      &__bullets {
+        @apply text-slate-800;
+      }
+
+      &__bullet {
+        @apply bg-[color:var(--brand-primary)];
+      }
+
+      &__price {
+        @apply text-slate-700/70;
+      }
+    }
+
+    .scroll-down-arrow {
+      @apply bg-none border-1 border-[color:var(--brand-primary)] hover:scale-110 transition-transform;
+
+      @at-root .inverse .scroll-down-arrow {
+        @apply border-white/20;
+      }
+
+      &__icon {
+        @apply text-[color:var(--brand-primary)];
+
+        @at-root .inverse .scroll-down-arrow__icon {
+          @apply text-white;
+        }
+      }
+    }
+
+    .what-you-receive-item {
+      border-color: rgba(90, 182, 191, 0.25);
+      background: linear-gradient(135deg, rgba(90, 182, 191, 0.12), rgba(14, 116, 144, 0.08));
+    }
+
+    .what-you-receive-title {
+      @apply text-slate-900;
+    }
+
+    .what-you-receive-desc {
+      @apply text-slate-700;
+    }
+
+    .questionnaire {
+      &__eyebrow {
+        @apply text-slate-600/80;
+      }
+
+      &__question {
+        @apply text-slate-900;
+      }
+
+      &__option {
+        @apply border-slate-300/50 bg-white text-slate-900;
+      }
+
+      &__back {
+        @apply text-slate-700;
+      }
+    }
+
+    .testimonials {
+      @apply bg-none;
+
+      &__headline {
+        @apply text-slate-900;
+      }
+
+      &__subhead {
+        @apply text-slate-700;
+      }
+
+      &__card {
+        @apply bg-white border-slate-200;
+      }
+
+      &__card--bubble::after {
+        border-right: 1px solid rgba(15, 23, 42, 0.12);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+        background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(226, 232, 240, 0.5));
+        box-shadow: 6px 6px 16px rgba(15, 23, 42, 0.12);
+      }
+
+      &__quote {
+        @apply text-slate-700;
+      }
+
+      &__control {
+        @apply border-slate-200 text-slate-600 hover:text-slate-900 hover:border-slate-300 hover:bg-slate-100;
+      }
+
+      &__name {
+        @apply text-slate-900;
+      }
+
+      &__title {
+        @apply text-slate-600;
+      }
+
+      &__dot {
+        @apply bg-slate-200;
+      }
+
+      &__dot.is-active {
+        @apply bg-[color:var(--brand-primary)];
+      }
+    }
+  }
+}

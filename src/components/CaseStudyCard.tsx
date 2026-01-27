@@ -25,17 +25,9 @@ export function CaseStudyCard({
   tech,
   index,
 }: CaseStudyCardProps) {
-  const handleGlow = (event: React.MouseEvent<HTMLElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    event.currentTarget.style.setProperty('--glow-x', `${x}px`);
-    event.currentTarget.style.setProperty('--glow-y', `${y}px`);
-  };
 
   return (
     <div
-      onMouseMove={handleGlow}
       className="cursor-glow bg-slate-900 rounded-2xl overflow-hidden shadow-lg shadow-black/30 hover:shadow-xl hover:shadow-black/40 transition-shadow border border-slate-800"
     >
       <div className="grid md:grid-cols-2 gap-0">
@@ -75,7 +67,7 @@ export function CaseStudyCard({
 
             <div>
               <div className="flex items-start gap-2 mb-2">
-                <div className="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-6 h-6 rounded-full bg-[color:var(--color-surface-muted)] flex items-center justify-center flex-shrink-0 mt-0.5">
                   <div className="w-2 h-2 rounded-full bg-[color:var(--brand-primary)]"></div>
                 </div>
                 <div>
@@ -102,7 +94,7 @@ export function CaseStudyCard({
             {tech.map((item, i) => (
               <span
                 key={i}
-                className="px-3 py-1 bg-slate-800 text-[color:var(--brand-primary)] rounded-full text-sm border border-[color:var(--brand-primary)]/30"
+                className="px-3 py-1 bg-[color:var(--color-surface-muted)] text-[color:var(--brand-primary)] rounded-full text-sm border border-[color:var(--brand-primary)]/30"
               >
                 {item}
               </span>
