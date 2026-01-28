@@ -238,7 +238,8 @@ export const useChatHistory = (): ChatState & {
       }
 
       const data = (await response.json()) as ChatApiResponse;
-      if (!data?.message) {
+      const message = data?.message;
+      if (typeof message !== "string" || !message.trim()) {
         throw new Error(data?.error || "Chat service temporarily unavailable.");
       }
 
@@ -247,7 +248,7 @@ export const useChatHistory = (): ChatState & {
         {
           id: crypto.randomUUID(),
           role: "assistant",
-          content: data.message,
+          content: message,
           timestamp: new Date(),
         },
       ]);
