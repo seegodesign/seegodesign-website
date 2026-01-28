@@ -12,7 +12,7 @@ export default function ToolsPage() {
     {
       tag: 'App Strategy',
       title: 'App Decision Tool',
-      description: 'Get clarity on readiness, complexity, and the safest next step before you build.',
+      description: 'Get clarity on readiness, complexity, and the safest next step before you build a mobile app.',
       price: APP_DECISION_TOOL_PRODUCT_PRICE,
       href: '/tools/app-decision-tool',
       bullets: [
@@ -24,7 +24,7 @@ export default function ToolsPage() {
     {
       tag: 'Accessibility',
       title: 'Accessibility Fix Priorities',
-      description: 'Pinpoint the accessibility fixes that reduce compliance risk and liability the fastest.',
+      description: 'Pinpoint the accessibility fixes needed to reduce compliance risk and liability the fastest.',
       price: ACCESSIBILITY_FIX_PRIORITY_PRODUCT_PRICE,
       href: '/tools/accessibility-fix-priorities',
       bullets: [
@@ -42,7 +42,7 @@ export default function ToolsPage() {
       bullets: [
         'Score fixes across conversion, clarity, trust, and performance',
         'Ranked list you can hand directly to your team',
-        'Roadmap to book a deeper optimization sprint',
+        'Roadmap to keep your site improving over time',
       ],
     },
   ];
@@ -54,9 +54,9 @@ export default function ToolsPage() {
         <Navigation />
       </div>
       <main className="pt-20 pb-16 flex-1 relative z-10">
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="animate-section-rise max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="tools-header text-center mb-12">
-            <span className="eyebrow">Priority Engines</span>
+            <span className="eyebrow">Decision Tools</span>
             <h1 className="headline max-w-4xl mx-auto">
               Paid tools that turn uncertainty <span>into a clear next move.</span>
             </h1>

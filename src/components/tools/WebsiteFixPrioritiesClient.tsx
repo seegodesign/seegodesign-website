@@ -33,7 +33,7 @@ export default function WebsiteFixPrioritiesClient() {
                 </h1>
                 <p className="subhead">
                   This guided tool turns a messy backlog into a clear, high-impact action plan. Answer 10
-                  quick questions and walk away with the exact priorities Iwould recommend in a paid audit.
+                  quick questions and walk away with the exact priorities I would recommend in a paid audit.
                 </p>
                 <div className="mt-8 space-y-5">
                   {[

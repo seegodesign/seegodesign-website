@@ -223,14 +223,13 @@ export default function BrandingPage() {
               <div className="flex flex-wrap gap-4">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:brightness-110"
-                  style={{ backgroundColor: 'var(--brand-primary)' }}
+                  className="button"
                 >
                   Schedule a brand audit
                 </button>
                 {/* <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white/90 border border-white/30 hover:border-white/60 hover:text-white transition"
+                  className="button button--secondary"
                 >
                   Request sample deliverables
                 </button> */}

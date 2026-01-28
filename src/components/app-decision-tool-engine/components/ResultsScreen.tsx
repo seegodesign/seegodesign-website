@@ -214,7 +214,7 @@ export function ResultsScreen({ answers, onRestart }: ResultsScreenProps) {
             {results.recommendedNextStep}
           </h2>
           <p className="mt-3 text-sm" style={{ color: 'var(--engine-text-muted)', lineHeight: '1.6' }}>
-            Irecommend focusing here before committing full build budget. It protects scope and shortens timelines.
+            I recommend focusing here before committing full build budget. It protects scope and shortens timelines.
           </p>
         </div>
 
@@ -229,7 +229,7 @@ export function ResultsScreen({ answers, onRestart }: ResultsScreenProps) {
             className="text-lg mb-6 max-w-2xl mx-auto"
             style={{ color: 'var(--engine-text-muted)', lineHeight: '1.7' }}
           >
-            Ican help with your next steps. Your ${APP_DECISION_TOOL_PRODUCT_PRICE} diagnostic is credited toward the planning session.
+            I can help with your next steps. Your ${APP_DECISION_TOOL_PRODUCT_PRICE} diagnostic is credited toward the planning session.
           </p>
           <button
             onClick={handleStripeCheckout}

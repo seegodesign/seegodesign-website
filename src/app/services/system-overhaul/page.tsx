@@ -79,7 +79,7 @@ export default function SystemOverhaulPage() {
                 </h2>
                 <p className="text-slate-300 text-lg md:text-xl max-w-2xl">
                   When tools sprawl, data lives in silos, and teams live in spreadsheets, everything slows down.
-                  Istabilize core workflows, eliminate manual workarounds, and rebuild the foundation so
+                  I stabilize core workflows, eliminate manual workarounds, and rebuild the foundation so
                   operations run cleanly and consistently.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
@@ -119,7 +119,7 @@ export default function SystemOverhaulPage() {
                 </div>
                 <div className="mt-8 border-t border-white/10 pt-6">
                   <p className="text-sm text-slate-300">
-                    Imap every system, flag risks, and build a plan that keeps teams aligned and accountable.
+                    I map every system, flag risks, and build a plan that keeps teams aligned and accountable.
                   </p>
                 </div>
               </div>
@@ -129,7 +129,6 @@ export default function SystemOverhaulPage() {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  onMouseMove={handleGlow}
                   className="cursor-glow bg-slate-800/80 p-8 rounded-xl border border-[color:var(--brand-primary)]/20 hover:shadow-lg hover:shadow-black/40 transition-shadow"
                 >
                   <div className="w-12 h-12 bg-[color:var(--brand-primary)] rounded-lg flex items-center justify-center mb-4">
@@ -160,7 +159,7 @@ export default function SystemOverhaulPage() {
               <div className="hero-card">
                 <p className="eyebrow">Overhaul Workflow</p>
                 <h3 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
-                  Idiagnose, stabilize, then rebuild what matters most.
+                  I diagnose, stabilize, then rebuild what matters most.
                 </h3>
                 <ol className="space-y-5 text-slate-200">
                   {[
@@ -181,7 +180,7 @@ export default function SystemOverhaulPage() {
               <div>
                 <p className="eyebrow">Operational Targets</p>
                 <h3 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
-                  Iclean up the layers that create friction every day.
+                  I clean up the layers that create friction every day.
                 </h3>
                 <div className="grid gap-4">
                   {[
@@ -215,7 +214,7 @@ export default function SystemOverhaulPage() {
                   Clarity for teams, confidence for leadership.
                 </h3>
                 <p className="text-sm text-slate-300 leading-relaxed">
-                  Ileave you with clean documentation, automation maps, and the tooling stack you need to keep
+                  I leave you with clean documentation, automation maps, and the tooling stack you need to keep
                   operations stable. You get a plan that keeps your team aligned and your data clean.
                 </p>
                 <div className="mt-6 space-y-4 text-sm text-slate-200">

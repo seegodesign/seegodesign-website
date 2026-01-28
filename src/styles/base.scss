@@ -5,6 +5,7 @@
   :root {
     --brand-primary: #7dca2f;
     --brand-primary-dark: color-mix(in srgb, var(--brand-primary) 80%, black);
+    --brand-primary-darker: color-mix(in srgb, var(--brand-primary) 60%, black);
     --brand-secondary: #56656c;
     --font-heading: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
     --color-bg: #0b1828;

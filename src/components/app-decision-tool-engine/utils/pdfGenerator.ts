@@ -140,7 +140,7 @@ export function generateAppDecisionPDF(results: AppDecisionResults): void {
   doc.setTextColor(brand.ink);
   const ctaLines = wrapText(
     doc,
-    'If you want this done for you, Ican scope the MVP, prototype the core flow, and deliver a build plan tied to your budget.',
+    'If you want this done for you, I can scope the MVP, prototype the core flow, and deliver a build plan tied to your budget.',
     contentWidth,
   );
   doc.text(ctaLines, PAGE_MARGIN, cursorY);

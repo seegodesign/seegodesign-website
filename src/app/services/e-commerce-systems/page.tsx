@@ -59,7 +59,7 @@ export default function EcommerceSystemsPage() {
               </div>
               <div className="mt-8 border-t border-white/10 pt-6">
                 <p className="text-sm text-slate-300">
-                  Ifocus on product discovery, checkout confidence, and post-purchase retention.
+                  Focus on product discovery, checkout confidence, and post-purchase retention.
                 </p>
               </div>
             </div>

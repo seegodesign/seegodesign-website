@@ -2,47 +2,47 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { WhatYouReceive } from '@/components/WhatYouReceive';
 import ContactButton from '@/components/ContactButton';
-import { CaseStudies } from '@/components/CaseStudies';
+// import { CaseStudies } from '@/components/CaseStudies';
 
-const caseStudies = [
-  {
-    title: 'Custom Water Bottle Customizer',
-    client: 'Owala',
-    image: '/owala.jpg',
-    problem: 'Customer needed a modern 3D product customizer to allow users to build and price custom water bottles. Their existing Flash-based tool was outdated, not mobile-friendly, and couldn\'t integrate with their ERP system. Sales reps spent hours manually quoting simple orders.',
-    work: 'Developed a Vue.js customizer with real-time 3D previews and dynamic pricing. Made it fully responsive for mobile.',
-    outcome: 'Client sold 32,625 custom bottles in 2025.',
-    tech: ['Vue.js', 'Three.js', 'API Integration', 'Responsive Design'],
-  },
-  {
-    title: 'Custom Goalie Gear Customizer',
-    client: 'Bauer Skates',
-    image: '/bauer.jpg',
-    problem: 'Customer struggled with a clunky Flash-based product customizer from 2008. It only worked on desktop, crashed frequently, and couldn\'t integrate with their modern ERP system. Sales reps spent hours manually quoting simple orders.',
-    work: 'Developed a Vue.js customizer with real-time 3D previews and pricing. Built integrations with their ERP and CRM systems for seamless quote generation. Made it fully responsive so field sales could demo products on tablets.',
-    outcome: 'Quote generation time dropped from hours to minutes. Mobile orders increased 200% in the first quarter. The customizer reduced pricing errors by 90%, and customer satisfaction scores jumped significantly.',
-    tech: ['Vue.js', 'Three.js', 'API Integration', 'Responsive Design'],
-  },
-  {
-    title: 'Find a Trade Ally Contractor Tool',
-    client: 'EnergyTrust of Oregon',
-    image: '/eto-fac.jpg',
-    problem: 'Their existing contractor search tool was outdated, slow, and hard to use. It relied on a static database that was difficult to update, leading to inaccurate listings. Users often complained about poor search functionality and long load times.',
-    work: 'Built a new Vue.js application with a dynamic backend that allowed for easy updates to contractor listings. Implemented advanced search and filtering options, along with a responsive design for mobile users. Optimized performance to ensure fast load times.',
-    outcome: 'User engagement increased by 150%, with average session duration rising from 2 to 5 minutes. The number of contractor searches grew by 80%, and user satisfaction surveys showed a significant improvement in usability ratings.',
-    tech: ['Vue', 'Javascript', 'REST API'],
-  },
-  {
-    title: 'HAEMR Website',
-    client: 'Harvard Affiliated Emergency Residency Program',
-    image: '/haemr.jpg',
-    problem: 'The existing website was built on an outdated CMS that made content updates cumbersome. The design was not mobile-friendly, leading to a poor user experience on smartphones and tablets. Additionally, the site had slow load times and accessibility issues.',
-    work: 'Redesigned the website using Wordpress for easy content management. Implemented a responsive design to ensure optimal viewing on all devices. Focused on performance optimization and accessibility compliance throughout the development process.',
-    outcome: 'The new website saw a 60% increase in mobile traffic and a 40% reduction in bounce rates. Content updates became significantly easier for the staff, leading to more frequent updates. Accessibility audits showed full compliance with WCAG 2.1 standards.',
-    tech: ['WordPress', 'Performance Optimization'],
-  },
+// const caseStudies = [
+//   {
+//     title: 'Custom Water Bottle Customizer',
+//     client: 'Owala',
+//     image: '/owala.jpg',
+//     problem: 'Customer needed a modern 3D product customizer to allow users to build and price custom water bottles. Their existing Flash-based tool was outdated, not mobile-friendly, and couldn\'t integrate with their ERP system. Sales reps spent hours manually quoting simple orders.',
+//     work: 'Developed a Vue.js customizer with real-time 3D previews and dynamic pricing. Made it fully responsive for mobile.',
+//     outcome: 'Client sold 32,625 custom bottles in 2025.',
+//     tech: ['Vue.js', 'Three.js', 'API Integration', 'Responsive Design'],
+//   },
+//   {
+//     title: 'Custom Goalie Gear Customizer',
+//     client: 'Bauer Skates',
+//     image: '/bauer.jpg',
+//     problem: 'Customer struggled with a clunky Flash-based product customizer from 2008. It only worked on desktop, crashed frequently, and couldn\'t integrate with their modern ERP system. Sales reps spent hours manually quoting simple orders.',
+//     work: 'Developed a Vue.js customizer with real-time 3D previews and pricing. Built integrations with their ERP and CRM systems for seamless quote generation. Made it fully responsive so field sales could demo products on tablets.',
+//     outcome: 'Quote generation time dropped from hours to minutes. Mobile orders increased 200% in the first quarter. The customizer reduced pricing errors by 90%, and customer satisfaction scores jumped significantly.',
+//     tech: ['Vue.js', 'Three.js', 'API Integration', 'Responsive Design'],
+//   },
+//   {
+//     title: 'Find a Trade Ally Contractor Tool',
+//     client: 'EnergyTrust of Oregon',
+//     image: '/eto-fac.jpg',
+//     problem: 'Their existing contractor search tool was outdated, slow, and hard to use. It relied on a static database that was difficult to update, leading to inaccurate listings. Users often complained about poor search functionality and long load times.',
+//     work: 'Built a new Vue.js application with a dynamic backend that allowed for easy updates to contractor listings. Implemented advanced search and filtering options, along with a responsive design for mobile users. Optimized performance to ensure fast load times.',
+//     outcome: 'User engagement increased by 150%, with average session duration rising from 2 to 5 minutes. The number of contractor searches grew by 80%, and user satisfaction surveys showed a significant improvement in usability ratings.',
+//     tech: ['Vue', 'Javascript', 'REST API'],
+//   },
+//   {
+//     title: 'HAEMR Website',
+//     client: 'Harvard Affiliated Emergency Residency Program',
+//     image: '/haemr.jpg',
+//     problem: 'The existing website was built on an outdated CMS that made content updates cumbersome. The design was not mobile-friendly, leading to a poor user experience on smartphones and tablets. Additionally, the site had slow load times and accessibility issues.',
+//     work: 'Redesigned the website using Wordpress for easy content management. Implemented a responsive design to ensure optimal viewing on all devices. Focused on performance optimization and accessibility compliance throughout the development process.',
+//     outcome: 'The new website saw a 60% increase in mobile traffic and a 40% reduction in bounce rates. Content updates became significantly easier for the staff, leading to more frequent updates. Accessibility audits showed full compliance with WCAG 2.1 standards.',
+//     tech: ['WordPress', 'Performance Optimization'],
+//   },
 
-];
+// ];
 
 export default function WebDesignPage() {
   return (
@@ -56,11 +56,11 @@ export default function WebDesignPage() {
             <div>
               <span className="eyebrow">Web Design</span>
               <h1 className="headline animate-hero-headline">
-                I design experiences that feel <span>effortless, modern, and conversion-ready.</span>
+                Modern design that feels effortless, modern, and <span>conversion-ready.</span>
               </h1>
               <p className="subhead animate-hero-subhead">
-                I translate product strategy into clear user journeys, polished interfaces, and design
-                systems that scale. From discovery to prototyping to handoff, I make sure your product
+                Translate product strategy into clear user journeys, polished interfaces, and design
+                systems that scale. From discovery to prototyping to handoff, I make sure your site
                 feels cohesive across web and mobile.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 animate-hero-cta-primary">
@@ -125,7 +125,7 @@ export default function WebDesignPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="card"
+                className="card card--gradient"
               >
                 <h3 className="card__title">{item.title}</h3>
                 <p className="card__description">{item.description}</p>
@@ -134,7 +134,7 @@ export default function WebDesignPage() {
           </div>
         </section>
 
-        <CaseStudies isLoading={false} caseStudies={caseStudies} />
+        {/* <CaseStudies isLoading={false} caseStudies={caseStudies} /> */}
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-start">
@@ -244,7 +244,7 @@ export default function WebDesignPage() {
                 {
                   title: 'Design direction guarantee.',
                   copy:
-                    'If you’re not happy with the initial design direction, Irevise it at no cost until it matches the agreed goals — or you can walk away before development begins.',
+                    'If you’re not happy with the initial design direction, I will revise it at no cost until it matches the agreed goals — or you can walk away before development begins.',
                 },
                 {
                   title: 'Two-week exit window.',
@@ -258,7 +258,7 @@ export default function WebDesignPage() {
                 },
               ].map((item) => (
                 <div key={item.title} className="rounded-2xl border border-white/10 bg-white/10 px-6 py-5">
-                  <p className="text-sm leading-relaxed">
+                  <p className="leading-relaxed">
                     <strong className="text-white">{item.title}</strong> {item.copy}
                   </p>
                 </div>
@@ -275,9 +275,9 @@ export default function WebDesignPage() {
                 <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
                   Build web sites that captivate and convert.
                 </h2>
-                <p className="text-sm text-slate-200 mt-4 max-w-2xl">
-                  Ican redesign a product, build a new UI system, or run a rapid prototype sprint. Share
-                  your goals and Iwill map the right design plan.
+                <p className="text-slate-200 mt-4 max-w-2xl">
+                  I can redesign a product, build a new UI system, or run a rapid prototype sprint. Share
+                  your goals and I will map the right design plan.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">

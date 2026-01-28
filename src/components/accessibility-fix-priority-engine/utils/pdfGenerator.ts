@@ -118,7 +118,7 @@ export function generatePDFSummary(priorities: Priority[]): void {
   doc.setTextColor(brand.ink);
   const ctaLines = wrapText(
     doc,
-    'Need help fixing these? Ideliver accessibility audits, remediation sprints, and compliance documentation.',
+    'Need help fixing these? I deliver accessibility audits, remediation sprints, and compliance documentation.',
     contentWidth,
   );
   doc.text(ctaLines, PAGE_MARGIN, cursorY);

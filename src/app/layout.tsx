@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { CursorGlowTracker } from '@/components/CursorGlowTracker';
+import { GlobalChat } from '@/components/GlobalChat';
 import '../styles/base.scss';
 import '../styles/components.scss';
 import '../styles/utilities.scss';
@@ -28,8 +29,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>{children}</body>
-      <CursorGlowTracker />
+      <body>
+        {children}
+        <GlobalChat />
+        <CursorGlowTracker />
+      </body>
     </html>
   );
 }

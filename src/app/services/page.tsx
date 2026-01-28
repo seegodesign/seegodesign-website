@@ -41,6 +41,17 @@ export default function ServicesPage() {
       href: '/services/wordpress-development',
     },
     // {
+    //   title: 'Custom Chat Bots',
+    //   description:
+    //     'Give your site a helpful, on-brand assistant that answers questions, captures leads, and routes visitors to the right next step without adding support overhead.',
+    //   outcomes: [
+    //     'Custom conversation flows aligned to your services and tone',
+    //     'Lead capture, routing, and handoff to email or CRM',
+    //     'Analytics-ready setup with clear engagement tracking',
+    //   ],
+    //   href: '/services/custom-chat-bots',
+    // },
+    // {
     //   title: 'App Development',
     //   description:
     //     'Ship a product that feels inevitable: fast, stable, and quietly beautiful. I build modern web and product experiences that reduce friction, scale with your roadmap, and give your team a clean foundation to grow from.',
@@ -123,16 +134,16 @@ export default function ServicesPage() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 bg-fixed"
+          className="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 bg-fixed"
           style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40)' }}
         />
-        <div className="hero-overlay"></div>
+        <div className="color-overlay"></div>
       </div>
       <AnimatedWavesBackground />
       <Navigation />
       <main className="relative z-10 pt-24">
-        <section className="max-w-6xl mx-auto min-h-screen relative -top-12 flex flex-col justify-center items-center text-center">
-          <h1 className="max-w-2xl text-4xl md:text-6xl font-semibold text-[color:var(--color-text)] mb-4">
+        <section className="animate-section-rise max-w-6xl mx-auto min-h-screen relative -top-12 flex flex-col justify-center items-center text-center">
+          <h1 className="max-w-2xl text-4xl md:text-6xl font-semibold mb-4">
             Services built for <span className='text-[color:var(--brand-primary)]'>clarity and momentum</span>
           </h1>
           <p className="text-lg text-[color:var(--color-text-muted)] max-w-2xl">
@@ -166,7 +177,7 @@ export default function ServicesPage() {
                   </p>
                   <a
                     href={service.href}
-                    className="inline-flex items-center gap-2 text-[color:var(--brand-primary)] font-semibold hover:text-white transition-colors"
+                    className="service-section__link"
                   >
                     Explore {service.title}
                     <span aria-hidden>→</span>

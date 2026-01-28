@@ -26,6 +26,7 @@ export function Navigation() {
         { href: '/services/accessibility-compliance', label: 'Accessibility Compliance' },
         { href: '/services/app-development', label: 'App Development' },
         { href: '/services/wordpress-development', label: 'Wordpress Development' },
+        // { href: '/services/custom-chat-bots', label: 'Custom Chat Bots' },
         // { href: '/services/branding', label: 'Branding' },
         // { href: '/services/e-commerce-systems', label: 'E-Commerce Systems' },
         // { href: '/services/system-overhaul', label: 'System Overhaul' },
@@ -64,8 +65,8 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
-          <Link href="/" className="text-[color:var(--color-text)] tracking-tight text-2xl">
-            &lt;Seego<span className="text-[color:var(--brand-primary)]">Design/&gt;</span>
+          <Link href="/" className="logo">
+            &lt;Seego<span>Design/&gt;</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -82,7 +83,7 @@ export function Navigation() {
                       href={item.href}
                       className={`border-b-2 pb-1 transition-colors ${
                         isActive
-                          ? 'border-[color:var(--brand-primary)] text-[color:var(--color-text)]'
+                          ? 'border-[color:var(--brand-primary)]'
                           : 'border-transparent text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]'
                       }`}
                     >
@@ -118,7 +119,7 @@ export function Navigation() {
                   href={item.href}
                   className={`border-b-2 pb-1 transition-colors ${
                     isActive
-                      ? 'border-[color:var(--brand-primary)] text-[color:var(--color-text)]'
+                      ? 'border-[color:var(--brand-primary)]'
                       : 'border-transparent text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)]'
                   }`}
                 >
@@ -138,7 +139,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-[color:var(--color-text)] transition-transform duration-300 hover:scale-105"
+            className="md:hidden p-2 transition-transform duration-300 hover:scale-105"
           >
             <span
               className={`inline-flex items-center justify-center transition-transform duration-300 ${
@@ -174,7 +175,7 @@ export function Navigation() {
               type="button"
               aria-label="Close menu"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[color:var(--color-border-muted)] text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)] hover:border-[color:var(--color-border)] transition-colors"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-[color:var(--color-border-muted)] text-[color:var(--color-text-muted)] hover:hover:border-[color:var(--color-border)] transition-colors"
             >
               <X size={18} />
             </button>
@@ -193,7 +194,7 @@ export function Navigation() {
                     className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
                       isActive
                         ? 'text-[color:var(--brand-primary)]'
-                        : 'text-[color:var(--color-text-muted)] hover:text-[color:var(--color-text)] hover:bg-[color:var(--brand-primary)]'
+                        : 'text-[color:var(--color-text-muted)] hover:hover:bg-[color:var(--brand-primary)]'
                     }`}
                   >
                     {item.label}

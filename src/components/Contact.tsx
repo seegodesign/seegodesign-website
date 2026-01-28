@@ -62,7 +62,7 @@ export function Contact({ isLoading }: ContactProps) {
         className="contact-bg absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1448454050639-2f8d4bf26975)' }}
       >
-        <div className="hero-overlay"></div>
+        <div className="color-overlay"></div>
       </div>
       <div className={`relative max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
@@ -73,12 +73,12 @@ export function Contact({ isLoading }: ContactProps) {
             </h2>
             <p className="subhead">
               I design and build premium web experiences that convert, scale, and make your team look good. If your
-              current site is underperforming, unclear, or a pain to maintain, Iwill fix the fundamentals and deliver
+              current site is underperforming, unclear, or a pain to maintain, I will fix the fundamentals and deliver
               a platform you can confidently grow on.
             </p>
 
             <div className="space-y-4 mb-8">
-              <h3 className="text-[color:var(--color-text)]">You might be a good fit for us if:</h3>
+              <h3>You might be a good fit for us if:</h3>
               <ul className="bullets">
                 {[
                   'You need a redesign that improves conversion rates, not just aesthetics.',
@@ -96,7 +96,7 @@ export function Contact({ isLoading }: ContactProps) {
 
           {/* Right Column - Form */}
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="form space-y-6">
               <div>
                 <label htmlFor="name" className="block text-[color:var(--color-text-muted)] mb-2">
                   Name
@@ -108,7 +108,7 @@ export function Contact({ isLoading }: ContactProps) {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-[color:var(--color-surface-muted)] text-[color:var(--color-text)]"
+                  className="form__field"
                   placeholder="Your name"
                 />
               </div>
@@ -124,7 +124,7 @@ export function Contact({ isLoading }: ContactProps) {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-[color:var(--color-surface-muted)] text-[color:var(--color-text)]"
+                  className="form__field"
                   placeholder="your@email.com"
                 />
               </div>
@@ -139,7 +139,7 @@ export function Contact({ isLoading }: ContactProps) {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-[color:var(--color-surface-muted)] text-[color:var(--color-text)]"
+                  className="form__field"
                   placeholder="Your company"
                 />
               </div>
@@ -155,7 +155,7 @@ export function Contact({ isLoading }: ContactProps) {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent resize-none bg-[color:var(--color-surface-muted)] text-[color:var(--color-text)]"
+                  className="form__field"
                   placeholder="What's holding your website back? What would you like to improve?"
                 />
               </div>

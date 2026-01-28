@@ -9,14 +9,23 @@
       }
     }
     .bullets {
-      @apply text-sm text-slate-800/90;
+      @apply text-slate-800/90;
 
       li::before {
         @apply bg-[color:var(--brand-primary)];
       }
     }
 
-    .hero-overlay {
+    .hero {
+      &__headline {
+        @apply text-slate-900;
+      }
+      &__overlay {
+        background: rgba(255, 255, 255, 0.75) !important;
+      }
+    }
+
+    .color-overlay {
       background: rgba(255, 255, 255, 0.75) !important;
     }
 
@@ -56,6 +65,10 @@
     .service-section {
       @apply bg-none;
 
+      &__link {
+        @apply hover:underline font-semibold;
+      }
+
       &.inverse {
         @apply bg-gradient-to-b from-[color:var(--brand-primary)] to-[color:var(--brand-primary-dark)];
 
@@ -65,6 +78,10 @@
 
         .service-section__description {
           @apply text-white/90;
+        }
+
+        .service-section__link {
+          @apply text-white;
         }
       }
     }
@@ -90,6 +107,10 @@
 
       &__stat-icon {
         @apply h-12 w-12 rounded-full bg-[color:var(--brand-primary)]/20 flex items-center justify-center text-[color:var(--brand-primary-dark)] text-xl font-semibold;
+      }
+
+      &__title {
+        @apply text-slate-900;
       }
 
       &__footer {
@@ -118,10 +139,6 @@
 
       &__bullets {
         @apply text-slate-800;
-      }
-
-      &__bullet {
-        @apply bg-[color:var(--brand-primary)];
       }
 
       &__price {
@@ -221,6 +238,26 @@
       &__dot.is-active {
         @apply bg-[color:var(--brand-primary)];
       }
+    }
+
+    .chat-widget {
+      &__messages {
+        @apply bg-[color:var(--color-bg)];
+      }
+    }
+
+    .chat-message {
+      &__bubble--user {
+        @apply bg-[color:var(--brand-primary)] text-white;
+      }
+
+      &__bubble--assistant {
+        @apply bg-white border-slate-200 text-slate-900;
+      }
+    }
+
+    .chat-button {
+      @apply bg-[color:var(--brand-primary)] shadow-black/20;
     }
   }
 }

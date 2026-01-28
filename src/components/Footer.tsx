@@ -17,7 +17,7 @@ export function Footer({ isLoading }: FooterProps) {
   return (
     <footer
       ref={ref}
-      className="bg-[color:var(--color-surface-strong)] text-[color:var(--color-text)] py-8 px-4 sm:px-6 lg:px-8"
+      className="footer"
     >
       <div className={`max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">

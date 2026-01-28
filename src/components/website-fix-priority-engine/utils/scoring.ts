@@ -19,7 +19,7 @@ const detailedContent = {
     },
     {
       heading: 'Use the what-who-why formula',
-      body: 'A clear homepage message follows a simple formula: state what you do, who it is for, and what problem you solve—all above the fold. This is not about clever taglines or industry jargon. It is about instant clarity. For example, instead of "Innovative Solutions for Modern Businesses," try "Ihelp contractors get more leads from Google without paying for ads." The second version immediately tells visitors what you do, who you serve, and the benefit you provide.',
+      body: 'A clear homepage message follows a simple formula: state what you do, who it is for, and what problem you solve—all above the fold. This is not about clever taglines or industry jargon. It is about instant clarity. For example, instead of "Innovative Solutions for Modern Businesses," try "I help contractors get more leads from Google without paying for ads." The second version immediately tells visitors what you do, who you serve, and the benefit you provide.',
     },
     {
       heading: 'Avoid vague hero copy',

@@ -22,7 +22,7 @@ export default function WebsiteOptimizationPage() {
                 Fix the blockers that hold your site back, then <span>unlock the growth.</span>
               </h1>
               <p className="subhead mx-auto animate-hero-subhead">
-                Idiagnose the bottlenecks that hurt conversion, speed, and trust. Then Iprioritize fixes
+                Diagnose the bottlenecks that hurt conversion, speed, and trust. Then prioritize fixes
                 that move the needle in weeks, not quarters. Every sprint is built around impact, not busywork.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 animate-hero-cta-primary">
@@ -43,8 +43,8 @@ export default function WebsiteOptimizationPage() {
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="hero-card__stat">3x</p>
-                    <p className="hero-card__stat-words">faster prioritization with our scoring model.</p>
+                    <p className="hero-card__stat">15-30%</p>
+                    <p className="hero-card__stat-words">lift in conversion rate for typical optimizations.</p>
                   </div>
                   <div className="hero-card__stat-icon">
                     ↑
@@ -62,7 +62,7 @@ export default function WebsiteOptimizationPage() {
               </div>
               <div className="hero-card__footer">
                 <p>
-                  Ifocus on conversion blockers, trust signals, and performance issues that show up in the
+                  Focus on conversion blockers, trust signals, and performance issues that show up in the
                   data.
                 </p>
               </div>
@@ -86,8 +86,7 @@ export default function WebsiteOptimizationPage() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/tools/website-fix-priorities"
-                  className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:brightness-110"
-                  style={{ backgroundColor: 'var(--brand-primary)' }}
+                  className="button"
                 >
                   Use the tool
                 </Link>
@@ -101,7 +100,7 @@ export default function WebsiteOptimizationPage() {
             <div className="hero-card">
               <p className="eyebrow">Optimization Workflow</p>
               <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
-                Iprioritize with data, then ship the fixes that matter.
+                Prioritize with data, then ship the fixes that matter
               </h2>
               <ol className="space-y-5 text-slate-200">
                 {[
@@ -119,32 +118,31 @@ export default function WebsiteOptimizationPage() {
                 ))}
               </ol>
             </div>
-            <div>
-              <p className="eyebrow">Signals ITrack</p>
+            <div className="pl-6">
+              <p className="eyebrow">Deliverables</p>
               <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
-                Clear data points that prove what to fix next.
+                A roadmap your team can execute immediately
               </h2>
-              <div className="grid gap-4">
+              <p className="text-slate-300 leading-relaxed">
+                After completing the questionnaire, download a PDF of the highest-impact fixes, the data behind them, and the exact changes needed to
+                move conversion and performance.
+              </p>
+              <div className="mt-6 space-y-4 text-sm text-slate-200">
                 {[
-                  'Scroll depth, click heatmaps, and friction drop-offs.',
-                  'Core Web Vitals, speed scores, and SEO health.',
-                  'Conversion rates, session replays, and funnel exits.',
-                  'Brand trust signals, review mentions, and clarity gaps.',
+                  'Optimization audit with priority scoring and impact estimates.',
+                  'Fix backlog with owner assignments and timelines.',
+                  'Before/after benchmarks and testing results.',
                 ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-slate-900/60 px-4 py-4 text-slate-200"
-                  >
-                    <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--brand-primary)]" />
-                    <p className="text-sm leading-relaxed">{item}</p>
-                  </div>
+                  <ul key={item} className="bullets">
+                    <li>{item}</li>
+                  </ul>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        {/* <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
             <div>
               <p className="eyebrow">Deliverables</p>
@@ -152,7 +150,7 @@ export default function WebsiteOptimizationPage() {
                 A prioritized roadmap your team can execute immediately.
               </h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                Idocument the highest-impact fixes, the data behind them, and the exact changes needed to
+                I document the highest-impact fixes, the data behind them, and the exact changes needed to
                 move conversion and performance.
               </p>
               <div className="mt-6 space-y-4 text-sm text-slate-200">
@@ -188,7 +186,7 @@ export default function WebsiteOptimizationPage() {
               ]}
             />
           </div>
-        </section>
+        </section> */}
 
       </main>
       <div className="relative z-10">

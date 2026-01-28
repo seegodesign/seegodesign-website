@@ -3,63 +3,57 @@ import { Footer } from '@/components/Footer';
 import { WhatYouReceive } from '@/components/WhatYouReceive';
 import ContactButton from '@/components/ContactButton';
 
-export default function WordPressSupportPage() {
+export default function CustomChatBotsPage() {
   return (
     <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate overflow-hidden">
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.22),transparent_60%)] blur-3xl" />
-      <div className="pointer-events-none absolute top-28 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(86,101,108,0.32),transparent_65%)] blur-3xl" />
+      <div className="pointer-events-none absolute -top-28 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(68,165,248,0.22),transparent_60%)] blur-3xl" />
+      <div className="pointer-events-none absolute top-24 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(66,85,99,0.32),transparent_65%)] blur-3xl" />
       <Navigation />
       <main className="pt-16 md:pt-20 flex-1 relative z-10">
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
             <div>
-              <span className="eyebrow">Wordpress Development</span>
+              <span className="eyebrow">Custom Chat Bots</span>
               <h1 className="headline animate-hero-headline">
-                Keep your WordPress site secure, current, and conversion-ready <span>without the scramble.</span>
+                Give every visitor a helpful guide <span>without adding a support queue.</span>
               </h1>
               <p className="subhead animate-hero-subhead">
-                I handle updates, new pages, fixes, and ongoing maintenance so your site stays fast,
-                protected, and aligned with your marketing goals. No more stalled requests or risky
-                plugin surprises.
+                I build branded chat experiences that answer real questions, qualify leads, and send
+                people to the right next step. Your bot stays on message, captures intent, and hands
+                off to you when it matters.
               </p>
               <div className="mt-8 flex flex-wrap gap-4 animate-hero-cta-primary">
-                <ContactButton text="Start Wordpress Development" />
+                <ContactButton text="Start a Chat Bot Build" />
               </div>
             </div>
             <div className="hero-card">
-              <p className="hero-card__eyebrow">Support Snapshot</p>
+              <p className="hero-card__eyebrow">Bot Snapshot</p>
               <div className="mt-6 space-y-6 text-white">
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="hero-card__stat">24-48</p>
-                    <p className="hero-card__stat-words">hour turnaround on most updates and fixes.</p>
+                    <p className="hero-card__stat">24/7</p>
+                    <p className="hero-card__stat-words">answers to your most common questions.</p>
                   </div>
-                  <div className="hero-card__stat-icon">
-                    ✓
-                  </div>
+                  <div className="hero-card__stat-icon">✓</div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="hero-card__stat">Monthly</p>
-                    <p className="hero-card__stat-words">security patches, plugin updates, and backups.</p>
+                    <p className="hero-card__stat">On-brand</p>
+                    <p className="hero-card__stat-words">voice aligned to your tone and offers.</p>
                   </div>
-                  <div className="hero-card__stat-icon">
-                    ⛭
-                  </div>
+                  <div className="hero-card__stat-icon">◎</div>
                 </div>
                 <div className="flex items-start justify-between gap-6">
                   <div>
-                    <p className="hero-card__stat">Unlimited</p>
-                    <p className="hero-card__stat-words">small content changes included.</p>
+                    <p className="hero-card__stat">Warm leads</p>
+                    <p className="hero-card__stat-words">captured with context, not just emails.</p>
                   </div>
-                  <div className="hero-card__stat-icon">
-                    +
-                  </div>
+                  <div className="hero-card__stat-icon">✦</div>
                 </div>
               </div>
               <div className="hero-card__footer">
                 <p>
-                  You get a dedicated support lane, proactive maintenance, and clear reporting on every update.
+                  You get a structured conversation flow, guardrails, and measurable outcomes.
                 </p>
               </div>
             </div>
@@ -70,25 +64,22 @@ export default function WordPressSupportPage() {
           <div className="grid lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Ongoing Updates',
+                title: 'Intent Mapping',
                 description:
-                  'New pages, landing updates, layout tweaks, and content changes delivered quickly.',
+                  'We map real customer questions, objections, and goals into a clear conversation tree.',
               },
               {
-                title: 'Security + Maintenance',
+                title: 'Lead Capture + Routing',
                 description:
-                  'Core updates, plugin audits, backups, uptime monitoring, and rapid fixes.',
+                  'Capture names, emails, and project intent, then route to email, forms, or CRM.',
               },
               {
-                title: 'Performance Care',
+                title: 'Launch + Monitoring',
                 description:
-                  'Speed checks, image optimization, and technical cleanup that keeps conversions steady.',
+                  'Deploy to your site with analytics so you can see what people ask and where they drop off.',
               },
             ].map((item) => (
-              <div
-                key={item.title}
-                className="card"
-              >
+              <div key={item.title} className="card">
                 <h3 className="card__title">{item.title}</h3>
                 <p className="text-sm text-slate-300 leading-relaxed">{item.description}</p>
               </div>
@@ -99,16 +90,16 @@ export default function WordPressSupportPage() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-start">
             <div className="hero-card">
-              <p className="eyebrow">Support Workflow</p>
+              <p className="eyebrow">Build Workflow</p>
               <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
-                A steady cadence for updates, fixes, and improvements.
+                A focused sprint that turns questions into a conversion engine.
               </h2>
               <ol className="space-y-5 text-slate-200">
                 {[
-                  'Kickoff review of site health, plugins, and hosting setup.',
-                  'Shared request board for changes, new pages, and issues.',
-                  'Weekly or monthly update windows with QA and reporting.',
-                  'Ongoing monitoring, backups, and security patches.',
+                  'Discovery session to capture your services, tone, and primary conversion goals.',
+                  'Conversation mapping and copywriting for key intents.',
+                  'Bot build with guardrails, routing, and handoff rules.',
+                  'Launch, QA, and ongoing tuning based on real usage.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-4">
                     <span className="h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
@@ -120,16 +111,16 @@ export default function WordPressSupportPage() {
               </ol>
             </div>
             <div>
-              <p className="eyebrow">What I Handle</p>
+              <p className="eyebrow">What It Covers</p>
               <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
-                The WordPress tasks that keep teams moving.
+                The pieces that make a bot feel human and useful.
               </h2>
               <div className="grid gap-4">
                 {[
-                  'New pages, landing pages, and content updates.',
-                  'Core, plugin, and theme updates with testing.',
-                  'Security hardening, backups, and recovery support.',
-                  'Performance tuning, caching, and asset optimization.',
+                  'On-brand tone, FAQs, and service positioning.',
+                  'Lead qualification flows tailored to your offers.',
+                  'Fallback paths and escalation to human support.',
+                  'Analytics hooks for intent and conversion tracking.',
                 ].map((item) => (
                   <div
                     key={item}
@@ -142,7 +133,8 @@ export default function WordPressSupportPage() {
               </div>
               <div className="mt-6 border border-white/10 rounded-xl p-5 bg-slate-900/50">
                 <p className="text-sm text-slate-300">
-                  I can collaborate with your marketing or internal team, or run the full support lane.
+                  The bot never claims to book calls or access calendars. It routes visitors to the
+                  right next step and captures intent for you.
                 </p>
               </div>
             </div>
@@ -154,17 +146,17 @@ export default function WordPressSupportPage() {
             <div>
               <p className="eyebrow">Deliverables</p>
               <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
-                A reliable support lane that protects revenue and brand trust.
+                A bot that answers, qualifies, and converts.
               </h2>
               <p className="text-sm leading-relaxed">
-                Wordpress Development should be predictable. I build a plan around your release rhythm and
-                keep your site healthy so marketing can focus on growth.
+                Custom Chat Bots are built to reduce repetitive support while keeping conversion
+                quality high. You get a clear conversation flow, guardrails, and reporting.
               </p>
               <div className="mt-6 space-y-4 text-sm text-slate-200">
                 {[
-                  'Dedicated support queue with clear SLAs.',
-                  'Monthly maintenance checklist and reporting.',
-                  'Ongoing improvements to speed, UX, and content flow.',
+                  'Conversation map and copy deck.',
+                  'Bot build with routing, lead capture, and handoff.',
+                  'Launch checklist and performance reporting.',
                 ].map((item) => (
                   <ul key={item} className="bullets">
                     <li>{item}</li>
@@ -175,20 +167,20 @@ export default function WordPressSupportPage() {
             <WhatYouReceive
               items={[
                 {
-                  title: 'Monthly care plan',
-                  description: 'Updates, security monitoring, and backups handled on schedule.',
+                  title: 'Conversation design',
+                  description: 'Clear flows that answer key questions and guide next steps.',
                 },
                 {
-                  title: 'Rapid response',
-                  description: 'Triage and fixes for urgent issues, bugs, or broken plugins.',
+                  title: 'Lead intelligence',
+                  description: 'Capture context, budget range, and intent without friction.',
                 },
                 {
-                  title: 'Content support',
-                  description: 'New pages, sections, and layout updates when you need them.',
+                  title: 'Safe handoff',
+                  description: 'Escalate to email or a form when a human should step in.',
                 },
                 {
-                  title: 'Performance tuning',
-                  description: 'Speed improvements, caching, and technical cleanup.',
+                  title: 'Performance insights',
+                  description: 'Measure engagement, drop-off, and conversion trends.',
                 },
               ]}
             />
@@ -199,17 +191,17 @@ export default function WordPressSupportPage() {
           <div className="hero-card hero-card--variant">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
-                <p className="eyebrow">Ready for support</p>
+                <p className="eyebrow">Ready to build</p>
                 <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
-                  Keep WordPress updates moving without the stress.
+                  Turn your FAQ into a lead-ready assistant.
                 </h2>
                 <p className="text-sm text-slate-200 mt-4 max-w-2xl">
-                  Tell us what is broken, what is slow, and what you want to launch. I will map the
-                  right support plan for your team.
+                  Share your services, common questions, and goals. I will map the right flow and
+                  launch a chat bot that feels like part of your team.
                 </p>
               </div>
               <div className="flex flex-wrap gap-4">
-                <ContactButton text="Get WP Support" />
+                <ContactButton text="Plan a Chat Bot" />
               </div>
             </div>
           </div>

@@ -92,24 +92,23 @@ export function Hero({ isLoading }: HeroProps) {
 
   return (
     <section
-      id="hero"
       ref={sectionRef}
-      className="relative min-h-screen flex items-center"
+      className="hero"
     >
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="hero__bg-container">
         <div
-          className="hero-bg hero-bg--kenburns absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 bg-fixed"
+          className="hero__bg"
           style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1698094276375-2989818836f5)' }}
         />
-        <div className="hero-overlay"></div>
+        <div className="hero__overlay"></div>
       </div>
       {/* Content */}
       <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8 py-32">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-5xl">
             <h1
-              className={`text-[color:var(--color-text)] mb-8 font-semibold leading-tight text-4xl sm:text-6xl md:text-4xl lg:text-6xl ${
+              className={`hero__headline ${
                 !isLoading && isInView ? "animate-hero-headline" : ""
               }`}
             >
@@ -120,17 +119,21 @@ export function Hero({ isLoading }: HeroProps) {
               </span>
             </h1>
             <p
-              className={`text-[color:var(--color-text-muted)] text-xl md:text-2xl lg:text-3xl mb-10 max-w-3xl leading-relaxed ${
+              className={`hero__subhead ${
               !isLoading && isInView ? "animate-hero-subhead" : ""
               }`}
             >
               Seego Design offers custom web solutions that drive growth, streamline operations, and bring your vision to life with clarity and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <ContactButton text="Let's Talk" icon={ArrowRight} />
+              <ContactButton
+                className={!isLoading && isInView ? "animate-hero-cta-primary" : ""}
+                text="Let's Talk"
+                icon={ArrowRight}
+              />
               <Link
                 href="/tools"
-                className="button button--secondary"
+                className={`${!isLoading && isInView ? "animate-hero-cta-secondary" : ""} button button--secondary`}
               >
                 Explore Tools
               </Link>

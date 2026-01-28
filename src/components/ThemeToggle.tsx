@@ -32,7 +32,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
-      className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-[color:var(--color-border)] text-[color:var(--color-text)] bg-[color:var(--color-surface)] hover:border-[color:var(--brand-primary)]/60 hover:text-[color:var(--brand-primary)] transition-colors"
+      className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] hover:border-[color:var(--brand-primary)]/60 hover:text-[color:var(--brand-primary)] transition-colors"
     >
       {isDark ? <Sun size={18} /> : <Moon size={18} />}
     </button>

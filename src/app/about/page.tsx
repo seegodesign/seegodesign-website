@@ -2,18 +2,20 @@
 
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
-import ContactButton from '@/components/ContactButton';
+// import ContactButton from '@/components/ContactButton';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export default function AboutPage() {
+  const [showMore, setShowMore] = useState(false);
   return (
     <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate overflow-hidden">
       <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.18),transparent_60%)] blur-3xl" />
       <div className="pointer-events-none absolute top-36 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(86,101,108,0.3),transparent_65%)] blur-3xl" />
       <Navigation />
       <main className="pt-16 md:pt-20 flex-1 relative z-10">
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        <section className="animate-section-rise max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-start">
             <div>
               <span className="eyebrow">About Seego Design</span>
@@ -21,21 +23,37 @@ export default function AboutPage() {
                 Hi! I&apos;m Cameron. <span>Nice to meet you!</span>
               </h1>
               <p className="subhead">
-                I’m a solo web design & development studio owner who has over 20 years of experience in the industry.
-                I love creating accessible, visually engaging, results-driven web experiences. Most of my work happens at the intersection of design and development—building interfaces that not only look great but are carefully engineered for performance and usability.
+                I’m a solo web design and development studio owner with over 20 years of experience creating accessible, visually engaging, and results-driven web experiences. My work lives at the intersection of design and development—crafting interfaces that not only look great, but are thoughtfully engineered for performance, usability, and longevity.
               </p>
-              <p className="subhead">
-                Throughout my career, I’ve had the privilege of building software across diverse environments—from small businesses to advertising agencies and educational institutions—which has shaped my adaptability and collaborative approach.
+              <div
+                id="bio-continued"
+                className={`bio-continued transition-all duration-300 ease-in-out ${showMore ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
+                aria-hidden={!showMore}
+              >
+                <p className="subhead">
+                  Over the years, I’ve built software across a wide range of environments, from small businesses to advertising agencies and educational institutions. That breadth of experience has shaped a flexible, collaborative approach and a deep understanding of how to deliver solutions that work in the real world.
+                </p>
+                <p className="subhead">
+                  When I’m not building for the web, I’m raising two amazing children with my wife, making music, and soaking up the natural beauty of life on Kaua‘i.
+                </p>
+              </div>
+              <p>
+                <button
+                  className="text-[color:var(--brand-primary)] underline hover:no-underline focus:outline-none"
+                  onClick={() => setShowMore((v) => !v)}
+                  aria-expanded={showMore}
+                  aria-controls="bio-continued"
+                  type="button"
+                >
+                  {showMore ? 'Show less' : 'Show more'}
+                </button>
               </p>
-              <p className="subhead">
-                Outside of work, I’m raising two amazing children with my wife, making music, and enjoying the natural beauty of life on Kaua‘i.
-              </p>
-              <div className="checkout-btn-row">
+              {/* <div className="checkout-btn-row">
                 <ContactButton text="Let's chat" />
                 <Link className="button button--secondary" href="/services">
                   View services
                 </Link>
-              </div>
+              </div> */}
             </div>
             {/* <div className="hero-card">
               <p className="hero-card__eyebrow">Credibility at a glance</p>
@@ -70,7 +88,7 @@ export default function AboutPage() {
               </div>
             </div> */}
             <div className="flex h-full flex-col items-center">
-              <Image src="/cameron-bio-photo.jpeg" alt="Cameron Gaut, Seego Design" width={256} height={256} className="rounded-full shadow-lg w-64 h-64 object-cover border-8 border-white/20" loading="lazy" />
+              <Image src="/cameron-bio-photo.jpg" alt="Cameron Gaut, Seego Design" width={256} height={384} className="rounded-lg shadow-lg w-64 h-96 object-cover border-8 border-white/20" loading="lazy" />
             </div>
           </div>
         </section>
@@ -96,7 +114,7 @@ export default function AboutPage() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="card"
+                className="card card--gradient animate-section-rise animate-section-rise--staggered"
               >
                 <h3 className="card__title">{item.title}</h3>
                 <p className="card__description">{item.description}</p>
@@ -128,9 +146,9 @@ export default function AboutPage() {
                 ))}
               </ol>
             </div>
-            <div>
-              <p className="eyebrow">Recent outcomes</p>
-              <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4 mb-6">
+            <div className="card card--no-bg">
+              <p className="card__eyebrow">Recent outcomes</p>
+              <h2 className="card__title">
                 Proof that the work delivers.
               </h2>
               <div className="grid gap-4">
@@ -139,13 +157,12 @@ export default function AboutPage() {
                   'Shipped mobile-first redesigns that lowered bounce rates and improved engagement.',
                   'Delivered accessibility upgrades to support WCAG-aligned experiences.',
                 ].map((item) => (
-                  <div
+                  <ul
                     key={item}
-                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-slate-900/60 px-4 py-4 text-slate-200"
+                    className="bullets"
                   >
-                    <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--brand-primary)]" />
-                    <p className="text-sm leading-relaxed">{item}</p>
-                  </div>
+                    <li>{item}</li>
+                  </ul>
                 ))}
               </div>
               <div className="mt-6 border border-white/10 rounded-xl p-5 bg-slate-900/50">
