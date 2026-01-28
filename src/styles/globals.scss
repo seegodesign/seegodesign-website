@@ -12,6 +12,7 @@
 }
 
 :root[data-theme='dark'] .theme-toggle__icon--dark,
-:root[data-theme='light'] .theme-toggle__icon--light {
+:root[data-theme='light'] .theme-toggle__icon--light,
+:root:not([data-theme]) .theme-toggle__icon--light {
   display: inline-flex;
 }
