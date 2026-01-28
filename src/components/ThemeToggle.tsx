@@ -11,9 +11,24 @@ const getCurrentTheme = (): ThemeMode => {
   return attr === 'dark' || attr === 'light' ? attr : 'light';
 };
 
+const resolvePreferredTheme = (): ThemeMode => {
+  if (typeof window === 'undefined') {
+    return getCurrentTheme();
+  }
+  const attr = document.documentElement.dataset.theme;
+  if (attr === 'dark' || attr === 'light') {
+    return attr;
+  }
+  const stored = window.localStorage.getItem('theme') as ThemeMode | null;
+  if (stored === 'dark' || stored === 'light') {
+    return stored;
+  }
+  return 'dark';
+};
+
 export function ThemeToggle() {
   const toggleTheme = () => {
-    const current = getCurrentTheme();
+    const current = resolvePreferredTheme();
     const nextTheme: ThemeMode = current === 'dark' ? 'light' : 'dark';
     if (typeof window !== 'undefined') {
       window.localStorage.setItem('theme', nextTheme);

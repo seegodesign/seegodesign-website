@@ -20,9 +20,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const themeScript = `
     (function() {
       try {
-        var stored = localStorage.getItem('theme');
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        var theme = stored || (prefersDark ? 'dark' : 'light');
+    var stored = localStorage.getItem('theme');
+    var theme = stored || 'dark';
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme;
       } catch (e) {}
