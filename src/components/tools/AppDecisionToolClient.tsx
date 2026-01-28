@@ -5,14 +5,12 @@ import { Footer } from '@/components/Footer';
 import AppDecisionToolEngine from '@/components/app-decision-tool-engine';
 import { AnimatedNetworkBackground } from '@/components/AnimatedNetworkBackground';
 import { WhatYouReceive } from '@/components/WhatYouReceive';
+import { InviteCodeModal } from '@/components/InviteCodeModal';
 import { APP_DECISION_TOOL_PRODUCT_PRICE } from '@/library/constants';
 import { useEffect, useRef, useState } from 'react';
 import { usePaidToolAccess } from '@/hooks/usePaidToolAccess';
 import { usePaidToolCheckout } from '@/hooks/usePaidToolCheckout';
 import { trackEvent } from '@/lib/analytics';
-
-const freeAccessKey = 'app-decision-tool-free-access';
-const freeAccessDurationMs = 24 * 60 * 60 * 1000;
 
 export default function AppDecisionToolClient() {
   const { hasAccess } = usePaidToolAccess('app-decision-tool');
@@ -20,49 +18,18 @@ export default function AppDecisionToolClient() {
     'app-decision-tool',
     '/tools/app-decision-tool?cancel=1'
   );
-  const [hasFreeAccess, setHasFreeAccess] = useState(false);
   const hasTrackedAccess = useRef(false);
+  const [isInviteOpen, setIsInviteOpen] = useState(false);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const stored = window.localStorage.getItem(freeAccessKey);
-    if (!stored) return;
-    const expiresAt = Number(stored);
-    if (Number.isNaN(expiresAt)) {
-      window.localStorage.removeItem(freeAccessKey);
-      return;
-    }
-    if (Date.now() < expiresAt) {
-      queueMicrotask(() => {
-        setHasFreeAccess(true);
-      });
-    } else {
-      window.localStorage.removeItem(freeAccessKey);
-    }
-  }, []);
-
-  const handleFreeAccess = () => {
-    if (typeof window === 'undefined') return;
-    trackEvent('click', {
-      event_category: 'engagement',
-      event_label: 'app_decision_tool_free_access_claimed',
-    });
-    const expiresAt = Date.now() + freeAccessDurationMs;
-    window.localStorage.setItem(freeAccessKey, String(expiresAt));
-    setHasFreeAccess(true);
-  };
-
-  const hasToolAccess = hasAccess || hasFreeAccess;
-
-  useEffect(() => {
-    if (hasToolAccess && !hasTrackedAccess.current) {
+    if (hasAccess && !hasTrackedAccess.current) {
       hasTrackedAccess.current = true;
       trackEvent('view_item', {
         event_category: 'tool_usage',
         event_label: 'app_decision_tool_accessed',
       });
     }
-  }, [hasToolAccess]);
+  }, [hasAccess]);
 
   const handleCheckout = () => {
     trackEvent('begin_checkout', {
@@ -80,7 +47,7 @@ export default function AppDecisionToolClient() {
         <Navigation />
       </div>
       <main className="pt-16 md:pt-20 flex-1 relative z-10">
-        {!hasToolAccess && (
+        {!hasAccess && (
           <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
               <div>
@@ -105,7 +72,7 @@ export default function AppDecisionToolClient() {
                     </ul>
                   ))}
                 </div>
-                {!hasToolAccess && (
+                {!hasAccess && (
                   <div className="checkout-btn-row">
                     <button
                       type="button"
@@ -113,18 +80,18 @@ export default function AppDecisionToolClient() {
                       disabled={isRedirecting}
                       className="button"
                     >
-                      <s>{isRedirecting ? 'Redirecting...' : `Unlock for $${APP_DECISION_TOOL_PRODUCT_PRICE}`}</s>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleFreeAccess}
-                      className="button button--secondary"
-                    >
-                      Free for 24 hours!
+                      {isRedirecting ? 'Redirecting...' : `Unlock for $${APP_DECISION_TOOL_PRODUCT_PRICE}`}
                     </button>
                     <p className="checkout-btn-row__note">
                       Secure checkout via Stripe. You will receive a 24-hour access link instantly.
                     </p>
+                    <button
+                      type="button"
+                      onClick={() => setIsInviteOpen(true)}
+                      className="checkout-btn-row__invite-code"
+                    >
+                      Enter invite code
+                    </button>
                   </div>
                 )}
               </div>
@@ -140,7 +107,7 @@ export default function AppDecisionToolClient() {
           </section>
         )}
 
-        {hasToolAccess && (
+        {hasAccess && (
           <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
             <AppDecisionToolEngine />
           </section>
@@ -149,6 +116,11 @@ export default function AppDecisionToolClient() {
       <div className="relative z-10">
         <Footer isLoading={false} />
       </div>
+      <InviteCodeModal
+        tool="app-decision-tool"
+        isOpen={isInviteOpen}
+        onClose={() => setIsInviteOpen(false)}
+      />
     </div>
   );
 }

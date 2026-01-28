@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import AccessibilityFixPriorityEngine from '@/components/accessibility-fix-priority-engine';
 import { AnimatedCubesBackground } from '@/components/AnimatedCubesBackground';
 import { WhatYouReceive } from '@/components/WhatYouReceive';
+import { InviteCodeModal } from '@/components/InviteCodeModal';
 import { ACCESSIBILITY_FIX_PRIORITY_PRODUCT_PRICE } from '@/library/constants';
 import { usePaidToolAccess } from '@/hooks/usePaidToolAccess';
 import { usePaidToolCheckout } from '@/hooks/usePaidToolCheckout';
@@ -18,6 +19,7 @@ export default function AccessibilityFixPrioritiesClient() {
     '/tools/accessibility-fix-priorities?cancel=1'
   );
   const hasTrackedAccess = useRef(false);
+  const [isInviteOpen, setIsInviteOpen] = useState(false);
 
   useEffect(() => {
     if (hasAccess && !hasTrackedAccess.current) {
@@ -83,6 +85,13 @@ export default function AccessibilityFixPrioritiesClient() {
                   <p className="checkout-btn-row__note">
                     Secure checkout via Stripe. You will receive a 24-hour access link instantly.
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => setIsInviteOpen(true)}
+                    className="checkout-btn-row__invite-code"
+                  >
+                    Enter invite code
+                  </button>
                 </div>
               </div>
               <WhatYouReceive
@@ -106,6 +115,11 @@ export default function AccessibilityFixPrioritiesClient() {
       <div className="relative z-10">
         <Footer isLoading={false} />
       </div>
+      <InviteCodeModal
+        tool="accessibility-fix-priorities"
+        isOpen={isInviteOpen}
+        onClose={() => setIsInviteOpen(false)}
+      />
     </div>
   );
 }

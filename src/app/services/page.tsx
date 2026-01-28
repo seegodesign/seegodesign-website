@@ -130,7 +130,7 @@ export default function ServicesPage() {
     }
   };
   return (
-    <div className="relative overflow-hidden bg-[color:var(--color-bg)] isolate">
+    <div className="relative overflow-hidden bg-[color:var(--color-bg)] isolate px-4 sm:px-6 lg:px-8">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 overflow-hidden">
         <div

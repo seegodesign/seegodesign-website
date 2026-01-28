@@ -78,6 +78,10 @@
     &__note {
       @apply text-xs max-w-xs text-[color:var(--color-text-muted)];
     }
+
+    &__invite-code {
+      @apply mt-2 text-sm text-[color:var(--color-text-muted)] hover:text-[color:var(--brand-primary)] transition-colors;
+    }
   }
 
   .button {
