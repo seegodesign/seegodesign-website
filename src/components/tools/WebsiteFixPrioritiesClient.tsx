@@ -65,7 +65,7 @@ export default function WebsiteFixPrioritiesClient() {
                 )}
               </div>
               <WhatYouReceive
-                heading={`What you get for only $${WEBSITE_FIX_PRIORITY_PRODUCT_PRICE}`}
+                heading="What's included"
                 items={[
                   { title: '10-question diagnostic', description: 'Quickly assess the most critical website issues.' },
                   { title: 'Top 3 fix list', description: 'Actionable priorities ranked by impact.' },

@@ -64,7 +64,7 @@ export default function AccessibilityFixPrioritiesClient() {
                 </div>
               </div>
               <WhatYouReceive
-                heading={`What you get for only $${ACCESSIBILITY_FIX_PRIORITY_PRODUCT_PRICE}`}
+                heading="What's included"
                 items={[
                   { title: '10-question diagnostic', description: 'Capture your compliance risk fast.' },
                   { title: 'Top 3 fix list', description: 'Prioritized actions mapped to WCAG impact.' },

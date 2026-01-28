@@ -104,7 +104,7 @@ export default function AppDecisionToolClient() {
                 )}
               </div>
               <WhatYouReceive
-                heading={`What you get for only $${APP_DECISION_TOOL_PRODUCT_PRICE}`}
+                heading="What's included"
                 items={[
                   { title: '14-question diagnostic', description: 'Clarify scope, users, and platform risk.' },
                   { title: 'Readiness score + insights', description: 'Understand what is blocking launch.' },
