@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 type ChatMessageProps = {
   role: "user" | "assistant";
   content: string;
@@ -31,7 +33,7 @@ const renderFormattedContent = (content: string) => {
   const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
 
   return lines.map((line, lineIndex) => {
-    const nodes: Array<JSX.Element> = [];
+    const nodes: ReactNode[] = [];
     let lastIndex = 0;
     let match: RegExpExecArray | null = null;
     let linkIndex = 0;
