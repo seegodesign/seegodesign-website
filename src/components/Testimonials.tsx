@@ -62,7 +62,7 @@ export function Testimonials() {
             <div>
               <h2 className="testimonials__headline">Trusted by teams who needed results</h2>
               <p className="testimonials__subhead">
-                Hear from some of the clients I've had the pleasure to work with.
+                Hear from some of the clients I&apos;ve had the pleasure to work with.
               </p>
             </div>
             {totalSlides > 1 && (

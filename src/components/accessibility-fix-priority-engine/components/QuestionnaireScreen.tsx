@@ -112,7 +112,6 @@ export function QuestionnaireScreen({ onComplete }: QuestionnaireScreenProps) {
   const currentQuestion = questions[currentStep];
   const progress = ((currentStep + 1) / questions.length) * 100;
   const isLastQuestion = currentStep === questions.length - 1;
-  const currentAnswer = answers[currentQuestion.id];
 
   const handleChoice = (value: string) => {
     const newAnswers = { ...answers, [currentQuestion.id]: value };

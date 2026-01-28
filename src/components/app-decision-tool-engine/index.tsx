@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { LandingScreen } from '@/components/app-decision-tool-engine/components/LandingScreen';
 import { QuestionnaireScreen } from '@/components/app-decision-tool-engine/components/QuestionnaireScreen';
 import { ResultsScreen } from '@/components/app-decision-tool-engine/components/ResultsScreen';
@@ -9,23 +9,30 @@ import type { Answers } from '@/components/app-decision-tool-engine/types';
 const resultsStorageKey = 'app-decision-tool-results';
 
 export default function AppDecisionToolEngine() {
-  const [screen, setScreen] = useState<'landing' | 'questionnaire' | 'results'>('landing');
-  const [answers, setAnswers] = useState<Answers>({});
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
+  const [answers, setAnswers] = useState<Answers>(() => {
+    if (typeof window === 'undefined') return {};
     const stored = window.localStorage.getItem(resultsStorageKey);
-    if (!stored) return;
+    if (!stored) return {};
     try {
       const data = JSON.parse(stored) as { answers?: Answers };
-      if (data?.answers) {
-        setAnswers(data.answers);
-        setScreen('results');
-      }
+      return data?.answers ?? {};
     } catch {
       window.localStorage.removeItem(resultsStorageKey);
+      return {};
     }
-  }, []);
+  });
+  const [screen, setScreen] = useState<'landing' | 'questionnaire' | 'results'>(() => {
+    if (typeof window === 'undefined') return 'landing';
+    const stored = window.localStorage.getItem(resultsStorageKey);
+    if (!stored) return 'landing';
+    try {
+      const data = JSON.parse(stored) as { answers?: Answers };
+      return data?.answers ? 'results' : 'landing';
+    } catch {
+      window.localStorage.removeItem(resultsStorageKey);
+      return 'landing';
+    }
+  });
 
   const handleStart = () => {
     setScreen('questionnaire');

@@ -201,8 +201,6 @@ export function QuestionnaireScreen({ onComplete }: QuestionnaireScreenProps) {
     window.localStorage.setItem(storageKey, JSON.stringify({ answers, currentStep }));
   }, [answers, currentStep]);
 
-  const currentAnswer = answers[currentQuestion.id];
-
   const handleChoice = (value: string) => {
     const newAnswers = { ...answers, [currentQuestion.id]: value };
     setAnswers(newAnswers);

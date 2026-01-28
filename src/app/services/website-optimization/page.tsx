@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
-import { WhatYouReceive } from '@/components/WhatYouReceive';
 import ContactButton from '@/components/ContactButton';
 
 export default function WebsiteOptimizationPage() {

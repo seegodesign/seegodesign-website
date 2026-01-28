@@ -26,8 +26,6 @@ export function AnimatedWavesBackground() {
           const waveCount = 6;
           const backgroundColorDark: [number, number, number] = [10, 21, 36];
           const backgroundColorLight: [number, number, number] = [255, 255, 255];
-          const pointSpacing = 96;
-
         const createWaves = () => {
           waves.length = 0;
           for (let i = 0; i < waveCount; i += 1) {
