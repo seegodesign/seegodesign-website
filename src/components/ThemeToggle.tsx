@@ -6,6 +6,7 @@ import { Moon, Sun } from 'lucide-react';
 type ThemeMode = 'dark' | 'light';
 
 export function ThemeToggle() {
+  const [isMounted, setIsMounted] = useState(false);
   const [theme, setTheme] = useState<ThemeMode>(() => {
     if (typeof window === 'undefined') return 'dark';
     const stored = window.localStorage.getItem('theme') as ThemeMode | null;
@@ -14,6 +15,7 @@ export function ThemeToggle() {
   });
 
   useEffect(() => {
+    setIsMounted(true);
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
   }, [theme]);
@@ -27,6 +29,10 @@ export function ThemeToggle() {
   };
 
   const isDark = theme === 'dark';
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <button
