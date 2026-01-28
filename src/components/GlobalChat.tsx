@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { ChatButton } from "./ChatButton";
 import { ChatWidget } from "./ChatWidget";
+import { trackEvent } from "@/lib/analytics";
 
 const CHAT_WIDGET_ID = "global-chat-widget";
 const CHAT_TITLE_ID = "global-chat-title";
@@ -23,6 +24,10 @@ export const GlobalChat = () => {
 
   useEffect(() => {
     if (!isOpen) return;
+    trackEvent("click", {
+      event_category: "engagement",
+      event_label: "chat_widget_opened",
+    });
     const input = document.getElementById(CHAT_INPUT_ID) as HTMLTextAreaElement | null;
     input?.focus();
   }, [isOpen]);

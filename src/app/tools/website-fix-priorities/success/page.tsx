@@ -1,5 +1,6 @@
-import { redirect } from 'next/navigation';
 import { getPaidToolSuccessUrl } from '@/lib/paidToolSuccess';
+import { PaidToolSuccessRedirect } from '@/components/PaidToolSuccessRedirect';
+import { redirect } from 'next/navigation';
 
 type SuccessPageProps = {
   searchParams: Promise<{ session_id?: string }>;
@@ -12,6 +13,13 @@ export default async function WebsiteFixPrioritiesSuccessPage({ searchParams }: 
     redirect('/tools/website-fix-priorities?error=missing-session');
   }
 
-  const redirectUrl = await getPaidToolSuccessUrl('website-fix-priorities', sessionId);
-  redirect(redirectUrl);
+  const { redirectUrl, isPaid } = await getPaidToolSuccessUrl('website-fix-priorities', sessionId);
+  return (
+    <PaidToolSuccessRedirect
+      tool="website-fix-priorities"
+      sessionId={sessionId}
+      redirectUrl={redirectUrl}
+      isPaid={isPaid}
+    />
+  );
 }

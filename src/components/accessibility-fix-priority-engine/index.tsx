@@ -7,24 +7,43 @@ import { ResultsScreen } from '@/components/accessibility-fix-priority-engine/co
 import { VIPDayPage } from '@/components/accessibility-fix-priority-engine/components/VIPDayPage';
 import type { Answers } from '@/components/accessibility-fix-priority-engine/types';
 import { calculatePriorities } from '@/components/accessibility-fix-priority-engine/utils/scoring';
+import { trackEvent } from '@/lib/analytics';
 
 export default function AccessibilityFixPriorityEngine() {
   const [screen, setScreen] = useState<'landing' | 'questionnaire' | 'results' | 'vipday'>('landing');
   const [answers, setAnswers] = useState<Answers>({});
 
-  const handleStart = () => setScreen('questionnaire');
+  const handleStart = () => {
+    trackEvent('click', {
+      event_category: 'tool_usage',
+      event_label: 'accessibility_tool_started',
+    });
+    setScreen('questionnaire');
+  };
 
   const handleComplete = (finalAnswers: Answers) => {
+    trackEvent('form_submit', {
+      event_category: 'tool_usage',
+      event_label: 'accessibility_questionnaire_completed',
+    });
     setAnswers(finalAnswers);
     setScreen('results');
   };
 
   const handleRestart = () => {
+    trackEvent('click', {
+      event_category: 'tool_usage',
+      event_label: 'accessibility_tool_restarted',
+    });
     setAnswers({});
     setScreen('landing');
   };
 
   const handleViewVIPDay = () => {
+    trackEvent('click', {
+      event_category: 'engagement',
+      event_label: 'accessibility_vip_day_viewed',
+    });
     setScreen('vipday');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

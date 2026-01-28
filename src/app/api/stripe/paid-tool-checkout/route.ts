@@ -1,5 +1,7 @@
 import Stripe from 'stripe';
+import { getToolProductMetadata } from '@/lib/analytics';
 import { getPaidToolConfig, type PaidToolKey } from '@/lib/paidToolConfig';
+import { trackServerEvent } from '@/lib/serverAnalytics';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 
@@ -30,6 +32,22 @@ export async function POST(request: Request) {
     line_items: [{ price: priceId, quantity: 1 }],
     success_url: `${successUrl}?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: body.cancelUrl,
+  });
+
+  const item = getToolProductMetadata(body.tool);
+  await trackServerEvent('begin_checkout', {
+    event_category: 'ecommerce',
+    event_label: body.tool,
+    value: item.price,
+    currency: 'USD',
+    items: [
+      {
+        item_id: item.item_id,
+        item_name: item.item_name,
+        price: item.price,
+        quantity: 1,
+      },
+    ],
   });
 
   return Response.json({ url: session.url });

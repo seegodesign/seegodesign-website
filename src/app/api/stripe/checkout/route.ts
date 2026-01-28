@@ -1,4 +1,6 @@
 import Stripe from 'stripe';
+import { getVIPDayProductMetadata } from '@/lib/analytics';
+import { trackServerEvent } from '@/lib/serverAnalytics';
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const reserveSpotPriceId = process.env.STRIPE_RESERVE_SPOT_PRICE_ID;
@@ -42,6 +44,22 @@ export async function POST(request: Request) {
           default_value: body.notes,
           maximum_length: 255,
         },
+      },
+    ],
+  });
+
+  const item = getVIPDayProductMetadata();
+  await trackServerEvent('begin_checkout', {
+    event_category: 'ecommerce',
+    event_label: item.item_id,
+    value: item.price,
+    currency: 'USD',
+    items: [
+      {
+        item_id: item.item_id,
+        item_name: item.item_name,
+        price: item.price,
+        quantity: 1,
       },
     ],
   });

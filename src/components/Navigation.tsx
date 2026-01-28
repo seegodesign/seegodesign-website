@@ -165,7 +165,7 @@ export function Navigation() {
           className="absolute inset-0 bg-slate-950/70"
         />
         <div
-          className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-[color:var(--color-surface-strong)] border-l border-[color:var(--color-border)] transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-[color:var(--color-surface-strong)] border-l border-[color:var(--color-border)] transition-transform duration-300 flex flex-col ${
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -180,7 +180,7 @@ export function Navigation() {
               <X size={18} />
             </button>
           </div>
-          <div className="h-full overflow-y-auto px-4 py-6 space-y-3">
+          <div className="flex-1 overflow-y-auto px-4 py-6 space-y-3 pb-[calc(env(safe-area-inset-bottom)+1.5rem)]">
             {navItems.map((item) => {
               const isActive =
                 pathname === item.href ||

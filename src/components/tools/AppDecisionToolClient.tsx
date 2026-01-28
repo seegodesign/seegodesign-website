@@ -6,9 +6,10 @@ import AppDecisionToolEngine from '@/components/app-decision-tool-engine';
 import { AnimatedNetworkBackground } from '@/components/AnimatedNetworkBackground';
 import { WhatYouReceive } from '@/components/WhatYouReceive';
 import { APP_DECISION_TOOL_PRODUCT_PRICE } from '@/library/constants';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePaidToolAccess } from '@/hooks/usePaidToolAccess';
 import { usePaidToolCheckout } from '@/hooks/usePaidToolCheckout';
+import { trackEvent } from '@/lib/analytics';
 
 const freeAccessKey = 'app-decision-tool-free-access';
 const freeAccessDurationMs = 24 * 60 * 60 * 1000;
@@ -20,6 +21,7 @@ export default function AppDecisionToolClient() {
     '/tools/app-decision-tool?cancel=1'
   );
   const [hasFreeAccess, setHasFreeAccess] = useState(false);
+  const hasTrackedAccess = useRef(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -41,12 +43,35 @@ export default function AppDecisionToolClient() {
 
   const handleFreeAccess = () => {
     if (typeof window === 'undefined') return;
+    trackEvent('click', {
+      event_category: 'engagement',
+      event_label: 'app_decision_tool_free_access_claimed',
+    });
     const expiresAt = Date.now() + freeAccessDurationMs;
     window.localStorage.setItem(freeAccessKey, String(expiresAt));
     setHasFreeAccess(true);
   };
 
   const hasToolAccess = hasAccess || hasFreeAccess;
+
+  useEffect(() => {
+    if (hasToolAccess && !hasTrackedAccess.current) {
+      hasTrackedAccess.current = true;
+      trackEvent('view_item', {
+        event_category: 'tool_usage',
+        event_label: 'app_decision_tool_accessed',
+      });
+    }
+  }, [hasToolAccess]);
+
+  const handleCheckout = () => {
+    trackEvent('begin_checkout', {
+      event_category: 'conversion',
+      event_label: 'app_decision_tool_checkout_started',
+      value: APP_DECISION_TOOL_PRODUCT_PRICE,
+    });
+    startCheckout();
+  };
 
   return (
     <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate">
@@ -84,7 +109,7 @@ export default function AppDecisionToolClient() {
                   <div className="checkout-btn-row">
                     <button
                       type="button"
-                      onClick={startCheckout}
+                      onClick={handleCheckout}
                       disabled={isRedirecting}
                       className="button"
                     >

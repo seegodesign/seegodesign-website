@@ -1,5 +1,6 @@
-import { redirect } from 'next/navigation';
 import { getPaidToolSuccessUrl } from '@/lib/paidToolSuccess';
+import { PaidToolSuccessRedirect } from '@/components/PaidToolSuccessRedirect';
+import { redirect } from 'next/navigation';
 
 type SuccessPageProps = {
   searchParams: Promise<{ session_id?: string }>;
@@ -12,6 +13,13 @@ export default async function AppDecisionToolSuccessPage({ searchParams }: Succe
     redirect('/tools/app-decision-tool?error=missing-session');
   }
 
-  const redirectUrl = await getPaidToolSuccessUrl('app-decision-tool', sessionId);
-  redirect(redirectUrl);
+  const { redirectUrl, isPaid } = await getPaidToolSuccessUrl('app-decision-tool', sessionId);
+  return (
+    <PaidToolSuccessRedirect
+      tool="app-decision-tool"
+      sessionId={sessionId}
+      redirectUrl={redirectUrl}
+      isPaid={isPaid}
+    />
+  );
 }

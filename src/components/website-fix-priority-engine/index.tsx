@@ -9,6 +9,7 @@ import { VIPDayPage } from '@/components/website-fix-priority-engine/components/
 import { ConfirmationPage } from '@/components/website-fix-priority-engine/components/ConfirmationPage';
 import type { Answers } from '@/components/website-fix-priority-engine/types';
 import { calculatePriorities } from '@/components/website-fix-priority-engine/utils/scoring';
+import { trackEvent } from '@/lib/analytics';
 
 export default function WebsiteFixPriorityEngine() {
   const searchParams = useSearchParams();
@@ -35,20 +36,36 @@ export default function WebsiteFixPriorityEngine() {
   }, [status]);
 
   const handleStart = () => {
+    trackEvent('click', {
+      event_category: 'tool_usage',
+      event_label: 'website_fix_tool_started',
+    });
     setScreen('questionnaire');
   };
 
   const handleComplete = (finalAnswers: Answers) => {
+    trackEvent('form_submit', {
+      event_category: 'tool_usage',
+      event_label: 'website_fix_questionnaire_completed',
+    });
     setAnswers(finalAnswers);
     setScreen('results');
   };
 
   const handleRestart = () => {
+    trackEvent('click', {
+      event_category: 'tool_usage',
+      event_label: 'website_fix_tool_restarted',
+    });
     setAnswers({});
     setScreen('landing');
   };
 
   const handleViewVIPDay = () => {
+    trackEvent('click', {
+      event_category: 'engagement',
+      event_label: 'website_fix_vip_day_viewed',
+    });
     setScreen('vipday');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

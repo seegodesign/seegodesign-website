@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { ArrowRight, Check, Shield, Zap, Calendar } from 'lucide-react';
 import type { Priority } from '@/components/accessibility-fix-priority-engine/types';
+import { ONE_DAY_WEBSITE_DEPOSIT_PRICE } from '@/library/constants';
+import { getVIPDayProductMetadata, trackEvent } from '@/lib/analytics';
 
 interface VIPDayPageProps {
   priorities: Priority[];
@@ -14,6 +16,21 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
     const redirectToCheckout = async () => {
       try {
         setIsRedirecting(true);
+        const item = getVIPDayProductMetadata();
+        trackEvent('begin_checkout', {
+          event_category: 'ecommerce',
+          event_label: 'vip-day-deposit',
+          value: ONE_DAY_WEBSITE_DEPOSIT_PRICE,
+          currency: 'USD',
+          items: [
+            {
+              item_id: item.item_id,
+              item_name: item.item_name,
+              price: ONE_DAY_WEBSITE_DEPOSIT_PRICE,
+              quantity: 1,
+            },
+          ],
+        });
         const origin = window.location.origin;
         const response = await fetch('/api/stripe/checkout', {
           method: 'POST',

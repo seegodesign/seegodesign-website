@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "r
 
 import { ChatMessage } from "./ChatMessage";
 import { useChatHistory } from "../hooks/useChatHistory";
+import { trackEvent } from "@/lib/analytics";
 
 type ChatWidgetProps = {
   isOpen: boolean;
@@ -54,8 +55,22 @@ export const ChatWidget = ({
 
     try {
       await sendMessage(trimmed);
+      trackEvent("form_submit", {
+        event_category: "engagement",
+        event_label: "chat_message_sent",
+      });
     } catch (sendError) {
       console.error(sendError);
+    }
+  };
+
+  const handleClearHistory = () => {
+    if (window.confirm("Clear chat history?")) {
+      clearHistory();
+      trackEvent("click", {
+        event_category: "engagement",
+        event_label: "chat_history_cleared",
+      });
     }
   };
 
@@ -81,11 +96,7 @@ export const ChatWidget = ({
           <button
             type="button"
             className="chat-widget__action"
-            onClick={() => {
-              if (window.confirm("Clear chat history?")) {
-                clearHistory();
-              }
-            }}
+            onClick={handleClearHistory}
             aria-label="Clear chat history"
           >
             <Trash2 className="h-4 w-4" />

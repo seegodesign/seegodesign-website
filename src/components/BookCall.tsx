@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
+import { trackEvent } from '@/lib/analytics';
 
 type BookCallProps = {
   isLoading: boolean;
@@ -12,6 +13,8 @@ export function BookCall({ isLoading }: BookCallProps) {
   const shouldAnimate = !isLoading && isInView;
   const widgetHostRef = useRef<HTMLDivElement | null>(null);
   const [isWidgetLoading, setIsWidgetLoading] = useState(true);
+  const hasTrackedWidgetLoad = useRef(false);
+  const hasTrackedWidgetView = useRef(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -70,6 +73,26 @@ export function BookCall({ isLoading }: BookCallProps) {
       }
     };
   }, []);
+
+  useEffect(() => {
+    if (!isWidgetLoading && !hasTrackedWidgetLoad.current) {
+      hasTrackedWidgetLoad.current = true;
+      trackEvent('view_item', {
+        event_category: 'engagement',
+        event_label: 'booking_widget_loaded',
+      });
+    }
+  }, [isWidgetLoading]);
+
+  useEffect(() => {
+    if (isInView && !hasTrackedWidgetView.current) {
+      hasTrackedWidgetView.current = true;
+      trackEvent('view_item', {
+        event_category: 'engagement',
+        event_label: 'booking_widget_viewed',
+      });
+    }
+  }, [isInView]);
 
   return (
     <section

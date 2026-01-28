@@ -2,6 +2,7 @@ import { ArrowRight, Check, Download, RefreshCw } from 'lucide-react';
 import type { Answers } from '@/components/accessibility-fix-priority-engine/types';
 import { calculatePriorities } from '@/components/accessibility-fix-priority-engine/utils/scoring';
 import { generatePDFSummary } from '@/components/accessibility-fix-priority-engine/utils/pdfGenerator';
+import { trackEvent } from '@/lib/analytics';
 
 interface ResultsScreenProps {
   answers: Answers;
@@ -30,7 +31,19 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
   ];
 
   const handleDownloadPDF = () => {
+    trackEvent('click', {
+      event_category: 'lead_generation',
+      event_label: 'accessibility_pdf_downloaded',
+    });
     generatePDFSummary(priorities);
+  };
+
+  const handleViewVIPDayClick = () => {
+    trackEvent('click', {
+      event_category: 'engagement',
+      event_label: 'accessibility_learn_more_clicked',
+    });
+    onViewVIPDay();
   };
 
   return (
@@ -353,7 +366,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
             forward with confidence.
           </p>
           <button
-            onClick={onViewVIPDay}
+            onClick={handleViewVIPDayClick}
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-md hover:shadow-lg mb-6"
             style={{
               backgroundColor: 'var(--engine-cta)',

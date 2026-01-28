@@ -3,6 +3,7 @@ import { ArrowRight, Check, Zap, Shield, Calendar } from 'lucide-react';
 import type { Priority } from '@/components/website-fix-priority-engine/utils/scoring';
 // Update the path below to the correct relative path from this file to constants.ts
 import { ONE_DAY_WEBSITE_DEPOSIT_PRICE, ONE_DAY_WEBSITE_FIX_PRICE } from '@/library/constants';
+import { getVIPDayProductMetadata, trackEvent } from '@/lib/analytics';
 
 interface VIPDayPageProps {
   priorities: Priority[];
@@ -16,6 +17,21 @@ export function VIPDayPage({ priorities, onBack }: VIPDayPageProps) {
     const redirectToCheckout = async () => {
       try {
         setIsRedirecting(true);
+        const item = getVIPDayProductMetadata();
+        trackEvent('begin_checkout', {
+          event_category: 'ecommerce',
+          event_label: 'vip-day-deposit',
+          value: item.price,
+          currency: 'USD',
+          items: [
+            {
+              item_id: item.item_id,
+              item_name: item.item_name,
+              price: item.price,
+              quantity: 1,
+            },
+          ],
+        });
         const origin = window.location.origin;
         const response = await fetch('/api/stripe/checkout', {
           method: 'POST',

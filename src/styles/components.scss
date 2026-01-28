@@ -379,7 +379,7 @@
   }
 
   .chat-widget {
-    @apply fixed bottom-6 right-6 z-[45] flex flex-col bg-[color:var(--color-surface-strong)] rounded-2xl shadow-2xl shadow-black/30 border border-[color:var(--color-border)] backdrop-blur-xl transition-all duration-300 ease-out;
+    @apply fixed bottom-6 right-6 z-[60] flex flex-col bg-[color:var(--color-surface-strong)] rounded-2xl shadow-2xl shadow-black/30 border border-[color:var(--color-border)] backdrop-blur-xl transition-all duration-300 ease-out;
     will-change: transform, opacity;
 
     &.is-open {
@@ -503,7 +503,7 @@
   }
 
   .chat-button {
-    @apply fixed bottom-6 right-6 z-[45] inline-flex items-center justify-center h-14 w-14 md:h-16 md:w-16 rounded-full bg-[color:var(--brand-primary-dark)] text-white shadow-2xl shadow-black/30 hover:bg-[color:var(--brand-primary)] hover:scale-110 transition-all duration-200;
+    @apply fixed bottom-6 right-6 z-[60] inline-flex items-center justify-center h-14 w-14 md:h-16 md:w-16 rounded-full bg-[color:var(--brand-primary-dark)] text-white shadow-2xl shadow-black/30 hover:bg-[color:var(--brand-primary)] hover:scale-110 transition-all duration-200;
 
     &__badge {
       @apply absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 border-2 border-white;

@@ -5,6 +5,7 @@ import { LandingScreen } from '@/components/app-decision-tool-engine/components/
 import { QuestionnaireScreen } from '@/components/app-decision-tool-engine/components/QuestionnaireScreen';
 import { ResultsScreen } from '@/components/app-decision-tool-engine/components/ResultsScreen';
 import type { Answers } from '@/components/app-decision-tool-engine/types';
+import { trackEvent } from '@/lib/analytics';
 
 const resultsStorageKey = 'app-decision-tool-results';
 
@@ -35,10 +36,18 @@ export default function AppDecisionToolEngine() {
   });
 
   const handleStart = () => {
+    trackEvent('click', {
+      event_category: 'tool_usage',
+      event_label: 'app_decision_tool_started',
+    });
     setScreen('questionnaire');
   };
 
   const handleComplete = (finalAnswers: Answers) => {
+    trackEvent('form_submit', {
+      event_category: 'tool_usage',
+      event_label: 'app_decision_questionnaire_completed',
+    });
     setAnswers(finalAnswers);
     setScreen('results');
     if (typeof window !== 'undefined') {
@@ -47,6 +56,10 @@ export default function AppDecisionToolEngine() {
   };
 
   const handleRestart = () => {
+    trackEvent('click', {
+      event_category: 'tool_usage',
+      event_label: 'app_decision_tool_restarted',
+    });
     setAnswers({});
     setScreen('landing');
     if (typeof window !== 'undefined') {

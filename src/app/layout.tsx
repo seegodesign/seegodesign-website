@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react';
+import Script from 'next/script';
 import { CursorGlowTracker } from '@/components/CursorGlowTracker';
 import { GlobalChat } from '@/components/GlobalChat';
+import { GoogleAnalytics } from '@/components/GoogleAnalytics';
+import { getGAMeasurementId } from '@/lib/analytics';
 import '../styles/base.scss';
 import '../styles/components.scss';
 import '../styles/utilities.scss';
@@ -12,6 +15,7 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const gaId = getGAMeasurementId();
   const themeScript = `
     (function() {
       try {
@@ -28,8 +32,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {gaId && (
+          <>
+            <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body>
+        <GoogleAnalytics />
         {children}
         <GlobalChat />
         <CursorGlowTracker />

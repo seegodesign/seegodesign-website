@@ -3,7 +3,8 @@ import { ArrowRight, Download, RefreshCw } from 'lucide-react';
 import type { Answers } from '@/components/app-decision-tool-engine/types';
 import { calculateAppDecisionResults } from '@/components/app-decision-tool-engine/utils/scoring';
 import { generateAppDecisionPDF } from '@/components/app-decision-tool-engine/utils/pdfGenerator';
-import { APP_DECISION_TOOL_PRODUCT_PRICE } from '@/library/constants';
+import { APP_DECISION_TOOL_PRODUCT_PRICE, ONE_DAY_WEBSITE_DEPOSIT_PRICE } from '@/library/constants';
+import { getVIPDayProductMetadata, trackEvent } from '@/lib/analytics';
 
 interface ResultsScreenProps {
   answers: Answers;
@@ -15,10 +16,29 @@ export function ResultsScreen({ answers, onRestart }: ResultsScreenProps) {
   const [isRedirecting, setIsRedirecting] = useState(false);
 
   const handleDownloadPDF = () => {
+    trackEvent('click', {
+      event_category: 'lead_generation',
+      event_label: 'app_decision_pdf_downloaded',
+    });
     generateAppDecisionPDF(results);
   };
 
   const handleStripeCheckout = () => {
+    const item = getVIPDayProductMetadata();
+    trackEvent('begin_checkout', {
+      event_category: 'ecommerce',
+      event_label: 'vip-day-deposit',
+      value: ONE_DAY_WEBSITE_DEPOSIT_PRICE,
+      currency: 'USD',
+      items: [
+        {
+          item_id: item.item_id,
+          item_name: item.item_name,
+          price: ONE_DAY_WEBSITE_DEPOSIT_PRICE,
+          quantity: 1,
+        },
+      ],
+    });
     const redirectToCheckout = async () => {
       try {
         setIsRedirecting(true);

@@ -16,7 +16,10 @@ export const getPaidToolSuccessUrl = async (tool: PaidToolKey, sessionId: string
   const session = await stripe.checkout.sessions.retrieve(sessionId);
 
   if (session.payment_status !== 'paid') {
-    return `/tools/${tool}?error=unpaid`;
+    return {
+      redirectUrl: `/tools/${tool}?error=unpaid`,
+      isPaid: false,
+    };
   }
 
   const { tokenSecret } = getPaidToolConfig(tool);
@@ -25,5 +28,8 @@ export const getPaidToolSuccessUrl = async (tool: PaidToolKey, sessionId: string
     tokenSecret
   );
 
-  return `/tools/${tool}?access=${token}`;
+  return {
+    redirectUrl: `/tools/${tool}?access=${token}`,
+    isPaid: true,
+  };
 };

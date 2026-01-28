@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import WebsiteFixPriorityEngine from '@/components/website-fix-priority-engine';
@@ -8,6 +9,7 @@ import { WhatYouReceive } from '@/components/WhatYouReceive';
 import { WEBSITE_FIX_PRIORITY_PRODUCT_PRICE } from '@/library/constants';
 import { usePaidToolAccess } from '@/hooks/usePaidToolAccess';
 import { usePaidToolCheckout } from '@/hooks/usePaidToolCheckout';
+import { trackEvent } from '@/lib/analytics';
 
 export default function WebsiteFixPrioritiesClient() {
   const { hasAccess } = usePaidToolAccess('website-fix-priorities');
@@ -15,6 +17,26 @@ export default function WebsiteFixPrioritiesClient() {
     'website-fix-priorities',
     '/tools/website-fix-priorities?cancel=1'
   );
+  const hasTrackedAccess = useRef(false);
+
+  useEffect(() => {
+    if (hasAccess && !hasTrackedAccess.current) {
+      hasTrackedAccess.current = true;
+      trackEvent('view_item', {
+        event_category: 'tool_usage',
+        event_label: 'website_fix_tool_accessed',
+      });
+    }
+  }, [hasAccess]);
+
+  const handleCheckout = () => {
+    trackEvent('begin_checkout', {
+      event_category: 'conversion',
+      event_label: 'website_fix_tool_checkout_started',
+      value: WEBSITE_FIX_PRIORITY_PRODUCT_PRICE,
+    });
+    startCheckout();
+  };
 
   return (
     <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate">
@@ -52,7 +74,7 @@ export default function WebsiteFixPrioritiesClient() {
                   <div className="checkout-btn-row">
                     <button
                       type="button"
-                      onClick={startCheckout}
+                      onClick={handleCheckout}
                       disabled={isRedirecting}
                       className="button"
                     >

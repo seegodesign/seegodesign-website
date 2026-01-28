@@ -4,6 +4,7 @@ import type { Answers } from '@/components/website-fix-priority-engine/types';
 import { calculatePriorities } from '@/components/website-fix-priority-engine/utils/scoring';
 import { generatePDFSummary } from '@/components/website-fix-priority-engine/utils/pdfGenerator';
 import { ONE_DAY_WEBSITE_FIX_PRICE } from '@/library/constants';
+import { trackEvent } from '@/lib/analytics';
 
 interface ResultsScreenProps {
   answers: Answers;
@@ -43,7 +44,19 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
   };
 
   const handleDownloadPDF = () => {
+    trackEvent('click', {
+      event_category: 'lead_generation',
+      event_label: 'website_fix_pdf_downloaded',
+    });
     generatePDFSummary(priorities);
+  };
+
+  const handleViewVIPDayClick = () => {
+    trackEvent('click', {
+      event_category: 'engagement',
+      event_label: 'website_fix_learn_more_clicked',
+    });
+    onViewVIPDay();
   };
 
   return (
@@ -439,7 +452,7 @@ export function ResultsScreen({ answers, onRestart, onViewVIPDay }: ResultsScree
             Get all three priorities implemented in one focused day—no dragging projects, no endless revisions. Only ${ONE_DAY_WEBSITE_FIX_PRICE} to transform your website and start seeing real results.
           </p>
           <button
-            onClick={onViewVIPDay}
+            onClick={handleViewVIPDayClick}
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-lg text-lg font-semibold transition-all shadow-md hover:shadow-lg mb-6"
             style={{
               backgroundColor: 'var(--engine-cta)',
