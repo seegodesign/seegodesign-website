@@ -113,10 +113,6 @@ const RATE_LIMIT_MAX = 10;
 const localRateLimitMap = new Map<string, { count: number; resetTime: number }>();
 
 function getClientIp(request: NextRequest): string {
-  if (request.ip) {
-    return request.ip;
-  }
-
   const forwardedFor = request.headers.get('x-forwarded-for');
   if (forwardedFor) {
     return forwardedFor.split(',')[0]?.trim() || crypto.randomUUID();
