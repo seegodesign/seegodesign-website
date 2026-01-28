@@ -99,7 +99,7 @@ export function Hero({ isLoading }: HeroProps) {
       <div className="hero__bg-container">
         <div
           className="hero__bg"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1698094276375-2989818836f5)' }}
+          style={{ backgroundImage: 'url(honolulu.jpg)' }}
         />
         <div className="hero__overlay"></div>
       </div>

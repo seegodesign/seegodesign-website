@@ -60,7 +60,7 @@ export function Contact({ isLoading }: ContactProps) {
     >
       <div
         className="contact-bg absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1448454050639-2f8d4bf26975)' }}
+        style={{ backgroundImage: 'url(spiral-staircase.jpg)' }}
       >
         <div className="color-overlay"></div>
       </div>

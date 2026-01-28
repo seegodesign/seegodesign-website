@@ -140,6 +140,7 @@ export function Navigation() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 transition-transform duration-300 hover:scale-105"
+            aria-label="Toggle menu"
           >
             <span
               className={`inline-flex items-center justify-center transition-transform duration-300 ${

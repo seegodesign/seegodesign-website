@@ -130,19 +130,19 @@ export default function ServicesPage() {
     }
   };
   return (
-    <div className="relative overflow-hidden bg-[color:var(--color-bg)] isolate px-4 sm:px-6 lg:px-8">
+    <div className="relative overflow-hidden bg-[color:var(--color-bg)] isolate">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="hero-bg absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 bg-fixed"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40)' }}
+          style={{ backgroundImage: 'url(laptop-work.jpg)' }}
         />
         <div className="color-overlay"></div>
       </div>
       <AnimatedWavesBackground />
       <Navigation />
       <main className="relative z-10 pt-24">
-        <section className="animate-section-rise max-w-6xl mx-auto min-h-screen relative -top-12 flex flex-col justify-center items-center text-center">
+        <section className="animate-section-rise max-w-6xl mx-auto min-h-screen relative -top-12 flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
           <h1 className="max-w-2xl text-4xl md:text-6xl font-semibold mb-4">
             Services built for <span className='text-[color:var(--brand-primary)]'>clarity and momentum</span>
           </h1>

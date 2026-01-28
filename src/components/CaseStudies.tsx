@@ -48,7 +48,7 @@ export function CaseStudies({ isLoading, caseStudies }: CaseStudiesProps) {
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 bg-fixed"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a)' }}
+        style={{ backgroundImage: 'url(office.jpg)' }}
       />
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
       <div

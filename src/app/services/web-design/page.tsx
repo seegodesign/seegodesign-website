@@ -230,16 +230,11 @@ export default function WebDesignPage() {
             />
           </div>
         </section>
-
         <section className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <div className="pointer-events-none absolute -top-12 right-2 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.55),transparent_65%)] blur-2xl" />
-          <div className="pointer-events-none absolute -bottom-16 left-2 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(74,163,220,0.45),transparent_65%)] blur-2xl" />
-          <div className="rounded-3xl border border-[color:var(--brand-primary)]/30 bg-gradient-to-br from-[color:var(--brand-primary)]/25 via-slate-900/70 to-slate-900/35 px-8 py-10 md:px-12 shadow-[0_0_60px_rgba(125,202,47,0.18)]">
-            <p className="eyebrow">Our Guarantee</p>
-            <h2 className="text-3xl md:text-4xl font-semibold mt-4 mb-6">
-              The project stays low-risk from day one.
-            </h2>
-            <div className="grid gap-6 text-slate-200">
+          <div className="hero-card hero-card--light-orbs">
+            <div className="hero-card__eyebrow">Our Guarantee</div>
+            <h2 className="hero-card__title">The project stays low-risk from day one.</h2>
+            <ul>
               {[
                 {
                   title: 'Design direction guarantee.',
@@ -257,13 +252,13 @@ export default function WebDesignPage() {
                     'You’ll have full access to the code, repo, and hosting from day one. If we ever part ways, you keep everything.',
                 },
               ].map((item) => (
-                <div key={item.title} className="rounded-2xl border border-white/10 bg-white/10 px-6 py-5">
+                <li key={item.title} className="hero-card__info-bubble">
                   <p className="leading-relaxed">
-                    <strong className="text-white">{item.title}</strong> {item.copy}
+                    <strong>{item.title}</strong> {item.copy}
                   </p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </section>
 

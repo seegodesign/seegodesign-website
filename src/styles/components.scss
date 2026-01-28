@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@use "tailwindcss";
 
 @layer components {
   .logo {
@@ -190,10 +190,22 @@
   }
 
   .hero-card {
-    @apply bg-gradient-to-b from-slate-800/80 to-slate-900/80 border border-white/10 rounded-2xl p-8 shadow-2xl shadow-black/40;
+    @apply bg-gradient-to-b from-slate-800/80 to-slate-900/80 border border-white/10 rounded-2xl p-8;
 
     &--accent {
       @apply rounded-3xl border border-white/10 bg-gradient-to-r from-[color:var(--brand-primary)]/20 via-slate-900/60 to-slate-900/20 px-8 py-12 md:px-12
+    }
+
+    &--light-orbs {
+      @apply rounded-3xl border border-[color:var(--brand-primary)]/30 bg-gradient-to-br from-[color:var(--brand-primary)]/25 via-slate-900/70 to-slate-900/35 px-8 py-10 md:px-12 shadow-2xl shadow-[0_0_60px_rgba(125,202,47,0.18)];
+      &:before {
+        content: '';
+        @apply pointer-events-none absolute -top-12 right-2 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.55),transparent_65%)] blur-2xl;
+      }
+      &:after {
+        content: '';
+        @apply pointer-events-none absolute -bottom-16 left-2 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(74,163,220,0.45),transparent_65%)] blur-2xl;
+      }
     }
 
     &__title {
@@ -214,6 +226,10 @@
 
     &__stat-icon {
       @apply h-12 w-12 rounded-full bg-[color:var(--brand-primary)]/20 flex items-center justify-center text-[color:var(--brand-primary)] text-xl font-semibold;
+    }
+
+    &__info-bubble {
+      @apply rounded-2xl border border-white/10 bg-white/10 px-6 py-5 mb-6;
     }
 
     &__footer {
@@ -238,6 +254,14 @@
 
     &--gradient {
       @apply bg-gradient-to-b from-transparent to-[color:var(--brand-primary-dark)]/10 backdrop-blur-sm;
+    }
+
+    &__highlight {
+      @apply border-l-4 border-[color:var(--brand-primary)]/70 pl-5 ml-0 md:ml-4 py-2;
+    }
+
+    &__eyebrow {
+      @apply text-sm uppercase tracking-[0.1em] text-white/50;
     }
 
     &__tag {

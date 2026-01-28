@@ -50,7 +50,7 @@ export function Process({ isLoading }: ProcessProps) {
     >
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 bg-fixed"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1638262052640-82e94d64664a)' }}
+        style={{ backgroundImage: 'url(handshake.jpg)' }}
       />
       <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       <div className={`max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>

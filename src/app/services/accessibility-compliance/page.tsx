@@ -101,17 +101,19 @@ export default function AccessibilityCompliancePage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-          <div className="rounded-2xl border border-white/10 bg-slate-900/60 px-6 py-8 md:px-10">
-            <p className="eyebrow">Why this matters</p>
-            <div className="mt-4 border-l-2 border-[color:var(--brand-primary)]/70 pl-5">
-              <p className="text-lg text-slate-100 leading-relaxed">
-                “The ways that websites are designed and set up can create unnecessary barriers that make it
+          <div className="card">
+            <p className="card__eyebrow">Why this matters</p>
+            <div className="card__highlight">
+              <p>
+                &quot;The ways that websites are designed and set up can create unnecessary barriers that make it
                 difficult or impossible for people with disabilities to use websites, just as physical barriers
-                like steps can prevent some people with disabilities from entering a building.”
+                like steps can prevent some people with disabilities from entering a building.&quot;
               </p>
               <Link
                 className="mt-4 inline-flex text-sm uppercase tracking-[0.3em] text-white/50 hover:text-white"
                 href="https://www.ada.gov/resources/web-guidance/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 ADA.gov
               </Link>

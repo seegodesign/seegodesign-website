@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@use "tailwindcss";
 @layer components {
   /************************ Light Theme ************************/
   [data-theme='light'] {
@@ -91,6 +91,9 @@
       &--accent {
         @apply from-[color:var(--brand-primary)]/20 via-white/10 to-white/5 text-slate-900;
       }
+      &--light-orbs {
+        @apply from-[color:var(--brand-primary)]/25 via-white/15 to-white/5 text-slate-900;
+      }
 
       p {
         @apply text-slate-900;
@@ -127,6 +130,14 @@
 
     .card {
       @apply bg-white/50 border-black/15;
+
+      &__highlight {
+        @apply border-l-4 border-[color:var(--brand-primary)]/70 pl-5 ml-0 md:ml-4 py-2;
+      }
+
+      &__eyebrow {
+        @apply text-sm uppercase tracking-[0.1em] text-slate-700/70;
+      }
 
       &__tag {
         @apply text-slate-700/70;
