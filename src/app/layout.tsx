@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   `;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {gaId && (
