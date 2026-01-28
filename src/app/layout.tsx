@@ -1,13 +1,10 @@
-import type { ReactNode } from 'react';
+import { Suspense, type ReactNode } from 'react';
 import Script from 'next/script';
 import { CursorGlowTracker } from '@/components/CursorGlowTracker';
 import { GlobalChat } from '@/components/GlobalChat';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { getGAMeasurementId } from '@/lib/analytics';
-import '../styles/base.scss';
-import '../styles/components.scss';
-import '../styles/utilities.scss';
-import '../styles/light-theme.scss';
+import '../styles/globals.scss';
 
 export const metadata = {
   title: 'Creative Solutions for Business | Seego Design',
@@ -49,7 +46,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         )}
       </head>
       <body>
-        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
         {children}
         <GlobalChat />
         <CursorGlowTracker />

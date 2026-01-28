@@ -510,6 +510,15 @@
     }
   }
 
+  .theme-toggle__icon {
+    display: none;
+  }
+
+  [data-theme='dark'] .theme-toggle__icon--dark,
+  [data-theme='light'] .theme-toggle__icon--light {
+    display: inline-flex;
+  }
+
   .form {
     &__field {
       @apply w-full px-4 py-3 border border-[color:var(--color-border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[color:var(--brand-primary)] focus:border-transparent bg-[color:var(--color-surface-muted)];

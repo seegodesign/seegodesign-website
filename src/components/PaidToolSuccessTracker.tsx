@@ -25,7 +25,7 @@ export const PaidToolSuccessTracker = ({ tool, sessionId }: PaidToolSuccessTrack
         },
       ],
     });
-  }, [sessionId]);
+  }, [sessionId, tool]);
 
   return null;
 };

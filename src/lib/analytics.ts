@@ -26,9 +26,17 @@ export interface GtagEventParams {
   value?: number;
   currency?: string;
   transaction_id?: string;
-  items?: any[];
-  [key: string]: any;
+  items?: GtagItem[];
+  [key: string]: unknown;
 }
+
+export type GtagItem = {
+  item_id?: string;
+  item_name?: string;
+  price?: number;
+  quantity?: number;
+  [key: string]: unknown;
+};
 
 const TOOL_PRODUCT_NAMES: Record<PaidToolKey, string> = {
   'website-fix-priorities': 'Website Fix Priorities Tool',
@@ -81,13 +89,23 @@ export const initGA = (
   measurementId: string,
   config?: Record<string, unknown>,
 ) => {
-  if (typeof window === 'undefined' || !measurementId || !window.gtag) {
+  if (typeof window === 'undefined' || !measurementId) {
     return;
   }
 
   try {
+    if (!Array.isArray(window.dataLayer)) {
+      window.dataLayer = [];
+    }
+    if (typeof window.gtag !== 'function') {
+      return;
+    }
     window.gtag('js', new Date());
-    window.gtag('config', measurementId, config);
+    if (config) {
+      window.gtag('config', measurementId, config);
+    } else {
+      window.gtag('config', measurementId);
+    }
   } catch (error) {
     console.error('Failed to initialize GA', error);
   }
@@ -122,13 +140,18 @@ export const trackConversion = (params: {
   transaction_id: string;
   value: number;
   currency?: string;
-  items?: any[];
+  items?: GtagItem[];
 }) => {
   trackEvent('purchase', params);
 };
 
 declare global {
   interface Window {
-    gtag?: (command: 'config' | 'event' | 'js', targetId: string | Date, config?: any) => void;
+    dataLayer?: unknown[];
+    gtag?: (
+      command: 'config' | 'event' | 'js',
+      targetId: string | Date,
+      config?: Record<string, unknown> | GtagEventParams,
+    ) => void;
   }
 }

@@ -1,47 +1,40 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Moon, Sun } from 'lucide-react';
 
 type ThemeMode = 'dark' | 'light';
 
+const getCurrentTheme = (): ThemeMode => {
+  if (typeof document === 'undefined') return 'light';
+  const attr = document.documentElement.dataset.theme;
+  return attr === 'dark' || attr === 'light' ? attr : 'light';
+};
+
 export function ThemeToggle() {
-  const [isMounted, setIsMounted] = useState(false);
-  const [theme, setTheme] = useState<ThemeMode>(() => {
-    if (typeof window === 'undefined') return 'dark';
-    const stored = window.localStorage.getItem('theme') as ThemeMode | null;
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return stored ?? (prefersDark ? 'dark' : 'light');
-  });
-
-  useEffect(() => {
-    setIsMounted(true);
-    document.documentElement.dataset.theme = theme;
-    document.documentElement.style.colorScheme = theme;
-  }, [theme]);
-
   const toggleTheme = () => {
-    const nextTheme: ThemeMode = theme === 'dark' ? 'light' : 'dark';
-    setTheme(nextTheme);
-    window.localStorage.setItem('theme', nextTheme);
+    const current = getCurrentTheme();
+    const nextTheme: ThemeMode = current === 'dark' ? 'light' : 'dark';
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('theme', nextTheme);
+    }
     document.documentElement.dataset.theme = nextTheme;
     document.documentElement.style.colorScheme = nextTheme;
   };
-
-  const isDark = theme === 'dark';
-
-  if (!isMounted) {
-    return null;
-  }
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+      aria-label="Toggle color mode"
       className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-[color:var(--color-border)] bg-[color:var(--color-surface)] hover:border-[color:var(--brand-primary)]/60 hover:text-[color:var(--brand-primary)] transition-colors"
     >
-      {isDark ? <Sun size={18} /> : <Moon size={18} />}
+      <span className="theme-toggle__icon theme-toggle__icon--dark" aria-hidden="true">
+        <Sun size={18} />
+      </span>
+      <span className="theme-toggle__icon theme-toggle__icon--light" aria-hidden="true">
+        <Moon size={18} />
+      </span>
     </button>
   );
 }

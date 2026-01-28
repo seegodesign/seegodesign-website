@@ -6,3 +6,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root .theme-toggle__icon {
+  display: none;
+}
+
+:root[data-theme='dark'] .theme-toggle__icon--dark,
+:root[data-theme='light'] .theme-toggle__icon--light {
+  display: inline-flex;
+}
