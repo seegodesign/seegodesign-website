@@ -138,7 +138,7 @@ export default function AboutPage() {
                   'Ongoing support or handoff with clear documentation.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-4">
-                    <span className="h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
+                    <span className="flex-shrink-0 flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
                       0{index + 1}
                     </span>
                     <p className="text-sm leading-relaxed">{step}</p>
@@ -165,8 +165,8 @@ export default function AboutPage() {
                   </ul>
                 ))}
               </div>
-              <div className="mt-6 border border-white/10 rounded-xl p-5 bg-slate-900/50">
-                <p className="text-sm text-slate-300">
+              <div className="card__tout">
+                <p>
                   If you want a site that feels premium, works on mobile, and converts, I can help.
                 </p>
               </div>
@@ -175,14 +175,14 @@ export default function AboutPage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-[color:var(--brand-primary)]/20 via-slate-900/60 to-slate-900/20 px-8 py-12 md:px-12">
+          <div className="hero-card hero-card--accent">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
                 <p className="eyebrow">Ready to talk?</p>
-                <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
+                <h2 className="hero-card__title">
                   Let’s turn your site into a real growth asset.
                 </h2>
-                <p className="text-sm text-slate-200 mt-4 max-w-2xl">
+                <p>
                   If you want clarity, fast execution, and a site that pulls its weight, I’m ready to help.
                 </p>
               </div>

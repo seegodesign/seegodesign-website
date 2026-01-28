@@ -87,7 +87,10 @@
     }
 
     .hero-card {
-      @apply bg-gradient-to-b from-white/20 to-white/5 border border-slate-300/20 rounded-2xl p-8 shadow-2xl shadow-black/10;
+      @apply bg-gradient-to-b from-white/20 to-white/5 border border-slate-300/20 shadow-2xl shadow-black/10;
+      &--accent {
+        @apply from-[color:var(--brand-primary)]/20 via-white/10 to-white/5 text-slate-900;
+      }
 
       p {
         @apply text-slate-900;
@@ -143,6 +146,10 @@
 
       &__price {
         @apply text-slate-700/70;
+      }
+
+      &__tout {
+        @apply bg-transparent text-slate-700 border-slate-700/20;
       }
     }
 

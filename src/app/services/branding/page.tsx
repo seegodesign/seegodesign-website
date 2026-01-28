@@ -121,7 +121,7 @@ export default function BrandingPage() {
                   'Collateral rollout across web, product, and marketing channels.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-4">
-                    <span className="h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
+                    <span className="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
                       0{index + 1}
                     </span>
                     <p className="text-sm leading-relaxed">{step}</p>
@@ -150,8 +150,8 @@ export default function BrandingPage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 border border-white/10 rounded-xl p-5 bg-slate-900/50">
-                <p className="text-sm text-slate-300">
+              <div className="card__tout">
+                <p>
                   I include templates and usage rules so every team member stays on-brand.
                 </p>
               </div>
@@ -208,14 +208,14 @@ export default function BrandingPage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="hero-card hero-card--variant">
+          <div className="hero-card hero-card--accent">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
                 <p className="eyebrow">Ready to align</p>
-                <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
+                <h2 className="hero-card__title">
                   Build consistency across every customer interaction.
                 </h2>
-                <p className="text-sm text-slate-200 mt-4 max-w-2xl">
+                <p>
                   I can run a strategy sprint, launch a visual refresh, or build a full collateral system.
                   Tell me where you need consistency most, and I will scope the right plan.
                 </p>

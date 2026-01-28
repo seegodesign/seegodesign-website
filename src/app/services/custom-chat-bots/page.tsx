@@ -102,7 +102,7 @@ export default function CustomChatBotsPage() {
                   'Launch, QA, and ongoing tuning based on real usage.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-4">
-                    <span className="h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
+                    <span className="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
                       0{index + 1}
                     </span>
                     <p className="text-sm leading-relaxed">{step}</p>
@@ -131,8 +131,8 @@ export default function CustomChatBotsPage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 border border-white/10 rounded-xl p-5 bg-slate-900/50">
-                <p className="text-sm text-slate-300">
+              <div className="card__tout">
+                <p>
                   The bot never claims to book calls or access calendars. It routes visitors to the
                   right next step and captures intent for you.
                 </p>
@@ -188,14 +188,14 @@ export default function CustomChatBotsPage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="hero-card hero-card--variant">
+          <div className="hero-card hero-card--accent">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
                 <p className="eyebrow">Ready to build</p>
-                <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
+                <h2 className="hero-card__title">
                   Turn your FAQ into a lead-ready assistant.
                 </h2>
-                <p className="text-sm text-slate-200 mt-4 max-w-2xl">
+                <p>
                   Share your services, common questions, and goals. I will map the right flow and
                   launch a chat bot that feels like part of your team.
                 </p>

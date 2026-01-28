@@ -5,6 +5,10 @@ import { GlobalChat } from '@/components/GlobalChat';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { getGAMeasurementId } from '@/lib/analytics';
 import '../styles/globals.scss';
+import '../styles/base.scss';
+import '../styles/utilities.scss';
+import '../styles/components.scss';
+import '../styles/light-theme.scss';
 
 export const metadata = {
   title: 'Creative Solutions for Business | Seego Design',

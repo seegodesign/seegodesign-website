@@ -70,14 +70,14 @@ export default function WebsiteOptimizationPage() {
         </section>
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="hero-card hero-card--variant">
+          <div className="hero-card hero-card--accent">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
               <div>
                 <p className="eyebrow">Website Fix Priorities</p>
-                <h2 className="text-3xl md:text-4xl text-white font-semibold mt-4">
+                <h2 className="hero-card__title">
                   Use our tool to identify your top 3 fixes
                 </h2>
-                <p className="text-sm text-slate-200 mt-4 max-w-2xl">
+                <p>
                   Use the Website Fix Priorities tool to surface the top 3 changes you should make right
                   now. It is a fast way to prioritize fixes before you invest in a full redesign.
                 </p>
@@ -109,7 +109,7 @@ export default function WebsiteOptimizationPage() {
                   'Retest, document, and build the next sprint.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-4">
-                    <span className="h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
+                    <span className="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
                       0{index + 1}
                     </span>
                     <p className="text-sm leading-relaxed">{step}</p>

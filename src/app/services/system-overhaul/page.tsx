@@ -169,7 +169,7 @@ export default function SystemOverhaulPage() {
                     'Governance + monitoring so the new system stays healthy.',
                   ].map((step, index) => (
                     <li key={step} className="flex gap-4">
-                      <span className="h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
+                      <span className="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
                         0{index + 1}
                       </span>
                       <p className="text-sm leading-relaxed">{step}</p>
@@ -198,7 +198,7 @@ export default function SystemOverhaulPage() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 border border-white/10 rounded-xl p-5 bg-slate-900/50">
+                <div className="card__tout">
                   <p className="text-sm text-slate-300">
                     Every fix is documented with owners, SLAs, and process maps so the organization can run it
                     long after we are gone.

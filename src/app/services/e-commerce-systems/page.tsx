@@ -105,7 +105,7 @@ export default function EcommerceSystemsPage() {
                   'QA, launch, and document for ongoing updates.',
                 ].map((step, index) => (
                   <li key={step} className="flex gap-4">
-                    <span className="h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
+                    <span className="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-[color:var(--brand-primary)]/20 text-[color:var(--brand-primary)] text-sm font-semibold">
                       0{index + 1}
                     </span>
                     <p className="text-sm leading-relaxed">{step}</p>
