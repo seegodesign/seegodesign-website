@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, type ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import { X } from 'lucide-react';
 
 type ModalProps = {
@@ -20,26 +20,8 @@ export const Modal = ({
   className,
   showCloseButton = false,
 }: ModalProps) => {
-  const [isVisible, setIsVisible] = useState(isOpen);
-  const [isClosing, setIsClosing] = useState(false);
-  const closeDurationMs = 220;
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsVisible(true);
-      setIsClosing(false);
-      return;
-    }
-
-    if (!isVisible) return;
-    setIsClosing(true);
-    const timeoutId = window.setTimeout(() => {
-      setIsVisible(false);
-      setIsClosing(false);
-    }, closeDurationMs);
-
-    return () => window.clearTimeout(timeoutId);
-  }, [isOpen, isVisible]);
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null);
+  const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -52,10 +34,16 @@ export const Modal = ({
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  if (!isVisible) return null;
+  useEffect(() => {
+    if (!isOpen) return;
+    const focusTarget = showCloseButton ? closeButtonRef.current : panelRef.current;
+    if (!focusTarget) return;
+    const rafId = window.requestAnimationFrame(() => focusTarget.focus());
+    return () => window.cancelAnimationFrame(rafId);
+  }, [isOpen, showCloseButton]);
 
   return (
-    <div className={`modal ${isClosing ? 'is-closing' : ''}`.trim()}>
+    <div className={`modal ${isOpen ? 'is-open' : 'is-closed'}`.trim()} aria-hidden={!isOpen}>
       <button
         type="button"
         aria-label="Close dialog"
@@ -67,9 +55,17 @@ export const Modal = ({
         aria-modal="true"
         aria-label={ariaLabel}
         className={`modal__panel ${className ?? ''}`.trim()}
+        ref={panelRef}
+        tabIndex={-1}
       >
         {showCloseButton && (
-          <button type="button" className="modal__close" onClick={onClose} aria-label="Close">
+          <button
+            type="button"
+            className="modal__close"
+            onClick={onClose}
+            aria-label="Close"
+            ref={closeButtonRef}
+          >
             <X size={18} />
           </button>
         )}

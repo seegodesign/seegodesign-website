@@ -307,28 +307,26 @@
 
   .modal {
     @apply fixed inset-0 z-[70] flex items-center justify-center px-4 py-10;
-    animation: modal-fade-in 220ms ease-out;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease-out;
 
-    &.is-closing {
-      animation: modal-fade-out 220ms ease-in;
-
-      .modal__backdrop {
-        animation: modal-backdrop-out 220ms ease-in;
-      }
-
-      .modal__panel {
-        animation: modal-panel-out 220ms ease-in;
-      }
+    &.is-open {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     &__backdrop {
       @apply absolute inset-0 bg-slate-950/70 backdrop-blur-sm;
-      animation: modal-backdrop-in 220ms ease-out;
+      opacity: 0;
+      transition: opacity 220ms ease-out;
     }
 
     &__panel {
       @apply relative w-full max-w-2xl;
-      animation: modal-panel-in 240ms ease-out;
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+      transition: opacity 240ms ease-out, transform 240ms ease-out;
     }
 
     &__panel--medium {
@@ -477,67 +475,14 @@
     }
   }
 
-  @keyframes modal-fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes modal-backdrop-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes modal-backdrop-out {
-    from {
+  .modal.is-open {
+    .modal__backdrop {
       opacity: 1;
     }
 
-    to {
-      opacity: 0;
-    }
-  }
-
-  @keyframes modal-panel-in {
-    from {
-      opacity: 0;
-      transform: translateY(8px) scale(0.98);
-    }
-
-    to {
+    .modal__panel {
       opacity: 1;
       transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes modal-fade-out {
-    from {
-      opacity: 1;
-    }
-
-    to {
-      opacity: 0;
-    }
-  }
-
-  @keyframes modal-panel-out {
-    from {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    to {
-      opacity: 0;
-      transform: translateY(8px) scale(0.98);
     }
   }
 
