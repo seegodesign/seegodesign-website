@@ -305,6 +305,45 @@
     }
   }
 
+  .modal {
+    @apply fixed inset-0 z-[70] flex items-center justify-center px-4 py-10;
+    animation: modal-fade-in 220ms ease-out;
+
+    &.is-closing {
+      animation: modal-fade-out 220ms ease-in;
+
+      .modal__backdrop {
+        animation: modal-backdrop-out 220ms ease-in;
+      }
+
+      .modal__panel {
+        animation: modal-panel-out 220ms ease-in;
+      }
+    }
+
+    &__backdrop {
+      @apply absolute inset-0 bg-slate-950/70 backdrop-blur-sm;
+      animation: modal-backdrop-in 220ms ease-out;
+    }
+
+    &__panel {
+      @apply relative w-full max-w-2xl;
+      animation: modal-panel-in 240ms ease-out;
+    }
+
+    &__panel--medium {
+      @apply max-w-md;
+    }
+
+    &__panel--wide {
+      @apply max-w-3xl;
+    }
+
+    &__close {
+      @apply absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-white/40 hover:text-white hover:bg-white/10;
+    }
+  }
+
   .testimonials {
     @apply relative py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900/80 to-slate-800/80 border-t border-slate-300/20;
 
@@ -313,7 +352,7 @@
     }
 
     &__header {
-      @apply max-w-5xl mx-auto mb-10;
+      @apply mb-10;
     }
 
     &__headline {
@@ -385,6 +424,10 @@
       @apply text-sm md:text-base text-slate-200 leading-relaxed;
     }
 
+    &__read-more {
+      @apply text-xs uppercase tracking-[0.2em] text-[color:var(--brand-primary)] font-semibold self-start transition-colors hover:underline;
+    }
+
     &__meta {
       @apply px-2;
     }
@@ -407,6 +450,94 @@
 
     &__dot.is-active {
       @apply bg-[color:var(--brand-primary)];
+    }
+  }
+
+  .testimonial-modal {
+    @apply w-full rounded-3xl border border-white/10 bg-[color:var(--color-surface-strong)] p-8 shadow-2xl border border-white/10 bg-gradient-to-b from-white/20 to-white/5;
+
+    &__quote {
+      @apply text-sm md:text-base text-slate-100 leading-relaxed;
+      p {
+        @apply mb-6;
+      }
+    }
+
+
+    &__meta {
+      @apply mt-6;
+    }
+
+    &__name {
+      @apply text-lg font-semibold;
+    }
+
+    &__title {
+      @apply text-sm uppercase text-[color:var(--brand-primary)];
+    }
+  }
+
+  @keyframes modal-fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes modal-backdrop-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes modal-backdrop-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes modal-panel-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes modal-fade-out {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes modal-panel-out {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
     }
   }
 

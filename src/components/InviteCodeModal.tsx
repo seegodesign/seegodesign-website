@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from 'react';
 import type { PaidToolKey } from '@/lib/paidToolConfig';
+import { Modal } from '@/components/Modal';
 
 type InviteCodeModalProps = {
   tool: PaidToolKey;
@@ -56,17 +57,14 @@ export const InviteCodeModal = ({ tool, isOpen, onClose }: InviteCodeModalProps)
     }
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center px-4 py-10">
-      <button
-        type="button"
-        aria-label="Close invite code dialog"
-        onClick={onClose}
-        className="absolute inset-0 bg-slate-950/70 backdrop-blur-sm"
-      />
-      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-[color:var(--color-surface-strong)] p-6 shadow-2xl">
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      ariaLabel="Invite code dialog"
+      className="modal__panel--medium"
+    >
+      <div className="relative w-full rounded-2xl border border-white/10 bg-[color:var(--color-surface-strong)] p-6 shadow-2xl">
         <div className="text-sm uppercase tracking-[0.3em] text-[color:var(--color-text-muted)]">Invite code</div>
         <h3 className="mt-3 text-xl font-semibold text-white">Unlock 24-hour access</h3>
         <p className="mt-2 text-sm text-slate-300">
@@ -97,6 +95,6 @@ export const InviteCodeModal = ({ tool, isOpen, onClose }: InviteCodeModalProps)
           </div>
         </form>
       </div>
-    </div>
+    </Modal>
   );
 };

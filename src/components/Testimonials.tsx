@@ -2,19 +2,20 @@
 
 import { useMemo, useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { Modal } from '@/components/Modal';
 
 const testimonials = [
-  // {
-  //   quote:
-  //     'Cameron is quick to communicate any blockers, risks, and complexities to the team and always has an alternative solution to offer. Cam is a problem solver, very calm and professional. He is a pleasure to work with.',
-  //   name: 'Mahima Joshi, Project Manager',
-  //   title: 'Spectrum Customizer, Inc.',
-  // },
   {
     quote:
-      'One of the best things about Cam is that he’s a technical expert who also is skilled at making dramatic website “look and feel” enhancements.',
-    name: 'Robert Seger, Executive Director',
-    title: 'Emergency Services at Mass General Hospital'
+      '<p>Over the past 30+ years, I’ve had the privilege of collaborating with hundreds of developers, designers, and other creative and technical professionals on countless projects. With that perspective, I can say without hesitation that Cameron stands among the very best I’ve ever worked with.</p> <p>His work is consistently next level—exceptionally creative, technically precise, and always aligned with the project’s scope, budget, and objectives. Cameron brings a rare blend of imaginative vision and disciplined execution, delivering results that not only meet expectations but routinely exceed them.</p> <p>He works with astonishing speed while never compromising quality—a combination as rare as it is valuable in this industry. Cameron is attentive, accurate, and deeply invested in producing work that truly makes an impact.</p> <p>And perhaps just as important—he’s an absolute pleasure to work with. Simply put, Cameron is one of the nicest, most genuine professionals you’ll ever meet.</p> <p>It’s with my highest possible recommendation that I wholeheartedly endorse Cameron. He’s an extraordinary talent, a true professional, and without question, a rare find.</p>',
+    name: 'Mike Chesser‑Roe, Founder',
+    title: 'YourBrands Radio',
+  },
+  {
+    quote:
+      '<p>Cameron is quick to communicate any blockers, risks, and complexities to the team and always has an alternative solution to offer. Cam is a problem solver, very calm and professional. He is a pleasure to work with.</p> <p>Huge kudos and thanks to the amazing team members for consistently delivering outstanding results for the client, and we can certainly say that the client is very happy.</p>',
+    name: 'Mahima Joshi, Project Manager',
+    title: 'Spectrum Customizer, Inc.',
   },
   {
     quote:
@@ -24,26 +25,46 @@ const testimonials = [
   },
   {
     quote:
+      'One of the best things about Cam is that he’s a technical expert who also is skilled at making dramatic website “look and feel” enhancements.',
+    name: 'Robert Seger, Executive Director',
+    title: 'Emergency Services at Mass General Hospital'
+  },
+  {
+    quote:
       'Cameron did a great job for us in designing graphics that we have used in multiple marketing pieces. He completed the work ahead of schedule on a tight timeline. Also, his pricing was very competive.',
     name: 'Jerry Frank, CEO',
     title: 'CSG Professional Services',
   },
-  // {
-  //   quote:
-  //     'The redesign paid for itself. Conversions improved, mobile usability went way up, and we finally have a site we’re proud to send traffic to.',
-  //   name: 'Elena Ortiz',
-  //   title: 'Head of Growth, Arborline',
-  // },
+  {
+    quote:
+      'Your testimonial could be here! I would love to hear about your experience working together. Please <a href="/contact" class="link link--underline">get in touch</a> to share your thoughts.',
+    name: 'Your Name',
+    title: 'Your Company',
+  },
 ];
+
+const stripTags = (value: string) => value.replace(/<[^>]*>/g, '').trim();
+const truncateToWord = (value: string, limit: number) => {
+  if (value.length <= limit) return value;
+  const clipped = value.slice(0, limit).trimEnd();
+  const lastSpace = clipped.lastIndexOf(' ');
+  if (lastSpace <= 0) return clipped;
+  return clipped.slice(0, lastSpace).trimEnd();
+};
 
 export function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [activeTestimonial, setActiveTestimonial] =
+    useState<(typeof testimonials)[number] | null>(null);
   const total = testimonials.length;
   const perSlide = 3;
   const totalSlides = Math.ceil(total / perSlide);
+  const quotePreviewLength = 300;
 
   const goPrevious = () => setActiveIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   const goNext = () => setActiveIndex((prev) => (prev + 1) % totalSlides);
+  const openTestimonial = (item: (typeof testimonials)[number]) => setActiveTestimonial(item);
+  const closeTestimonial = () => setActiveTestimonial(null);
 
   const slides = useMemo(() => {
     const grouped: typeof testimonials[] = [];
@@ -84,17 +105,42 @@ export function Testimonials() {
           >
             {slides.map((slide, slideIndex) => (
               <div key={`slide-${slideIndex}`} className="testimonials__slide">
-                {slide.map((item) => (
-                  <div key={`${item.name}-${item.title}`} className="testimonials__item">
+                {slide.map((item) => {
+                  const itemKey = `${item.name}-${item.title}`;
+                  const plainQuote = stripTags(item.quote);
+                  const isLong = plainQuote.length > quotePreviewLength;
+                  const previewText = isLong
+                    ? `${truncateToWord(plainQuote, quotePreviewLength)}…`
+                    : plainQuote;
+
+                  return (
+                    <div key={itemKey} className="testimonials__item">
                     <article className="testimonials__card testimonials__card--bubble">
-                      <p className="testimonials__quote">“{item.quote}”</p>
+                      {isLong ? (
+                        <span className="testimonials__quote">“{previewText}”</span>
+                      ) : (
+                        <p
+                          className="testimonials__quote"
+                          dangerouslySetInnerHTML={{ __html: `“${item.quote}”` }}
+                        />
+                      )}
+                      {isLong && (
+                        <button
+                          type="button"
+                          className="testimonials__read-more"
+                          onClick={() => openTestimonial(item)}
+                        >
+                          Read more
+                        </button>
+                      )}
                     </article>
                     <div className="testimonials__meta">
                       <p className="testimonials__name">{item.name}</p>
                       <p className="testimonials__title">{item.title}</p>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             ))}
           </div>
@@ -113,6 +159,26 @@ export function Testimonials() {
           </div>
         )}
       </div>
+      <Modal
+        isOpen={!!activeTestimonial}
+        onClose={closeTestimonial}
+        ariaLabel="Full testimonial"
+        className="modal__panel--wide"
+        showCloseButton
+      >
+        {activeTestimonial ? (
+          <div className="testimonial-modal">
+            <p
+              className="testimonial-modal__quote"
+              dangerouslySetInnerHTML={{ __html: activeTestimonial.quote }}
+            />
+            <div className="testimonial-modal__meta">
+              <p className="testimonial-modal__name">{activeTestimonial.name}</p>
+              <p className="testimonial-modal__title">{activeTestimonial.title}</p>
+            </div>
+          </div>
+        ) : null}
+      </Modal>
     </section>
   );
 }

@@ -258,6 +258,26 @@
       }
     }
 
+    .testimonial-modal {
+      @apply bg-white/95 border border-slate-300/30;
+
+      &__quote {
+        @apply text-slate-900;
+      }
+
+      &__meta {
+        @apply mt-6;
+      }
+
+      &__name {
+        @apply text-slate-900;
+      }
+
+      &__title {
+        @apply text-slate-700;
+      }
+    }
+
     .chat-widget {
       &__messages {
         @apply bg-[color:var(--color-bg)];
@@ -276,6 +296,12 @@
 
     .chat-button {
       @apply bg-[color:var(--brand-primary)] shadow-black/20;
+    }
+
+    .modal {
+      &__close {
+        @apply border-slate-600/50 text-slate-600 hover:text-slate-900 hover:border-slate-300 hover:bg-slate-100;
+      }
     }
   }
 }
