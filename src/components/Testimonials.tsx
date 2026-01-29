@@ -4,15 +4,15 @@ import { useMemo, useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const testimonials = [
+  // {
+  //   quote:
+  //     'Cameron is quick to communicate any blockers, risks, and complexities to the team and always has an alternative solution to offer. Cam is a problem solver, very calm and professional. He is a pleasure to work with.',
+  //   name: 'Mahima Joshi, Project Manager',
+  //   title: 'Spectrum Customizer, Inc.',
+  // },
   {
     quote:
-      'Cameron is quick to communicate any blockers, risks, and complexities to the team and always has an alternative solution to offer. Cam is a problem solver, very calm and professional. He is a pleasure to work with.',
-    name: 'Mahima Joshi, Project Manager',
-    title: 'Spectrum Customizer, Inc.',
-  },
-  {
-    quote:
-      'One of the best things about Cam is that he’s a technical expert who also is skilled at making dramatic website “look and feel” enhancements. In addition Cam optimized our website for mobile viewing, which in 2018 is critically important.',
+      'One of the best things about Cam is that he’s a technical expert who also is skilled at making dramatic website “look and feel” enhancements.',
     name: 'Robert Seger, Executive Director',
     title: 'Emergency Services at Mass General Hospital'
   },
@@ -22,12 +22,12 @@ const testimonials = [
     name: 'Nathan Madsen, Composer & Sound Designer',
     title: 'Madsen Studios',
   },
-  // {
-  //   quote:
-  //     'Cameron did a great job for us in designing graphics that we have used in multiple marketing pieces. He completed the work ahead of schedule on a tight timeline. Also, his pricing was very competive.',
-  //   name: 'Jerry Frank, CEO',
-  //   title: 'CSG Professional Services',
-  // },
+  {
+    quote:
+      'Cameron did a great job for us in designing graphics that we have used in multiple marketing pieces. He completed the work ahead of schedule on a tight timeline. Also, his pricing was very competive.',
+    name: 'Jerry Frank, CEO',
+    title: 'CSG Professional Services',
+  },
   // {
   //   quote:
   //     'The redesign paid for itself. Conversions improved, mobile usability went way up, and we finally have a site we’re proud to send traffic to.',
