@@ -220,7 +220,7 @@ export default function AppDevelopmentPage() {
           </div>
         </section>
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

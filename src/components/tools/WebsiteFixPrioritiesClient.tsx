@@ -114,7 +114,7 @@ export default function WebsiteFixPrioritiesClient() {
         )}
       </main>
       <div className="relative z-10">
-        <Footer isLoading={false} />
+        <Footer />
       </div>
       <InviteCodeModal
         tool="website-fix-priorities"

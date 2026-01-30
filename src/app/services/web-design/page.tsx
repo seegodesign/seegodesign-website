@@ -288,7 +288,7 @@ export default function WebDesignPage() {
           </div>
         </section>
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

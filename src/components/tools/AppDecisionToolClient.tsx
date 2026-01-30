@@ -114,7 +114,7 @@ export default function AppDecisionToolClient() {
         )}
       </main>
       <div className="relative z-10">
-        <Footer isLoading={false} />
+        <Footer />
       </div>
       <InviteCodeModal
         tool="app-decision-tool"

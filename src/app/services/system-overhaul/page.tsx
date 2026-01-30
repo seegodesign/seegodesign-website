@@ -254,7 +254,7 @@ export default function SystemOverhaulPage() {
           </div>
         </section>
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

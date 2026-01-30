@@ -238,7 +238,7 @@ export default function BrandingPage() {
           </div>
         </section>
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

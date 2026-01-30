@@ -113,7 +113,7 @@ export default function AccessibilityFixPrioritiesClient() {
         )}
       </main>
       <div className="relative z-10">
-        <Footer isLoading={false} />
+        <Footer />
       </div>
       <InviteCodeModal
         tool="accessibility-fix-priorities"

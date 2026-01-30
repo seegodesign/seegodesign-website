@@ -207,7 +207,7 @@ export default function CustomChatBotsPage() {
           </div>
         </section>
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

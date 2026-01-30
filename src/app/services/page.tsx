@@ -200,7 +200,7 @@ export default function ServicesPage() {
         ))}
       </main>
       <div className="relative z-10">
-        <Footer isLoading={false} />
+        <Footer />
       </div>
     </div>
   );

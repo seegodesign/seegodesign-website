@@ -9,7 +9,7 @@ export default function ContactPage() {
       <main className="pt-16 md:pt-20">
         <Contact isLoading={false} />
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

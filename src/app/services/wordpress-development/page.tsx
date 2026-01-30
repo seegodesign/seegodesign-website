@@ -215,7 +215,7 @@ export default function WordPressSupportPage() {
           </div>
         </section>
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

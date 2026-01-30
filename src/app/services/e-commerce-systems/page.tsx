@@ -133,7 +133,7 @@ export default function EcommerceSystemsPage() {
           </div>
         </section>
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

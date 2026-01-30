@@ -189,7 +189,7 @@ export default function WebsiteOptimizationPage() {
 
       </main>
       <div className="relative z-10">
-        <Footer isLoading={false} />
+        <Footer />
       </div>
     </div>
   );

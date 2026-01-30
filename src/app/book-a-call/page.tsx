@@ -9,7 +9,7 @@ export default function BookACallPage() {
       <main className="pt-8">
         <BookCall isLoading={false} />
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }

@@ -255,7 +255,7 @@ export default function AccessibilityCompliancePage() {
           </div>
         </section>
       </main>
-      <Footer isLoading={false} />
+      <Footer />
     </div>
   );
 }
