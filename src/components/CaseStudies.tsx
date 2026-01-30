@@ -6,7 +6,6 @@ import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { CaseStudyCard } from '@/components/CaseStudyCard';
 
 type CaseStudiesProps = {
-  isLoading: boolean;
   caseStudies: Array<{
     title: string;
     client: string;
@@ -18,9 +17,9 @@ type CaseStudiesProps = {
   }>;
 };
 
-export function CaseStudies({ isLoading, caseStudies }: CaseStudiesProps) {
+export function CaseStudies({ caseStudies }: CaseStudiesProps) {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
-  const shouldAnimate = !isLoading && isInView;
+  const shouldAnimate = isInView;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 

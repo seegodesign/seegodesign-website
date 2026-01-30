@@ -4,13 +4,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { trackEvent } from '@/lib/analytics';
 
-type BookCallProps = {
-  isLoading: boolean;
-};
 
-export function BookCall({ isLoading }: BookCallProps) {
+export function BookCall() {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
-  const shouldAnimate = !isLoading && isInView;
+  const shouldAnimate = isInView;
   const widgetHostRef = useRef<HTMLDivElement | null>(null);
   const [isWidgetLoading, setIsWidgetLoading] = useState(true);
   const hasTrackedWidgetLoad = useRef(false);

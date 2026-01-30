@@ -3,13 +3,10 @@
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { Compass, Sparkles, Settings, Pencil } from 'lucide-react';
 
-type ProcessProps = {
-  isLoading: boolean;
-};
 
-export function Process({ isLoading }: ProcessProps) {
+export function Process() {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
-  const shouldAnimate = !isLoading && isInView;
+  const shouldAnimate = isInView;
 
   const steps = [
     {

@@ -4,13 +4,10 @@ import React, { useState } from 'react';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { Send } from 'lucide-react';
 
-type ContactProps = {
-  isLoading: boolean;
-};
 
-export function Contact({ isLoading }: ContactProps) {
+export function Contact() {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
-  const shouldAnimate = !isLoading && isInView;
+  const shouldAnimate = isInView;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitState, setSubmitState] = useState<'idle' | 'success' | 'error'>('idle');
 

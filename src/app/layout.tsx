@@ -1,7 +1,7 @@
 import { Suspense, type ReactNode } from 'react';
 import Script from 'next/script';
 import { CursorGlowTracker } from '@/components/CursorGlowTracker';
-import { GlobalChat } from '@/components/GlobalChat';
+// import { GlobalChat } from '@/components/GlobalChat';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import { getGAMeasurementId } from '@/lib/analytics';
 import '../styles/globals.scss';
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <GoogleAnalytics />
         </Suspense>
         {children}
-        <GlobalChat />
+        {/* <GlobalChat /> */}
         <CursorGlowTracker />
       </body>
     </html>

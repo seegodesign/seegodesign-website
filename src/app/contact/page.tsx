@@ -7,7 +7,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[color:var(--color-bg)]">
       <Navigation />
       <main className="pt-16 md:pt-20">
-        <Contact isLoading={false} />
+        <Contact />
       </main>
       <Footer />
     </div>

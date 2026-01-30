@@ -134,7 +134,7 @@ export default function WebDesignPage() {
           </div>
         </section>
 
-        {/* <CaseStudies isLoading={false} caseStudies={caseStudies} /> */}
+        {/* <CaseStudies caseStudies={caseStudies} /> */}
 
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
           <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-start">
