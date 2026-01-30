@@ -5,13 +5,9 @@ import { useInViewOnce } from '@/hooks/useInViewOnce';
 import Link from 'next/link';
 import { Mail, Linkedin, Github } from 'lucide-react';
 
-type FooterProps = {
-  isLoading: boolean;
-};
-
-export function Footer({ isLoading }: FooterProps) {
+export function Footer() {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
-  const shouldAnimate = !isLoading && isInView;
+  const shouldAnimate = isInView;
   const currentYear = new Date().getFullYear();
 
   return (

@@ -5,11 +5,7 @@ import ContactButton from "./ContactButton";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-type HeroProps = {
-  isLoading: boolean;
-};
-
-export function Hero({ isLoading }: HeroProps) {
+export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [isInView, setIsInView] = useState(false);
   const [typedText, setTypedText] = useState("");
@@ -47,8 +43,6 @@ export function Hero({ isLoading }: HeroProps) {
   }, []);
 
   useEffect(() => {
-    if (isLoading || !isInView) return;
-
     const currentPhrase = phrases[phraseIndex % phrases.length];
     const isComplete = typedText === currentPhrase;
     const isEmpty = typedText.length === 0;
@@ -81,7 +75,7 @@ export function Hero({ isLoading }: HeroProps) {
     }, isDeleting && isEmpty ? pauseAfterDelete : delay);
 
     return () => window.clearTimeout(timeout);
-  }, [isLoading, isInView, isDeleting, phraseIndex, typedText, phrases.length, phrases]);
+  }, [isInView, isDeleting, phraseIndex, typedText, phrases.length, phrases]);
 
   // const scrollToTestimonials = () => {
   //   const element = document.getElementById("case-studies");
@@ -109,7 +103,7 @@ export function Hero({ isLoading }: HeroProps) {
           <div className="max-w-5xl">
             <h1
               className={`hero__headline ${
-                !isLoading && isInView ? "animate-hero-headline" : ""
+                isInView ? "animate-hero-headline" : ""
               }`}
             >
               {headlineSeed} {" "}
@@ -120,20 +114,20 @@ export function Hero({ isLoading }: HeroProps) {
             </h1>
             <p
               className={`hero__subhead ${
-              !isLoading && isInView ? "animate-hero-subhead" : ""
+              isInView ? "animate-hero-subhead" : ""
               }`}
             >
               Seego Design offers custom web solutions that drive growth, streamline operations, and bring your vision to life with clarity and efficiency.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <ContactButton
-                className={!isLoading && isInView ? "animate-hero-cta-primary" : ""}
+                className={isInView ? "animate-hero-cta-primary" : ""}
                 text="Let's Talk"
                 icon={ArrowRight}
               />
               <Link
                 href="/tools"
-                className={`${!isLoading && isInView ? "animate-hero-cta-secondary" : ""} button button--secondary`}
+                className={`${isInView ? "animate-hero-cta-secondary" : ""} button button--secondary`}
               >
                 Explore Tools
               </Link>
