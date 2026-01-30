@@ -323,7 +323,9 @@
     }
 
     &__panel {
-      @apply relative w-full max-w-2xl;
+      @apply relative w-full max-w-2xl overflow-y-auto;
+      max-height: calc(100dvh - 5rem);
+      -webkit-overflow-scrolling: touch;
       opacity: 0;
       transform: translateY(8px) scale(0.98);
       transition: opacity 240ms ease-out, transform 240ms ease-out;
