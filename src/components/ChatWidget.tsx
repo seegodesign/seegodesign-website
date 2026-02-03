@@ -24,19 +24,15 @@ export const ChatWidget = ({
 }: ChatWidgetProps) => {
   const { messages, isLoading, error, sendMessage, clearHistory } = useChatHistory();
   const [inputValue, setInputValue] = useState("");
-  const [welcomeTimestamp, setWelcomeTimestamp] = useState<Date | null>(null);
+  const [welcomeTimestamp, setWelcomeTimestamp] = useState<Date | null>(
+    () => (messages.length === 0 ? new Date() : null)
+  );
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isOpen]);
-
-  useEffect(() => {
-    if (messages.length === 0 && !welcomeTimestamp) {
-      setWelcomeTimestamp(new Date());
-    }
-  }, [messages.length, welcomeTimestamp]);
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const value = event.target.value;
@@ -74,6 +70,7 @@ export const ChatWidget = ({
   const handleClearHistory = () => {
     if (window.confirm("Clear chat history?")) {
       clearHistory();
+      setWelcomeTimestamp(new Date());
       trackEvent("click", {
         event_category: "engagement",
         event_label: "chat_history_cleared",

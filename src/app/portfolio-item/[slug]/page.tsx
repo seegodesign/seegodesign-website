@@ -5,12 +5,9 @@ import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { portfolioItems } from '@/lib/portfolio';
 
-type PortfolioItemPageProps = {
-  params: { slug: string };
-};
-
-export default function PortfolioItemPage({ params }: PortfolioItemPageProps) {
-  const item = portfolioItems.find((entry) => entry.slug === params.slug);
+export default async function PortfolioItemPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const item = portfolioItems.find((entry) => entry.slug === slug);
 
   if (!item) {
     notFound();
