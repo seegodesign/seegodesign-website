@@ -1,6 +1,9 @@
+import Link from 'next/link';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import { WhatYouReceive } from '@/components/WhatYouReceive';
+import { PortfolioGrid } from '@/components/PortfolioGrid';
+import { portfolioItems } from '@/lib/portfolio';
 import ContactButton from '@/components/ContactButton';
 // import { CaseStudies } from '@/components/CaseStudies';
 
@@ -132,6 +135,24 @@ export default function WebDesignPage() {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-10">
+            <div>
+              <p className="eyebrow">Portfolio</p>
+              <h2 className="text-3xl md:text-4xl font-semibold mt-4">
+                Recent web design work across industries.
+              </h2>
+              <p className="text-sm text-slate-300 mt-4 max-w-2xl">
+                A quick peek at a few projects, from redesigns to new launches.
+              </p>
+            </div>
+            <Link href="/portfolio" className="button button--secondary">
+              View full portfolio
+            </Link>
+          </div>
+          <PortfolioGrid items={portfolioItems.slice(0, 4)} compact />
         </section>
 
         {/* <CaseStudies caseStudies={caseStudies} /> */}

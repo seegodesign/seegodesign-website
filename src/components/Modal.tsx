@@ -61,7 +61,7 @@ export const Modal = ({
         {showCloseButton && (
           <button
             type="button"
-            className="modal__close"
+            className="modal__close z-20"
             onClick={onClose}
             aria-label="Close"
             ref={closeButtonRef}
