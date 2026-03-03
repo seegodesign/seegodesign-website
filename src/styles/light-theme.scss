@@ -303,5 +303,69 @@
         @apply border-slate-600/50 text-slate-600 hover:text-slate-900 hover:border-slate-300 hover:bg-slate-100;
       }
     }
+
+    .portfolio-grid {
+      &__card {
+        @apply bg-white/70 border-slate-300/20 shadow-black/10;
+      }
+
+      &__title {
+        @apply text-slate-900;
+      }
+
+      &__description {
+        @apply text-slate-700;
+      }
+
+      &__tool {
+        @apply border-slate-300/60 text-slate-700;
+      }
+
+      &__tool--more {
+        @apply text-slate-500;
+      }
+
+      &__link {
+        @apply text-[color:var(--brand-primary-dark)] hover:text-slate-900;
+      }
+
+      &__lightbox {
+        @apply bg-white/95 border-slate-300/40 shadow-black/10;
+      }
+
+      &__lightbox-close {
+        @apply border-slate-300/70 text-slate-600 bg-white/70 hover:text-slate-900 hover:border-slate-300 hover:bg-slate-100;
+      }
+
+      &__lightbox-meta {
+        @apply border-slate-200;
+      }
+
+      &__lightbox-title {
+        @apply text-slate-900;
+      }
+
+      &__lightbox-description {
+        @apply text-slate-700;
+      }
+    }
+
+    .portfolio-item {
+      &__media-card {
+        @apply bg-white/80 border-slate-300/30 shadow-black/10;
+      }
+
+      &__meta {
+        @apply border-slate-200;
+      }
+
+      &__meta-title {
+        @apply text-slate-900;
+      }
+
+      &__tool {
+        @apply border-slate-300/60 text-slate-700;
+      }
+    }
   }
 }

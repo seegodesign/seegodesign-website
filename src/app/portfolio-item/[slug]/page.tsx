@@ -14,43 +14,43 @@ export default async function PortfolioItemPage({ params }: { params: Promise<{ 
   }
 
   return (
-    <div className="min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate overflow-hidden">
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(125,202,47,0.22),transparent_60%)] blur-3xl" />
-      <div className="pointer-events-none absolute top-28 right-0 h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,rgba(86,101,108,0.32),transparent_65%)] blur-3xl" />
+    <div className="portfolio-item min-h-screen bg-[color:var(--color-bg)] flex flex-col relative isolate overflow-hidden">
+      <div className="portfolio-item__orb portfolio-item__orb--primary" />
+      <div className="portfolio-item__orb portfolio-item__orb--secondary" />
       <Navigation />
-      <main className="pt-16 md:pt-20 flex-1 relative z-10">
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-          <div className="flex items-center justify-between gap-6">
-            <div>
+      <main className="portfolio-item__main pt-16 md:pt-20 flex-1 relative z-10">
+        <section className="portfolio-item__header max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+          <div className="portfolio-item__header-row">
+            <div className="portfolio-item__intro">
               <span className="eyebrow">Portfolio</span>
               <h1 className="headline animate-hero-headline">{item.title}</h1>
               <p className="subhead animate-hero-subhead">{item.description}</p>
             </div>
-            <Link href="/portfolio" className="button button--secondary">
+            <Link href="/portfolio" className="button button--secondary portfolio-item__back">
               Back to portfolio
             </Link>
           </div>
         </section>
 
-        <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-          <div className="border border-white/10 bg-slate-900/70 shadow-2xl shadow-black/30">
-            <div className="relative w-full h-[70vh]">
+        <section className="portfolio-item__media-section max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+          <div className="portfolio-item__media-card">
+            <div className="portfolio-item__media">
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
                 sizes="100vw"
                 quality={85}
-                className="object-contain"
+                className="portfolio-item__image"
               />
             </div>
-            <div className="px-6 py-6 border-t border-white/10">
-              <h2 className="text-xl font-semibold text-white">Tools</h2>
-              <div className="mt-3 flex flex-wrap gap-2">
+            <div className="portfolio-item__meta">
+              <h2 className="portfolio-item__meta-title">Tools</h2>
+              <div className="portfolio-item__tools">
                 {item.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-[0.2em] text-slate-200"
+                    className="portfolio-item__tool"
                   >
                     {tool}
                   </span>

@@ -17,18 +17,16 @@ export function PortfolioGrid({ items, compact = false }: PortfolioGridProps) {
 
   return (
     <>
-      <div
-        className={`grid gap-6 ${compact ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'}`}
-      >
+      <div className={`portfolio-grid ${compact ? 'portfolio-grid--compact' : ''}`.trim()}>
         {items.map((item) => (
           <article
             key={item.title}
-            className="group h-full overflow-hidden border border-white/10 bg-slate-900/70 shadow-lg shadow-black/20 transition-transform duration-300 hover:-translate-y-1"
+            className="portfolio-grid__card group"
           >
             <button
               type="button"
               onClick={() => setActiveItem(item)}
-              className="relative aspect-[4/3] w-full overflow-hidden text-left"
+              className="portfolio-grid__image-button"
               aria-label={`Open ${item.title} preview`}
             >
               <Image
@@ -37,38 +35,38 @@ export function PortfolioGrid({ items, compact = false }: PortfolioGridProps) {
                 fill
                 sizes={compact ? '(min-width: 768px) 50vw, 100vw' : '(min-width: 1024px) 33vw, 100vw'}
                 quality={70}
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                className="portfolio-grid__image"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/20 to-transparent" />
+              <div className="portfolio-grid__image-overlay" />
             </button>
-            <div className="flex h-full flex-col gap-4 px-5 py-6">
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="text-sm text-slate-300 leading-relaxed">{item.description}</p>
+            <div className="portfolio-grid__content">
+              <div className="portfolio-grid__text">
+                <h3 className="portfolio-grid__title">{item.title}</h3>
+                <p className="portfolio-grid__description">{item.description}</p>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="portfolio-grid__tools">
                 {item.tools.slice(0, TOOL_LIMIT).map((tool) => (
                   <span
                     key={tool}
-                    className="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-[0.2em] text-slate-200"
+                    className="portfolio-grid__tool"
                   >
                     {tool}
                   </span>
                 ))}
                 {item.tools.length > TOOL_LIMIT && (
-                  <span className="rounded-full border border-white/15 px-3 py-1 text-xs uppercase tracking-[0.2em] text-slate-400">
+                  <span className="portfolio-grid__tool portfolio-grid__tool--more">
                     +{item.tools.length - TOOL_LIMIT}
                   </span>
                 )}
               </div>
-              <div className="mt-auto">
-              <a
-                href={item.href}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[color:var(--brand-primary)] transition-colors hover:text-white"
-              >
-                View project
-                <span aria-hidden="true">→</span>
-              </a>
+              <div className="portfolio-grid__footer">
+                <a
+                  href={item.href}
+                  className="portfolio-grid__link"
+                >
+                  View project
+                  <span aria-hidden="true">→</span>
+                </a>
               </div>
             </div>
           </article>
@@ -83,28 +81,28 @@ export function PortfolioGrid({ items, compact = false }: PortfolioGridProps) {
         showCloseButton={false}
       >
         {activeItem && (
-          <div className="relative overflow-hidden border border-white/10 bg-slate-950/90 shadow-2xl shadow-black/50">
+          <div className="portfolio-grid__lightbox">
             <button
               type="button"
               onClick={() => setActiveItem(null)}
               aria-label="Close preview"
-              className="absolute right-4 top-4 z-30 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-slate-950/70 text-white/80 backdrop-blur transition-colors hover:border-white/50 hover:text-white"
+              className="portfolio-grid__lightbox-close"
             >
               <span aria-hidden="true">×</span>
             </button>
-            <div className="relative z-0 w-full h-[70vh]">
+            <div className="portfolio-grid__lightbox-media">
               <Image
                 src={activeItem.image}
                 alt={activeItem.title}
                 fill
                 sizes="100vw"
                 quality={80}
-                className="object-contain"
+                className="portfolio-grid__lightbox-image"
               />
             </div>
-            <div className="px-6 py-5 border-t border-white/10">
-              <h3 className="text-lg font-semibold text-white">{activeItem.title}</h3>
-              <p className="text-sm text-slate-300 mt-2">{activeItem.description}</p>
+            <div className="portfolio-grid__lightbox-meta">
+              <h3 className="portfolio-grid__lightbox-title">{activeItem.title}</h3>
+              <p className="portfolio-grid__lightbox-description">{activeItem.description}</p>
             </div>
           </div>
         )}

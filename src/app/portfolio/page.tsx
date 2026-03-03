@@ -34,7 +34,7 @@ export default function PortfolioPage() {
               <div>
                 <p className="eyebrow">Want details?</p>
                 <h2 className="hero-card__title">Ask for a tailored walkthrough.</h2>
-                <p className="text-slate-200 mt-4 max-w-2xl">
+                <p>
                   I can share project goals, workflows, and results for any of these builds.
                 </p>
               </div>

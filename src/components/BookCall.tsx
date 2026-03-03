@@ -15,21 +15,30 @@ export function BookCall() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const scriptId = 'honeybook-widget-loader';
+    const HB_PID = '693c73881592dd002ef0c31b';
+    const scriptSrc =
+      'https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js';
+    const win = window as typeof window & { _HB_?: { pid?: string } };
 
-    (window as typeof window & { _HB_?: { pid?: string } })._HB_ = {
-      pid: '693c73881592dd002ef0c31b',
-    };
-
-    if (document.getElementById(scriptId)) return;
+    win._HB_ = win._HB_ || {};
+    win._HB_.pid = HB_PID;
 
     const script = document.createElement('script');
-    script.id = scriptId;
     script.type = 'text/javascript';
     script.async = true;
-    script.src =
-      'https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js';
-    document.body.appendChild(script);
+    script.src = scriptSrc;
+    script.setAttribute('data-hb-loader', 'true');
+
+    const firstScript = document.getElementsByTagName('script')[0];
+    if (firstScript?.parentNode) {
+      firstScript.parentNode.insertBefore(script, firstScript);
+    } else {
+      document.body.appendChild(script);
+    }
+
+    return () => {
+      script.remove();
+    };
   }, []);
 
   useEffect(() => {
@@ -111,7 +120,13 @@ export function BookCall() {
             <div ref={widgetHostRef} className="hb-p-693c73881592dd002ef0c31b-1" />
           </div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img height="1" width="1" className="hidden" src="https://www.honeybook.com/p.png?pid=693c73881592dd002ef0c31b" alt="" />
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.honeybook.com/p.png?pid=693c73881592dd002ef0c31b"
+            alt=""
+          />
         </div>
       </div>
     </section>
