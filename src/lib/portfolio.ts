@@ -41,6 +41,14 @@ export const portfolioItems: PortfolioItem[] = [
     slug: 'harvard-affiliated-emergency-medicine-residency',
   },
   {
+    title: 'Positive Coffee',
+    description: 'A vibrant SquareSpace site for a Kauai coffee shop.',
+    tools: ['SquareSpace', 'Web Design'],
+    image: '/portfolio-images/positive-coffee.jpg',
+    href: '/portfolio-item/positive-coffee',
+    slug: 'positive-coffee',
+  },
+  {
     title: 'Saltay Hanalei Bay',
     description: 'A boutique Hawaii resort refresh designed to feel premium and booking-ready.',
     tools: ['WordPress', 'UI Design'],
