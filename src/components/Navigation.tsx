@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import Image from 'next/image';
+import { useThemeValue } from '@/hooks/useTheme';
 
 type NavItem = {
   href: string;
@@ -58,6 +60,8 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const logoSrc = useThemeValue('/logo-light.svg', '/logo-dark.svg');
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -67,7 +71,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <Link href="/" className="logo">
-            Seego<span>Design</span>
+            <Image src={logoSrc} alt="Logo" width={240} height={55} />
           </Link>
 
           {/* Desktop Navigation */}
