@@ -4,6 +4,7 @@ import React from 'react';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import Link from 'next/link';
 import { Mail, Linkedin, Github } from 'lucide-react';
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_LINK } from '@/library/constants';
 
 export function Footer() {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
@@ -20,7 +21,15 @@ export function Footer() {
           <div className="text-[color:var(--color-text-muted)] text-sm">
             © {currentYear} <Link href="/" className="hover:underline">Seego Design</Link>. All rights reserved.
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            <a
+              href={`tel:${BUSINESS_PHONE_LINK}`}
+              className="text-sm font-medium text-[color:var(--brand-primary)] hover:underline"
+              aria-label={`Call ${BUSINESS_PHONE_DISPLAY}`}
+            >
+              Call {BUSINESS_PHONE_DISPLAY}
+            </a>
+            <div className="flex gap-4">
             <a
               href="mailto:cameron@seegodesign.com"
               className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-[color:var(--color-surface-muted)] text-[color:var(--brand-primary)] hover:bg-[color:var(--brand-primary)] hover:text-white transition-colors"
@@ -46,6 +55,7 @@ export function Footer() {
             >
               <Github size={20} />
             </a>
+            </div>
           </div>
         </div>
       </div>

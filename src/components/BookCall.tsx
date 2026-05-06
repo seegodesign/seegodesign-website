@@ -1,94 +1,16 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import Script from 'next/script';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { trackEvent } from '@/lib/analytics';
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_LINK } from '@/library/constants';
 
 
 export function BookCall() {
   const { ref, isInView } = useInViewOnce<HTMLElement>({ threshold: 0.2 });
   const shouldAnimate = isInView;
-  const widgetHostRef = useRef<HTMLDivElement | null>(null);
-  const [isWidgetLoading, setIsWidgetLoading] = useState(true);
-  const hasTrackedWidgetLoad = useRef(false);
   const hasTrackedWidgetView = useRef(false);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const HB_PID = '693c73881592dd002ef0c31b';
-    const scriptSrc =
-      'https://widget.honeybook.com/assets_users_production/websiteplacements/placement-controller.min.js';
-    const win = window as typeof window & { _HB_?: { pid?: string } };
-
-    win._HB_ = win._HB_ || {};
-    win._HB_.pid = HB_PID;
-
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.async = true;
-    script.src = scriptSrc;
-    script.setAttribute('data-hb-loader', 'true');
-
-    const firstScript = document.getElementsByTagName('script')[0];
-    if (firstScript?.parentNode) {
-      firstScript.parentNode.insertBefore(script, firstScript);
-    } else {
-      document.body.appendChild(script);
-    }
-
-    return () => {
-      script.remove();
-    };
-  }, []);
-
-  useEffect(() => {
-    const host = widgetHostRef.current;
-    if (!host) return;
-
-    if (host.childElementCount > 0) {
-      const initialReveal = window.setTimeout(() => {
-        setIsWidgetLoading(false);
-      }, 1000);
-      return () => {
-        window.clearTimeout(initialReveal);
-      };
-    }
-
-    let revealTimeout: number | null = null;
-    const observer = new MutationObserver(() => {
-      if (host.childElementCount > 0) {
-        revealTimeout = window.setTimeout(() => {
-          setIsWidgetLoading(false);
-        }, 1000);
-        observer.disconnect();
-      }
-    });
-
-    observer.observe(host, { childList: true, subtree: true });
-
-    const fallback = window.setTimeout(() => {
-      setIsWidgetLoading(false);
-      observer.disconnect();
-    }, 5000);
-
-    return () => {
-      observer.disconnect();
-      window.clearTimeout(fallback);
-      if (revealTimeout) {
-        window.clearTimeout(revealTimeout);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!isWidgetLoading && !hasTrackedWidgetLoad.current) {
-      hasTrackedWidgetLoad.current = true;
-      trackEvent('view_item', {
-        event_category: 'engagement',
-        event_label: 'booking_widget_loaded',
-      });
-    }
-  }, [isWidgetLoading]);
 
   useEffect(() => {
     if (isInView && !hasTrackedWidgetView.current) {
@@ -104,30 +26,26 @@ export function BookCall() {
     <section
       id="book-a-call"
       ref={ref}
-      className="relative min-h-screen px-4 sm:px-6 lg:px-8 bg-[color:#121928]"
+      className="relative min-h-screen px-4 sm:px-6 lg:px-8"
     >
       <div className={`relative max-w-7xl mx-auto section-reveal ${shouldAnimate ? 'animate-section-rise' : ''}`}>
-        <div>
-          <div className="relative min-h-[420px]">
-            <div
-              className={`absolute inset-0 flex flex-col items-center justify-center gap-4 text-slate-200 transition-opacity duration-500 ${
-                isWidgetLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}
-            >
-                <div className="h-10 w-10 animate-spin rounded-full border-2 border-white/30 border-t-white" />
-                <p className="text-sm uppercase tracking-[0.2em] text-white/70">Loading scheduler</p>
-            </div>
-            <div ref={widgetHostRef} className="hb-p-693c73881592dd002ef0c31b-1" />
-          </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.honeybook.com/p.png?pid=693c73881592dd002ef0c31b"
-            alt=""
-          />
+        <div className="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <p className="text-[color:var(--color-text-muted)]">Prefer to talk right now?</p>
+          <a
+            href={`tel:${BUSINESS_PHONE_LINK}`}
+            className="inline-flex items-center justify-center gap-2 bg-[color:var(--brand-primary-dark)] text-white px-6 py-3 rounded-lg hover:bg-[color:var(--brand-primary)] transition-colors"
+            aria-label={`Call ${BUSINESS_PHONE_DISPLAY}`}
+          >
+            Call now: {BUSINESS_PHONE_DISPLAY}
+          </a>
         </div>
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/booking/hUwGR3wfNU2MwJGG0W7q"
+          style={{ width: '100%', border: 'none', overflow: 'hidden' }}
+          scrolling="no"
+          id="hUwGR3wfNU2MwJGG0W7q_1776803420578"
+        />
+        <Script src="https://link.msgsndr.com/js/form_embed.js" strategy="lazyOnload" />
       </div>
     </section>
   );

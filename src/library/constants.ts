@@ -4,3 +4,5 @@ export const WEBSITE_FIX_PRIORITY_PRODUCT_PRICE = 27;
 export const ACCESSIBILITY_FIX_PRIORITY_PRODUCT_PRICE = 27;
 export const APP_DECISION_TOOL_PRODUCT_PRICE = 27;
 export const EMAIL_CONTACT = "cameron@seegodesign.com";
+export const BUSINESS_PHONE_DISPLAY = "808-755-2475";
+export const BUSINESS_PHONE_LINK = "+18087552475";

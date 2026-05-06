@@ -6,7 +6,7 @@ export default function BookACallPage() {
   return (
     <div className="min-h-screen bg-[color:var(--color-bg)]">
       <Navigation />
-      <main className="pt-8">
+      <main className="pt-16 md:pt-20">
         <BookCall />
       </main>
       <Footer />

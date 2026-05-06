@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
 import { Send } from 'lucide-react';
+import { BUSINESS_PHONE_DISPLAY, BUSINESS_PHONE_LINK } from '@/library/constants';
 
 
 export function Contact() {
@@ -89,6 +90,14 @@ export function Contact() {
                 ))}
               </ul>
             </div>
+
+            <a
+              href={`tel:${BUSINESS_PHONE_LINK}`}
+              className="inline-flex items-center justify-center gap-2 text-2xl"
+              aria-label={`Call ${BUSINESS_PHONE_DISPLAY}`}
+            >
+              Prefer talking over the phone? Call {BUSINESS_PHONE_DISPLAY}
+            </a>
           </div>
 
           {/* Right Column - Form */}
