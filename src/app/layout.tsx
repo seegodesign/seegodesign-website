@@ -12,7 +12,12 @@ import '../styles/light-theme.scss';
 
 export const metadata = {
   title: 'Creative Solutions for Business | Seego Design',
-  description: 'Seego Design marketing site',
+  description:
+    'Seego Design builds custom websites, apps, and digital tools that drive growth, streamline operations, and turn complex ideas into clear business solutions.',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -31,6 +36,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" data-theme="dark" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {gaId && (
           <>

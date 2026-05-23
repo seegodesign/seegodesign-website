@@ -11,7 +11,7 @@ export function Hero() {
   const [typedText, setTypedText] = useState("");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const headlineSeed = "Creative solutions for businesses that";
+  const headline = "Custom web solutions for growing businesses";
   const phrases = useMemo(
     () => [
       "have a vision for growth",
@@ -106,18 +106,21 @@ export function Hero() {
                 isInView ? "animate-hero-headline" : ""
               }`}
             >
-              {headlineSeed} {" "}
-              <span className="text-[color:var(--brand-primary)]">
-                {typedText}
-                <span className="blink-cursor">_</span>
-              </span>
+              {headline}
             </h1>
             <p
               className={`hero__subhead ${
               isInView ? "animate-hero-subhead" : ""
               }`}
             >
-              Seego Design offers custom web solutions that drive growth, streamline operations, and bring your vision to life with clarity and efficiency.
+              Seego Design builds custom websites, apps, and digital tools for growing businesses that need to drive growth, streamline operations, and move from patchwork systems to clear next steps.
+            </p>
+            <p className="hero__subhead text-[color:var(--brand-primary)]">
+              Built for teams that{' '}
+              <span className="text-[color:var(--brand-primary)]">
+                {typedText}
+                <span className="blink-cursor">_</span>
+              </span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <ContactButton

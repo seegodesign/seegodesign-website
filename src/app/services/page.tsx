@@ -19,6 +19,17 @@ export default function ServicesPage() {
       href: '/services/accessibility-compliance',
     },
     {
+      title: 'AI Receptionist',
+      description:
+        'Answer every inbound call without adding front-desk overhead. I set up AI receptionist systems that handle after-hours coverage, appointment booking, caller qualification, and clean handoff rules for service businesses.',
+      outcomes: [
+        '24/7 call answering with business-specific scripts and guardrails',
+        'Appointment booking, intake capture, and routing to the right next step',
+        'Transcripts, lead records, and follow-up context for your team',
+      ],
+      href: '/services/ai-receptionist',
+    },
+    {
       title: 'App Development',
       description:
         'Ship a product that feels inevitable: fast, stable, and quietly beautiful. I build modern web and product experiences that reduce friction, scale with your roadmap, and give your team a clean foundation to grow from.',
@@ -40,17 +51,17 @@ export default function ServicesPage() {
       ],
       href: '/services/wordpress-development',
     },
-    // {
-    //   title: 'Custom Chat Bots',
-    //   description:
-    //     'Give your site a helpful, on-brand assistant that answers questions, captures leads, and routes visitors to the right next step without adding support overhead.',
-    //   outcomes: [
-    //     'Custom conversation flows aligned to your services and tone',
-    //     'Lead capture, routing, and handoff to email or CRM',
-    //     'Analytics-ready setup with clear engagement tracking',
-    //   ],
-    //   href: '/services/custom-chat-bots',
-    // },
+    {
+      title: 'Custom Chat Bots',
+      description:
+        'Give your site a helpful, on-brand assistant that answers questions, captures leads, and routes visitors to the right next step without adding support overhead.',
+      outcomes: [
+        'Custom conversation flows aligned to your services and tone',
+        'Lead capture, routing, and handoff to email or CRM',
+        'Analytics-ready setup with clear engagement tracking',
+      ],
+      href: '/services/custom-chat-bots',
+    },
     // {
     //   title: 'App Development',
     //   description:

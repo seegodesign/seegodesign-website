@@ -31,7 +31,7 @@ const testimonials = [
   },
   {
     quote:
-      'Cameron did a great job for us in designing graphics that we have used in multiple marketing pieces. He completed the work ahead of schedule on a tight timeline. Also, his pricing was very competive.',
+      'Cameron did a great job for us in designing graphics that we have used in multiple marketing pieces. He completed the work ahead of schedule on a tight timeline. Also, his pricing was very competitive.',
     name: 'Jerry Frank, CEO',
     title: 'CSG Professional Services',
   },

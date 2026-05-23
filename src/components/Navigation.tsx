@@ -27,9 +27,10 @@ export function Navigation() {
       label: 'Services',
       children: [
         { href: '/services/accessibility-compliance', label: 'Accessibility Compliance' },
+        { href: '/services/ai-receptionist', label: 'AI Receptionist' },
         { href: '/services/app-development', label: 'App Development' },
         { href: '/services/wordpress-development', label: 'Wordpress Development' },
-        // { href: '/services/custom-chat-bots', label: 'Custom Chat Bots' },
+        { href: '/services/custom-chat-bots', label: 'Custom Chat Bots' },
         // { href: '/services/branding', label: 'Branding' },
         // { href: '/services/e-commerce-systems', label: 'E-Commerce Systems' },
         // { href: '/services/system-overhaul', label: 'System Overhaul' },

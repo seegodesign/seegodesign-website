@@ -25,6 +25,22 @@ export const portfolioItems: PortfolioItem[] = [
     slug: 'shedrain',
   },
   {
+    title: 'Kauai Hot Yoga',
+    description: 'A vibrant yoga studio site built with modern web technologies.',
+    tools: ['Astro', 'Tailwind CSS', 'Web Design'],
+    image: '/portfolio-images/kauai-hot-yoga.jpg',
+    href: '/portfolio-item/kauai-hot-yoga',
+    slug: 'kauai-hot-yoga',
+  },
+  {
+    title: 'Da Bugga Smackah',
+    description: 'A playful, branded site for a local roach killing product built on a tight timeline.',
+    tools: ['Squarespace'],
+    image: '/portfolio-images/da-buggah-smackah.jpg',
+    href: '/portfolio-item/da-buggah-smackah',
+    slug: 'da-buggah-smackah',
+  },
+  {
     title: 'Yogi Tea',
     description: 'A full WordPress theme rebuild for a beloved national brand.',
     tools: ['WordPress', 'UI Design'],
