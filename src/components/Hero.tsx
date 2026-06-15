@@ -116,7 +116,7 @@ export function Hero() {
             >
               Seego Design builds custom websites, apps, and digital tools for growing businesses that need to drive growth, streamline operations, and move from patchwork systems to clear next steps.
             </p>
-            <p className="hero__subhead text-[color:var(--brand-primary)]">
+            <p className="hero__subhead hero__subhead--typed text-[color:var(--brand-primary)]">
               Built for teams that{' '}
               <span className="hero__typed-phrase-wrap">
                 <span className="hero__typed-phrase-placeholder" aria-hidden="true">
