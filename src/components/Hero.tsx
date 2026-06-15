@@ -12,6 +12,7 @@ export function Hero() {
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const headline = "Custom web solutions for growing businesses";
+  const longestPhrase = "want to turn ideas into reality";
   const phrases = useMemo(
     () => [
       "have a vision for growth",
@@ -117,9 +118,14 @@ export function Hero() {
             </p>
             <p className="hero__subhead text-[color:var(--brand-primary)]">
               Built for teams that{' '}
-              <span className="text-[color:var(--brand-primary)]">
-                {typedText}
-                <span className="blink-cursor">_</span>
+              <span className="hero__typed-phrase-wrap">
+                <span className="hero__typed-phrase-placeholder" aria-hidden="true">
+                  {longestPhrase}
+                </span>
+                <span className="hero__typed-phrase text-[color:var(--brand-primary)]">
+                  {typedText}
+                  <span className="blink-cursor">_</span>
+                </span>
               </span>
             </p>
             <div className="flex flex-col sm:flex-row gap-4">

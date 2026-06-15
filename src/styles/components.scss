@@ -32,6 +32,18 @@
     &__overlay {
       @apply absolute inset-0 bg-gradient-to-br from-[#000000]/75 to-[#0e1823]/85;
     }
+
+    &__typed-phrase-wrap {
+      @apply relative inline-block align-baseline;
+    }
+
+    &__typed-phrase-placeholder {
+      visibility: hidden;
+    }
+
+    &__typed-phrase {
+      @apply absolute inset-0;
+    }
   }
 
 
